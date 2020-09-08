@@ -5,6 +5,7 @@ public class ServletMessage {
     public static final String OPERATION_FAILED = "Action failed";
     public static final String OPERATION_SUCCEED = "Action performed successfully";
     public static final String WRONG_PASSWORD_OR_USERNAME = "Wrong password or username";
+    public static final String USERNAME_IS_TAKEN = "Username is taken";
 
     private ServletMessage() {
     }

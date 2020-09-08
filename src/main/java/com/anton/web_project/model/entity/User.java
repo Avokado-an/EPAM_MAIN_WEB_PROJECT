@@ -1,7 +1,5 @@
 package com.anton.web_project.model.entity;
 
-import com.anton.web_project.model.entity.type.UserType;
-
 public class User {
     private int id;
     private String username;

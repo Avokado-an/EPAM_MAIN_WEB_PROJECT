@@ -5,6 +5,7 @@ public class ServletAttribute {
     public static final String MESSAGE_ATTRIBUTE = "message";
     public static final String PASSWORD_ATTRIBUTE = "password";
     public static final String USERS = "users";
+    public static final String COMMAND_ATTRIBUTE = "command";
 
     private ServletAttribute() {
     }

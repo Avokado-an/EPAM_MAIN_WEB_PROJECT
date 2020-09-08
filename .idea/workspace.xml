@@ -1,11 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="EPAM_WEB_PROJECT:war exploded" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf1dd710-abfa-41b2-9a1d-0f574a57fd47" name="Default Changelist" comment="" />
+    <list default="true" id="bf1dd710-abfa-41b2-9a1d-0f574a57fd47" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/dao/connection/ProxyConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/dao/impl/DietDaoImplementation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/dao/impl/MembershipDaoImplementation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/dao/impl/SaleDaoImplementation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/dao/impl/TrainerDaoImplementation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/dao/request/SqlDietRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/dao/request/SqlMembershipRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/dao/request/SqlSaleRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/dao/request/SqlTrainerRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/entity/Diet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/entity/Membership.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/entity/Sale.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/entity/Trainer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/anton/web_project/validator/UserValidatorTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/log4j-api-2.4.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/log4j-core-2.4.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/error.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/user_action.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/EPAM_WEB_PROJECT_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/EPAM_WEB_PROJECT_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/4/04e7b31a747dd795366db113ba0c03486e38a1c3" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/4/04e7b31a747dd795366db113ba0c03486e38a1c3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/7/17968e7e6e6c30fb7bcdf739e47ce96acfb71d7e" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/7/17968e7e6e6c30fb7bcdf739e47ce96acfb71d7e" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/d/2d285eef23ab90e1cc3efe6ad784dc222d3c2c68" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/d/2d285eef23ab90e1cc3efe6ad784dc222d3c2c68" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/a/3ade6e8ba146f558c8b95baba380c5fbb2f246d2" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/a/3ade6e8ba146f558c8b95baba380c5fbb2f246d2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/6/862a9194904ffb9c63975aade58c1fb07850e9f1" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/6/862a9194904ffb9c63975aade58c1fb07850e9f1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/a/8a57a0538c93bd826b136be395ff537d74a82ad0" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/a/8a57a0538c93bd826b136be395ff537d74a82ad0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/7/97dc23b0a39bb46267fb83fc1eeaac7c65611cb6" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/7/97dc23b0a39bb46267fb83fc1eeaac7c65611cb6" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/c/9c343955ceab6bf2ac4aaffc80ec453da40e197c" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/c/9c343955ceab6bf2ac4aaffc80ec453da40e197c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/9/a9445367176732c5c65d6d806ae0b67511f3fafa" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/9/a9445367176732c5c65d6d806ae0b67511f3fafa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/0/b02a343c714ec7522dc3b0b39ba6e078deae31e0" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/0/b02a343c714ec7522dc3b0b39ba6e078deae31e0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/c/bce9767758335b46496aa6bc28a15e1458f877b9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/e/beba79002319b9ac1943d0b5734d71b77308e1c3" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/e/beba79002319b9ac1943d0b5734d71b77308e1c3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/f/bff19058f4f716c0722422f9e37c7fb7964463f6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/9/e9751fcf99f1036881bbc64c6150a3aeb2777960" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/9/e9751fcf99f1036881bbc64c6150a3aeb2777960" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/7/f7ba727b4f5c4d55fadc3c65eadd92d654d15b66" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/7/f7ba727b4f5c4d55fadc3c65eadd92d654d15b66" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/controller/command/implementation/LoginCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/controller/command/implementation/LoginCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/controller/command/implementation/LogoutCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/controller/command/implementation/LogoutCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/controller/command/implementation/RegistrationCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/controller/command/implementation/RegistrationCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/controller/response/ResponsePagePath.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/controller/response/ResponsePagePath.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/controller/response/ServletAttribute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/controller/response/ServletAttribute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/controller/response/ServletMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/controller/response/ServletMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/controller/servlet/MainProgramServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/controller/servlet/MainProgramServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/dao/Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/dao/Dao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/dao/connection/ConnectionPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/dao/connection/ConnectionPool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/dao/connection/ConnectionProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/dao/connection/ConnectionProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/dao/impl/UserDaoImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/dao/impl/UserDaoImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/dao/request/SqlUserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/dao/request/SqlUserRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/service/impl/UserServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/service/impl/UserServiceImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/validator/UserValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/validator/UserValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/property/database.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/property/database.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/main_action.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/admin_action.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/registration.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/registration.jsp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="epam_web_project@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="epam_web_project@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="epam_web_project@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="epam_web_project: schema" type="76f4a085:MysqlImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="epam_web_project@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="epam_web_project: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="users: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+    </expand>
+    <select />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -17,6 +120,16 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
@@ -25,31 +138,88 @@
     </option>
   </component>
   <component name="ProjectId" id="1gvBZxMU9F4jzNcQIOHnZCotlUU" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../epam_shapes" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../scheduler" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Mi\IdeaProjects\EPAM_MAIN\EPAM_WEB_PROJECT\web\WEB-INF\lib" />
       <recent name="C:\Users\Mi\IdeaProjects\EPAM_MAIN\EPAM_WEB_PROJECT\src\main\resources" />
       <recent name="C:\Users\Mi\IdeaProjects\EPAM_MAIN\EPAM_WEB_PROJECT\src\main\java\com\anton\web_project\controller" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Tomcat Server.Tomcat 8.5.51">
+    <configuration name="UserValidatorTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="EPAM_WEB_PROJECT" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.anton.web_project.validator.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.anton.web_project.validator" />
+      <option name="MAIN_CLASS_NAME" value="com.anton.web_project.validator.UserValidatorTest" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserValidatorTest.validateUserInvalidTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="EPAM_WEB_PROJECT" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.anton.web_project.validator.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.anton.web_project.validator" />
+      <option name="MAIN_CLASS_NAME" value="com.anton.web_project.validator.UserValidatorTest" />
+      <option name="METHOD_NAME" value="validateUserInvalidTest" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserValidatorTest.validateUserValidTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="EPAM_WEB_PROJECT" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.anton.web_project.validator.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.anton.web_project.validator" />
+      <option name="MAIN_CLASS_NAME" value="com.anton.web_project.validator.UserValidatorTest" />
+      <option name="METHOD_NAME" value="validateUserValidTest" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Tomcat 8.5.51" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.51" ALTERNATIVE_JRE_ENABLED="false">
       <deployment>
         <artifact name="EPAM_WEB_PROJECT:war exploded">
@@ -58,12 +228,29 @@
           </settings>
         </artifact>
       </deployment>
-      <server-settings />
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Tomcat_8_5_51_EPAM_WEB_PROJECT" />
+      </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
       <predefined_log_file id="Tomcat Manager" />
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
@@ -71,6 +258,30 @@
         </option>
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="TestNG.UserValidatorTest" />
+        <item itemvalue="TestNG.UserValidatorTest.validateUserInvalidTest" />
+        <item itemvalue="TestNG.UserValidatorTest.validateUserValidTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+            </expand>
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -84,7 +295,11 @@
       <updated>1598985244865</updated>
       <workItem from="1598985247522" duration="9734000" />
       <workItem from="1599128615387" duration="1750000" />
-      <workItem from="1599133136697" duration="7421000" />
+      <workItem from="1599133136697" duration="16519000" />
+      <workItem from="1599468759275" duration="2662000" />
+      <workItem from="1599476761165" duration="8514000" />
+      <workItem from="1599546212791" duration="4690000" />
+      <workItem from="1599572089664" duration="698000" />
     </task>
     <servers />
   </component>
@@ -92,10 +307,14 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="574" y="123" key="#com.intellij.ide.util.MemberChooser" timestamp="1599133807291">
+    <state x="361" y="72" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599153639888">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="123" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1599133807291" />
+    <state x="361" y="72" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1599153639888" />
+    <state x="574" y="123" key="#com.intellij.ide.util.MemberChooser" timestamp="1599550471822">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="574" y="123" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1599550471822" />
     <state x="400" y="102" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1598985261444">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -104,18 +323,110 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="312" y="339" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1536.824@0.0.1536.824" timestamp="1598989541620" />
-    <state x="549" y="168" key="FileChooserDialogImpl" timestamp="1599132986831">
+    <state x="468" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1599471695896">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1599132986831" />
-    <state x="249" y="0" key="SettingsEditor" timestamp="1599132961739">
+    <state x="468" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1599471695896" />
+    <state x="549" y="168" key="FileChooserDialogImpl" timestamp="1599547522817">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1599132961739" />
+    <state x="549" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1599547522817" />
+    <state width="1024" height="211" key="GridCell.Tab.0.bottom" timestamp="1599551817511">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="211" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1599551817511" />
+    <state width="1024" height="211" key="GridCell.Tab.0.center" timestamp="1599551817511">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="211" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1599551817511" />
+    <state width="1024" height="211" key="GridCell.Tab.0.left" timestamp="1599551817511">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="211" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1599551817511" />
+    <state width="1024" height="211" key="GridCell.Tab.0.right" timestamp="1599551817511">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="211" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1599551817511" />
+    <state width="1024" height="211" key="GridCell.Tab.1.bottom" timestamp="1599551817512">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="211" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1599551817512" />
+    <state width="1024" height="211" key="GridCell.Tab.1.center" timestamp="1599551817512">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="211" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1599551817512" />
+    <state width="1024" height="211" key="GridCell.Tab.1.left" timestamp="1599551817511">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="211" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1599551817511" />
+    <state width="1024" height="211" key="GridCell.Tab.1.right" timestamp="1599551817512">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="211" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1599551817512" />
+    <state width="1024" height="211" key="GridCell.Tab.2.bottom" timestamp="1599551817513">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="211" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1599551817513" />
+    <state width="1024" height="211" key="GridCell.Tab.2.center" timestamp="1599551817512">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="211" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1599551817512" />
+    <state width="1024" height="211" key="GridCell.Tab.2.left" timestamp="1599551817512">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="211" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1599551817512" />
+    <state width="1024" height="211" key="GridCell.Tab.2.right" timestamp="1599551817513">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="211" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1599551817513" />
+    <state width="1024" height="210" key="GridCell.Tab.3.bottom" timestamp="1599480587272">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="210" key="GridCell.Tab.3.bottom/0.0.1536.824@0.0.1536.824" timestamp="1599480587272" />
+    <state width="1024" height="210" key="GridCell.Tab.3.center" timestamp="1599480587272">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="210" key="GridCell.Tab.3.center/0.0.1536.824@0.0.1536.824" timestamp="1599480587272" />
+    <state width="1024" height="210" key="GridCell.Tab.3.left" timestamp="1599480587271">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="210" key="GridCell.Tab.3.left/0.0.1536.824@0.0.1536.824" timestamp="1599480587271" />
+    <state width="1024" height="210" key="GridCell.Tab.3.right" timestamp="1599480587272">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="210" key="GridCell.Tab.3.right/0.0.1536.824@0.0.1536.824" timestamp="1599480587272" />
+    <state width="1024" height="210" key="GridCell.Tab.4.bottom" timestamp="1599480585479">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="210" key="GridCell.Tab.4.bottom/0.0.1536.824@0.0.1536.824" timestamp="1599480585479" />
+    <state width="1024" height="210" key="GridCell.Tab.4.center" timestamp="1599480585479">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="210" key="GridCell.Tab.4.center/0.0.1536.824@0.0.1536.824" timestamp="1599480585479" />
+    <state width="1024" height="210" key="GridCell.Tab.4.left" timestamp="1599480585477">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="210" key="GridCell.Tab.4.left/0.0.1536.824@0.0.1536.824" timestamp="1599480585477" />
+    <state width="1024" height="210" key="GridCell.Tab.4.right" timestamp="1599480585479">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="210" key="GridCell.Tab.4.right/0.0.1536.824@0.0.1536.824" timestamp="1599480585479" />
+    <state x="249" y="0" key="SettingsEditor" timestamp="1599480646198">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1599480646198" />
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1599572165314">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1599572165314" />
     <state x="498" y="307" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1599038195726">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="498" y="307" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1536.824@0.0.1536.824" timestamp="1599038195726" />
+    <state x="519" y="116" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1599550465603">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="519" y="116" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1536.824@0.0.1536.824" timestamp="1599550465603" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1599135998221">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

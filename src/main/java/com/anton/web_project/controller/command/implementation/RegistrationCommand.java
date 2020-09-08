@@ -23,11 +23,15 @@ public class RegistrationCommand implements Command {
         String password = request.getParameter(ServletAttribute.PASSWORD_ATTRIBUTE);
         UserService service = UserServiceImplementation.getInstance();
         try {
-            boolean wasRegistrationSuccessful = service.register(username, password);
-            if (wasRegistrationSuccessful) {
-                pagePath = ResponsePagePath.LOGIN;
+            if (!service.isUsernameTaken(username)) {
+                boolean wasRegistrationSuccessful = service.register(username, password);
+                if (wasRegistrationSuccessful) {
+                    pagePath = ResponsePagePath.LOGIN;
+                } else {
+                    request.setAttribute(ServletAttribute.MESSAGE_ATTRIBUTE, ServletMessage.WRONG_PASSWORD_OR_USERNAME);
+                }
             } else {
-                request.setAttribute(ServletAttribute.MESSAGE_ATTRIBUTE, ServletMessage.WRONG_PASSWORD_OR_USERNAME);
+                request.setAttribute(ServletAttribute.MESSAGE_ATTRIBUTE, ServletMessage.USERNAME_IS_TAKEN);
             }
         } catch (ServiceException e) {
             pagePath = ResponsePagePath.ERROR;

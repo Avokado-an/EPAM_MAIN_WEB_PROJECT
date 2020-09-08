@@ -8,6 +8,6 @@ public interface Dao<T> {
     void save(T t) throws DaoException;
     void remove(int id) throws DaoException;
     void update(T t);
-    //T find(String searchParameter);
+    //todo T find(String searchParameter);
     List<T> findAll() throws DaoException;
 }

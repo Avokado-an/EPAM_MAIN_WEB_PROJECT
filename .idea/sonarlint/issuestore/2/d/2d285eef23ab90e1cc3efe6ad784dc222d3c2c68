@@ -1,3 +1,14 @@
 
-]
-java:S2094"BRemove this empty class, write its code or make it an "interface".(åâÕÿÿÿÿÿ
+[	java:S899C":Do something with the "boolean" value returned by "offer".(€Ïû°ûÿÿÿÿ8Ñ°ÆÆ.
+C
+java:S22750"!Single quote "'" must be escaped.(¼®›âÿÿÿÿÿ8Ñ°ÆÆ.
+c
+java:S2142:"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€8Ñ°ÆÆ.
+e
+java:S2095,"HUse try-with-resources or close this "Connection" in a "finally" clause.(şÃÏ§8Ñ°ÆÆ.
+g	java:S1121"FDefine and throw a dedicated exception instead of using a generic one.(ˆÁ‡ßşÿÿÿÿ8Ñ°ÆÆ.
+>
+java:S2275Q"!Single quote "'" must be escaped.(”‰ªä8Ñ°ÆÆ.
+[	java:S899-":Do something with the "boolean" value returned by "offer".(®Áíåøÿÿÿÿ8Ñ°ÆÆ.
+c
+java:S2142P"FEither re-interrupt this method or rethrow the "InterruptedException".(ÿ“¿Å8Ñ°ÆÆ.
