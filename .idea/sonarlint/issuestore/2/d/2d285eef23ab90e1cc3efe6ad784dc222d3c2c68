@@ -1,14 +1,23 @@
 
-[	java:S899C":Do something with the "boolean" value returned by "offer".(€Ïû°ûÿÿÿÿ8Ñ°ÆÆ.
-C
-java:S22750"!Single quote "'" must be escaped.(¼®›âÿÿÿÿÿ8Ñ°ÆÆ.
+>
+java:S2275T"!Single quote "'" must be escaped.(”‰ªä8Ñ°ÆÆ.
+=
+java:S22750"!Single quote "'" must be escaped.(«Æü_8Ñ°ÆÆ.
+a
+java:S21472"DCombine this catch with the one at line 47, which has the same body.(É®£8ÛìçñÆ.
 c
-java:S2142:"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€8Ñ°ÆÆ.
+java:S2142="FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€8Ñ°ÆÆ.
+g	java:S1124"FDefine and throw a dedicated exception instead of using a generic one.(ˆÁ‡ßşÿÿÿÿ8ÛìçñÆ.
 e
 java:S2095,"HUse try-with-resources or close this "Connection" in a "finally" clause.(şÃÏ§8Ñ°ÆÆ.
-g	java:S1121"FDefine and throw a dedicated exception instead of using a generic one.(ˆÁ‡ßşÿÿÿÿ8Ñ°ÆÆ.
->
-java:S2275Q"!Single quote "'" must be escaped.(”‰ªä8Ñ°ÆÆ.
+C
+java:S22753"!Single quote "'" must be escaped.(¼®›âÿÿÿÿÿ8ÛìçñÆ.
 [	java:S899-":Do something with the "boolean" value returned by "offer".(®Áíåøÿÿÿÿ8Ñ°ÆÆ.
+g	java:S1121"FDefine and throw a dedicated exception instead of using a generic one.(ˆÁ‡ßşÿÿÿÿ8Ñ°ÆÆ.
+[	java:S899F":Do something with the "boolean" value returned by "offer".(€Ïû°ûÿÿÿÿ8Ñ°ÆÆ.
+N
+java:S11350"2Complete the task associated to this TODO comment.(«Æü_8ß¸èñÆ.
 c
-java:S2142P"FEither re-interrupt this method or rethrow the "InterruptedException".(ÿ“¿Å8Ñ°ÆÆ.
+java:S2142S"FEither re-interrupt this method or rethrow the "InterruptedException".(ÿ“¿Å8Ñ°ÆÆ.
+y
+java:S11920"]Define a constant instead of duplicating this literal "Can't create connection pool" 4 times.(«Æü_8ÛìçñÆ.

@@ -9,6 +9,7 @@ public enum CommandType {
     REGISTRATION(new RegistrationCommand()),
     BLOCK_USER(new BlockUserCommand()),
     UNBLOCK_USER(new UnblockUserCommand()),
+    DELETE_USER(new DeleteUserCommand()),
     VIEW_USERS(new ViewUsersCommand());
 
     private Command command;

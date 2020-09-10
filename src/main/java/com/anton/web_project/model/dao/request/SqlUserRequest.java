@@ -8,6 +8,7 @@ public class SqlUserRequest {
             "SELECT id, name, password, isActive FROM users WHERE name = ? AND password = ?";
     public static final String SELECT_USER_BY_USERNAME =
             "SELECT id, name, password, isActive From users WHERE name=?";
+    public static final String UPDATE_USER_BY_ID = "UPDATE users SET isActive = ? WHERE id = ?";
 
     // TODO: 03.09.2020  add user block->update methods and select by parameters 
 

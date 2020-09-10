@@ -44,7 +44,10 @@ public class ConnectionPool {
                 connection = DriverManager.getConnection(url, username, password);
                 freeConnections.offer(new ProxyConnection(connection));
             }
-        } catch (ClassNotFoundException | SQLException e) {
+        } catch (ClassNotFoundException e) {
+            logger.log(Level.FATAL, "Can't create connection pool", e);//todo make it elegant (in lesson good explanation)
+            throw new RuntimeException("Can't create connection pool", e);
+        } catch (SQLException e) {
             logger.log(Level.FATAL, "Can't create connection pool", e);
             throw new RuntimeException("Can't create connection pool", e);
         }
@@ -73,8 +76,8 @@ public class ConnectionPool {
 
     public void deactivatePool(){
         try {
-            for (int i = 0; i < POOL_SIZE; i++) {
-                freeConnections.take().close();
+            for (int i = 0; i < freeConnections.size(); i++) {
+                freeConnections.take().fullyClose();
             }
             deactivateDriver();
         } catch (SQLException | InterruptedException e) {

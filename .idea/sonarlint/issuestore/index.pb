@@ -107,3 +107,5 @@ p
 @src/main/java/com/anton/web_project/model/entity/Membership.java,e\3\e3b9bff9e45223a6435097a5adfd6c2602449e5a
 j
 :src/main/java/com/anton/web_project/model/entity/Sale.java,9\4\94075138b3fdaa20a186efdb03cfd8633e185a13
+j
+:src/main/java/com/anton/web_project/model/entity/Meal.java,9\1\9123716e89a64661b3f1ada34a8e38c2f4ac3a91

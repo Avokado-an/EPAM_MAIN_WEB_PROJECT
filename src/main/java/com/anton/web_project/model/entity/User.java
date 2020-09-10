@@ -1,16 +1,19 @@
 package com.anton.web_project.model.entity;
 
+import com.anton.web_project.model.entity.type.UserType;
+
 public class User {
     private int id;
     private String username;
     private String password;
-    //todo  UserType type;
+    private UserType type;
     private boolean isActive;
 
     public User(int id, String username, String password, boolean isActive) {
         this.id = id;
         this.username = username;
         this.password = password;
+        this.type = UserType.CLIENT;
         this.isActive = isActive; //todo add activation later
     }
 
@@ -18,6 +21,10 @@ public class User {
         this.username = username;
         this.password = password;
         this.isActive = isActive; //todo add activation later
+    }
+
+    public UserType getType() {
+        return type;
     }
 
     public String getUsername() {

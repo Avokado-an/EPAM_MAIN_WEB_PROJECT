@@ -13,24 +13,20 @@ import org.apache.logging.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class BlockUserCommand implements Command {
+public class DeleteUserCommand implements Command {
     private static final Logger LOGGER = LogManager.getLogger();
 
     @Override
     public String execute(HttpServletRequest request) {
         AdminService adminService = AdminServiceImplementation.getInstance();
-        String username = request.getParameter(ServletAttribute.USERNAME_ATTRIBUTE);
         String pagePath = ResponsePagePath.VIEW_USERS;
         try {
-            boolean wasUserBlocked = adminService.blockUser(username);
-            if (wasUserBlocked) {
-                request.setAttribute(ServletAttribute.MESSAGE_ATTRIBUTE, ServletMessage.OPERATION_SUCCEED);
-            } else {
-                request.setAttribute(ServletAttribute.MESSAGE_ATTRIBUTE, ServletMessage.OPERATION_FAILED);
-            }
+            int id = Integer.parseInt(request.getParameter(ServletAttribute.ID_ATTRIBUTE));
+            adminService.deleteUserById(id);
+            request.setAttribute(ServletAttribute.MESSAGE_ATTRIBUTE, ServletMessage.OPERATION_SUCCEED);
         } catch (ServiceException e) {
             pagePath = ResponsePagePath.ERROR;
-            LOGGER.log(Level.ERROR, "Can't block user");
+            LOGGER.log(Level.ERROR, "can't delete user");
         }
         return pagePath;
     }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="epam_web_project@localhost" uuid="1fb3b0df-d55b-4036-abfd-bc2f27e9ee32">
+    <data-source source="LOCAL" name="EPAM_WEB_PROJECT@localhost" uuid="a284c8c3-584d-4e34-9f89-8c4b5d75d004">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/epam_web_project</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/EPAM_WEB_PROJECT</jdbc-url>
       <driver-properties>
         <property name="serverTimezone" value="UTC" />
       </driver-properties>

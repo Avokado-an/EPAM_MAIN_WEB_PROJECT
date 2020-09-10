@@ -32,7 +32,6 @@ public class UserDaoImplementation implements Dao<User> {
             statement.setString(2, user.getPassword());
             statement.setBoolean(3, user.isActive());
             statement.executeUpdate();
-            pool.releaseConnection(connection);
         } catch (SQLException ex) {
             ex.printStackTrace();
             throw new DaoException("Can't connect to db", ex); // TODO: 03.09.2020 make username field that cant be repeated in db
@@ -46,16 +45,22 @@ public class UserDaoImplementation implements Dao<User> {
              PreparedStatement statement = connection.prepareStatement(SqlUserRequest.REMOVE_USER_BY_ID)) {
             statement.setInt(1, id);
             statement.executeUpdate();
-            pool.releaseConnection(connection);
         } catch (SQLException ex) {
-            ex.printStackTrace();
             throw new DaoException("Can't connect to db", ex);
         }
     }
 
     @Override
-    public void update(User user) {
-
+    public void update(User user) throws DaoException {
+        ConnectionPool pool = ConnectionPool.getInstance();
+        try (Connection connection = pool.getConnection();
+             PreparedStatement statement = connection.prepareStatement(SqlUserRequest.UPDATE_USER_BY_ID)) {
+            statement.setBoolean(1, user.isActive());
+            statement.setInt(2, user.getId());
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            throw new DaoException("Can't connect to db", ex);
+        }
     }
 
     @Override
@@ -64,10 +69,8 @@ public class UserDaoImplementation implements Dao<User> {
         try (Connection connection = pool.getConnection();
              Statement statement = connection.createStatement()) {
             ResultSet resultSet = statement.executeQuery(SqlUserRequest.SELECT_ALL_USERS);
-            pool.releaseConnection(connection);
             return readUserInfo(resultSet);
         } catch (SQLException ex) {
-            ex.printStackTrace();
             throw new DaoException("Can't connect to db", ex);
         }
     }
@@ -82,18 +85,17 @@ public class UserDaoImplementation implements Dao<User> {
             ResultSet resultSet = statement.executeQuery();
             List<User> user = readUserInfo(resultSet);
             Optional<User> userToLogin = Optional.empty();
-            pool.releaseConnection(connection);
             if (!user.isEmpty()) {
                 userToLogin = Optional.of(user.get(0));
             }
             return userToLogin;
         } catch (SQLException ex) {
-            ex.printStackTrace();
             throw new DaoException("Can't connect to db", ex);
         }
     }
 
-    public Optional<User> findUser(String username) throws DaoException {
+    @Override
+    public Optional<User> findByName(String username) throws DaoException {
         ConnectionPool pool = ConnectionPool.getInstance();
         try (Connection connection = pool.getConnection();
              PreparedStatement statement =
@@ -102,13 +104,11 @@ public class UserDaoImplementation implements Dao<User> {
             ResultSet resultSet = statement.executeQuery();
             List<User> user = readUserInfo(resultSet);
             Optional<User> userToLogin = Optional.empty();
-            pool.releaseConnection(connection);
             if (!user.isEmpty()) {
                 userToLogin = Optional.of(user.get(0));
             }
             return userToLogin;
         } catch (SQLException ex) {
-            ex.printStackTrace();
             throw new DaoException("Can't connect to db", ex);
         }
     }
