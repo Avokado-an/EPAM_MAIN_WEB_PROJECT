@@ -13,8 +13,9 @@
 <body>
 <form action="userServlet" name="registration" method="post">
     <input type="hidden" name="command" value="registration">
-    <input type="text" name="username">
-    <input type="password" name="password">
+    <input type="text" name="username" required="required">
+    <input type="email" name="email" required="required">
+    <input type="password" name="password" required="required">
     <input type="submit" value="registration" name="registration"/>
 </form>
 <p>${message}</p>

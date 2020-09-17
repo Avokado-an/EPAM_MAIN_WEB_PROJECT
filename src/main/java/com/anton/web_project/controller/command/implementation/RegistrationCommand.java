@@ -21,14 +21,15 @@ public class RegistrationCommand implements Command {
         String pagePath = ResponsePagePath.REGISTRATION;
         String username = request.getParameter(ServletAttribute.USERNAME_ATTRIBUTE);
         String password = request.getParameter(ServletAttribute.PASSWORD_ATTRIBUTE);
+        String email = request.getParameter(ServletAttribute.EMAIL_ATTRIBUTE);
         UserService service = UserServiceImplementation.getInstance();
         try {
             if (!service.isUsernameTaken(username)) {
-                boolean wasRegistrationSuccessful = service.register(username, password);
+                boolean wasRegistrationSuccessful = service.register(username, password, email);
                 if (wasRegistrationSuccessful) {
                     pagePath = ResponsePagePath.LOGIN;
                 } else {
-                    request.setAttribute(ServletAttribute.MESSAGE_ATTRIBUTE, ServletMessage.WRONG_PASSWORD_OR_USERNAME);
+                    request.setAttribute(ServletAttribute.MESSAGE_ATTRIBUTE, ServletMessage.WRONG_PASSWORD_OR_USERNAME_OR_EMAIL);
                 }
             } else {
                 request.setAttribute(ServletAttribute.MESSAGE_ATTRIBUTE, ServletMessage.USERNAME_IS_TAKEN);

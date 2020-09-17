@@ -61,8 +61,7 @@ public class AdminServiceImplementation implements AdminService {
     public List<User> viewUsers() throws ServiceException {
         Dao<User> dao = UserDaoImplementation.getInstance();
         try {
-            List<User> users = dao.findAll();
-            return users;
+            return dao.findAll();
         } catch (DaoException e) {
             throw new ServiceException("can't view all users", e);
         }

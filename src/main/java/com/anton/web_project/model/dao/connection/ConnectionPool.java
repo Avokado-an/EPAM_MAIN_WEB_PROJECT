@@ -11,18 +11,19 @@ import java.sql.SQLException;
 import java.util.ArrayDeque;
 import java.util.Queue;
 import java.util.ResourceBundle;
-import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.BlockingDeque;
+import java.util.concurrent.LinkedBlockingDeque;
 
 public class ConnectionPool {
-    private static final Logger logger = LogManager.getLogger();
     private static final String RESOURCE_BUNDLE = "property.database";
     private static final String USERNAME = "username";
     private static final String PASSWORD = "password";
     private static final String URL = "url";
     private static final String DRIVER = "driver";
-    private static final int POOL_SIZE = 4;
+    private static final int POOL_SIZE = 8;
+    private static final Logger LOGGER = LogManager.getLogger();
     private static ConnectionPool instance = new ConnectionPool();
-    private LinkedBlockingQueue<ProxyConnection> freeConnections;
+    private BlockingDeque<ProxyConnection> freeConnections;
     private Queue<ProxyConnection> busyConnections;
 
     public static ConnectionPool getInstance() {
@@ -34,58 +35,55 @@ public class ConnectionPool {
             ResourceBundle rb = ResourceBundle.getBundle(RESOURCE_BUNDLE);
             String driver = rb.getString(DRIVER);
             Class.forName(driver);
-            Connection connection;
             String url = rb.getString(URL);
             String username = rb.getString(USERNAME);
             String password = rb.getString(PASSWORD);
-            freeConnections = new LinkedBlockingQueue<>(POOL_SIZE);
+            freeConnections = new LinkedBlockingDeque<>(POOL_SIZE);
             busyConnections = new ArrayDeque<>(POOL_SIZE);
             for (int i = 0; i < POOL_SIZE; i++) {
-                connection = DriverManager.getConnection(url, username, password);
+                Connection connection = DriverManager.getConnection(url, username, password);
                 freeConnections.offer(new ProxyConnection(connection));
             }
         } catch (ClassNotFoundException e) {
-            logger.log(Level.FATAL, "Can't create connection pool", e);//todo make it elegant (in lesson good explanation)
+            LOGGER.log(Level.FATAL, "Can't create connection pool", e);//todo make it elegant (in lesson good explanation)
             throw new RuntimeException("Can't create connection pool", e);
         } catch (SQLException e) {
-            logger.log(Level.FATAL, "Can't create connection pool", e);
+            LOGGER.log(Level.FATAL, "Can't create connection pool", e);
             throw new RuntimeException("Can't create connection pool", e);
         }
     }
 
     public Connection getConnection() throws DaoException {
-        ProxyConnection connection;
         try {
-            connection = freeConnections.take();
+            ProxyConnection connection = freeConnections.take();
             busyConnections.offer(connection);
+            return connection;
         } catch (InterruptedException e) {
             throw new DaoException("Can't get connection", e);
         }
-        return connection;
     }
 
-    public void releaseConnection(Connection connection){
-        if (connection instanceof ProxyConnection) {
-            if (busyConnections.remove(connection)){
-                freeConnections.offer((ProxyConnection) connection);
-            }
+    public void releaseConnection(Connection connection) {
+        if (connection instanceof ProxyConnection &&
+                busyConnections.remove(connection)) {
+            freeConnections.offer((ProxyConnection) connection);
         } else {
-            logger.log(Level.WARN, "Invalid connection to realizing");
+            LOGGER.log(Level.WARN, "Invalid connection to release");
         }
     }
 
-    public void deactivatePool(){
+    public void deactivatePool() {
         try {
-            for (int i = 0; i < freeConnections.size(); i++) {
+            for (int i = 0; i < POOL_SIZE; i++) {
                 freeConnections.take().fullyClose();
             }
-            deactivateDriver();
+            deregisterDriver();
         } catch (SQLException | InterruptedException e) {
-            logger.log(Level.ERROR, "Can't destroy pool");
+            LOGGER.log(Level.ERROR, "Can't destroy pool");
         }
     }
 
-    private void deactivateDriver() throws SQLException {
+    private void deregisterDriver() throws SQLException {
         while (DriverManager.getDrivers().hasMoreElements()) {
             DriverManager.deregisterDriver(DriverManager.getDrivers().nextElement());
         }

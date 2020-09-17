@@ -40,4 +40,6 @@ public class MainProgramServlet extends HttpServlet {
         ConnectionPool.getInstance().deactivatePool();
         super.destroy();
     }
+
+    // TODO: 10.09.2020 uchi blyat teoriu, delbich 
 }

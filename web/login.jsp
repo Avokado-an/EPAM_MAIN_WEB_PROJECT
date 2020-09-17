@@ -13,8 +13,8 @@
 <body>
 <form action="userServlet" name="login" method="post">
     <input type="hidden" name="command" value="login">
-    <input type="text" name="username">
-    <input type="password" name="password">
+    <input type="text" name="username" required="required">
+    <input type="password" name="password" required="required">
     <input type="submit" value="login" name="login"/>
 </form>
 <p>${message}</p>

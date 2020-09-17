@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface UserService {
     boolean isUsernameTaken(String username) throws ServiceException;
-    boolean register(String username, String password) throws ServiceException;
+    boolean register(String username, String password, String email) throws ServiceException;
     Optional<User> logIn(String username, String password) throws ServiceException;
     boolean logOut();
 }

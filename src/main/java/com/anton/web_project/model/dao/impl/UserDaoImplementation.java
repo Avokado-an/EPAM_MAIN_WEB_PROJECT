@@ -14,6 +14,7 @@ import java.util.Optional;
 
 public class UserDaoImplementation implements Dao<User> {
     private static UserDaoImplementation instance = new UserDaoImplementation();
+    private static final int USER_TYPE_CLIENT_ID = 1;
 
     public static UserDaoImplementation getInstance() {
         return instance;
@@ -25,12 +26,19 @@ public class UserDaoImplementation implements Dao<User> {
 
     @Override
     public void save(User user) throws DaoException {
+        //todo think about it
+    }
+
+    @Override
+    public void save(User user, String password) throws DaoException {
         ConnectionPool pool = ConnectionPool.getInstance();
         try (Connection connection = pool.getConnection();
              PreparedStatement statement = connection.prepareStatement(SqlUserRequest.ADD_USER)) {
             statement.setString(1, user.getUsername());
-            statement.setString(2, user.getPassword());
+            statement.setString(2, password);
             statement.setBoolean(3, user.isActive());
+            statement.setInt(4, USER_TYPE_CLIENT_ID);
+            statement.setString(5, user.getEmail());
             statement.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -54,7 +62,7 @@ public class UserDaoImplementation implements Dao<User> {
     public void update(User user) throws DaoException {
         ConnectionPool pool = ConnectionPool.getInstance();
         try (Connection connection = pool.getConnection();
-             PreparedStatement statement = connection.prepareStatement(SqlUserRequest.UPDATE_USER_BY_ID)) {
+             PreparedStatement statement = connection.prepareStatement(SqlUserRequest.UPDATE_USER_ACTIVITY_BY_ID)) {
             statement.setBoolean(1, user.isActive());
             statement.setInt(2, user.getId());
             statement.executeUpdate();
@@ -75,7 +83,8 @@ public class UserDaoImplementation implements Dao<User> {
         }
     }
 
-    public Optional<User> findUser(String username, String password) throws DaoException {
+    @Override
+    public Optional<User> find(String username, String password) throws DaoException {
         ConnectionPool pool = ConnectionPool.getInstance();
         try (Connection connection = pool.getConnection();
              PreparedStatement statement =
@@ -90,6 +99,7 @@ public class UserDaoImplementation implements Dao<User> {
             }
             return userToLogin;
         } catch (SQLException ex) {
+            ex.printStackTrace();
             throw new DaoException("Can't connect to db", ex);
         }
     }
@@ -98,8 +108,7 @@ public class UserDaoImplementation implements Dao<User> {
     public Optional<User> findByName(String username) throws DaoException {
         ConnectionPool pool = ConnectionPool.getInstance();
         try (Connection connection = pool.getConnection();
-             PreparedStatement statement =
-                     connection.prepareStatement(SqlUserRequest.SELECT_USER_BY_USERNAME)) {
+             PreparedStatement statement = connection.prepareStatement(SqlUserRequest.SELECT_USER_BY_USERNAME)) {
             statement.setString(1, username);
             ResultSet resultSet = statement.executeQuery();
             List<User> user = readUserInfo(resultSet);
@@ -119,9 +128,10 @@ public class UserDaoImplementation implements Dao<User> {
         while (resultSet.next()) {
             int id = resultSet.getInt(1);
             String username = resultSet.getString(2);
-            String password = resultSet.getString(3);
-            boolean isActive = resultSet.getBoolean(4);
-            Optional<User> userToAdd = creator.createUser(id, username, password, isActive);
+            boolean isActive = resultSet.getBoolean(3);
+            String userType = resultSet.getString(4);
+            String email = resultSet.getString(5);
+            Optional<User> userToAdd = creator.createUser(id, username, email, userType, isActive);
             userToAdd.ifPresent(users::add);
         }
         return users;

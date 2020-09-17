@@ -1,17 +1,11 @@
 
-£
-java:S11867"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(óç„¶ûÿÿÿÿ8ˆşñÄÆ.
-@
-java:S1148j"#Use a logger to log this exception.(Ç’Çê8¢˜§òÆ.
-@
-java:S11481"#Use a logger to log this exception.(Ç’Çê8ˆşñÄÆ.
 T
-java:S1135%"2Complete the task associated to this TODO comment.(ĞÔĞüÿÿÿÿ8ˆşñÄÆ.
-@
-java:S1148$"#Use a logger to log this exception.(Ç’Çê8ˆşñÄÆ.
-@
-java:S1148C"#Use a logger to log this exception.(Ç’Çê8¢˜§òÆ.
-@
-java:S1148W"#Use a logger to log this exception.(Ç’Çê8¢˜§òÆ.
+java:S1135"2Complete the task associated to this TODO comment.(íáë™üÿÿÿÿ8ïÖßÈ.
 v
-java:S1192%"TDefine a constant instead of duplicating this literal "Can't connect to db" 5 times.(ĞÔĞüÿÿÿÿ8ˆşñÄÆ.
+java:S1192-"TDefine a constant instead of duplicating this literal "Can't connect to db" 6 times.(ĞÔĞüÿÿÿÿ8ïÖßÈ.
+@
+java:S1148f"#Use a logger to log this exception.(Ç’Çê8ïÖßÈ.
+T
+java:S1135-"2Complete the task associated to this TODO comment.(ĞÔĞüÿÿÿÿ8ïÖßÈ.
+@
+java:S1148,"#Use a logger to log this exception.(Ç’Çê8ïÖßÈ.

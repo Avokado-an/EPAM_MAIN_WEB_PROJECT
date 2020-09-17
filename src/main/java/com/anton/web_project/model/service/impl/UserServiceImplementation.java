@@ -25,7 +25,7 @@ public class UserServiceImplementation implements UserService {
     public boolean isUsernameTaken(String username) throws ServiceException {
         try {
             UserDaoImplementation dao = UserDaoImplementation.getInstance();
-            Optional<User> userFromDb = dao.findUser(username);
+            Optional<User> userFromDb = dao.findByName(username);
             return userFromDb.isPresent();
         } catch (DaoException ex) {
             throw new ServiceException(ex);
@@ -33,14 +33,15 @@ public class UserServiceImplementation implements UserService {
     }
 
     @Override
-    public boolean register(String username, String password) throws ServiceException {
+    public boolean register(String username, String password, String email) throws ServiceException {
         UserDaoImplementation dao = UserDaoImplementation.getInstance();
         boolean isActive = true; //todo for a while -> make activation and stuff
         boolean registrationResult = false;
-        Optional<User> userToAdd = UserCreator.getInstance().createUser(username, password, isActive);
+        Optional<User> userToAdd = UserCreator.getInstance().createUser(username, email, isActive);
+        String encodedPassword = PasswordEncoder.encodeString(password);
         try {
             if (userToAdd.isPresent()) {
-                dao.save(userToAdd.get());
+                dao.save(userToAdd.get(), encodedPassword);
                 registrationResult = true;
             }
         } catch (DaoException ex) {
@@ -55,7 +56,7 @@ public class UserServiceImplementation implements UserService {
         UserDaoImplementation dao = UserDaoImplementation.getInstance();
         String codedPassword = PasswordEncoder.encodeString(password);
         try {
-            return dao.findUser(username, codedPassword);
+            return dao.find(username, codedPassword);
         } catch (DaoException ex) {
             ex.printStackTrace();
             throw new ServiceException("Can't login", ex);
@@ -64,6 +65,6 @@ public class UserServiceImplementation implements UserService {
 
     @Override
     public boolean logOut() {
-        return true;
+        return true; //todo what to do here???
     }
 }

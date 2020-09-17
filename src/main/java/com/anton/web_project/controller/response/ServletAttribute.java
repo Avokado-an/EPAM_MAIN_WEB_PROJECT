@@ -7,6 +7,8 @@ public class ServletAttribute {
     public static final String USERS = "users";
     public static final String COMMAND_ATTRIBUTE = "command";
     public static final String ID_ATTRIBUTE = "id";
+    public static final String USER_ROLE_ATTRIBUTE = "user_role";
+    public static final String EMAIL_ATTRIBUTE = "email";
 
     private ServletAttribute() {
     }

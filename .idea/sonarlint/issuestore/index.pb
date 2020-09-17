@@ -61,8 +61,6 @@ Dsrc/main/java/com/anton/web_project/controller/type/CommandType.java,a\5\a5a74
 Tsrc/main/java/com/anton/web_project/controller/wrapper/RequestAttributesWrapper.java,0\4\04e7b31a747dd795366db113ba0c03486e38a1c3
 |
 Lsrc/main/java/com/anton/web_project/model/dao/connection/ConnectionPool.java,2\d\2d285eef23ab90e1cc3efe6ad784dc222d3c2c68
-€
-Psrc/main/java/com/anton/web_project/model/dao/connection/ConnectionProvider.java,8\4\84d87693fa772d0331145da18d5fc631527e6a57
 y
 Isrc/main/java/com/anton/web_project/model/dao/request/SqlUserRequest.java,b\0\b02a343c714ec7522dc3b0b39ba6e078deae31e0
 f
@@ -109,3 +107,13 @@ j
 :src/main/java/com/anton/web_project/model/entity/Sale.java,9\4\94075138b3fdaa20a186efdb03cfd8633e185a13
 j
 :src/main/java/com/anton/web_project/model/entity/Meal.java,9\1\9123716e89a64661b3f1ada34a8e38c2f4ac3a91
+Œ
+\src/main/java/com/anton/web_project/controller/command/implementation/DeleteUserCommand.java,c\a\ca223736b1a9c056f6bd650445f9b331f8cacc6b
+u
+Esrc/main/java/com/anton/web_project/model/exception/DaoException.java,5\c\5c7116aacec55a1a6270474326846a2c7c6fedcc
+D
+EPAM_WEB_PROJECT.iml,4\3\4315cf9813b274f7a51d2581df08d5c3f8baca78
+r
+Bsrc/main/java/com/anton/web_project/model/service/MailService.java,c\5\c5565332639d059f5d4ba79970bfd6c798861896
+…
+Usrc/main/java/com/anton/web_project/model/service/impl/MailServiceImplementation.java,5\9\5977ac1b8fece530c2f2e50dbc01a587c2f56011

@@ -7,41 +7,126 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf1dd710-abfa-41b2-9a1d-0f574a57fd47" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/controller/command/implementation/DeleteUserCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/entity/Meal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_mail_javax_mail_1_6_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_activation_1_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/c/5c7116aacec55a1a6270474326846a2c7c6fedcc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/a/ca223736b1a9c056f6bd650445f9b331f8cacc6b" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/service/MailService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/service/impl/MailServiceImplementation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/property/mail.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/4/04e7b31a747dd795366db113ba0c03486e38a1c3" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/4/04e7b31a747dd795366db113ba0c03486e38a1c3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/7/17968e7e6e6c30fb7bcdf739e47ce96acfb71d7e" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/7/17968e7e6e6c30fb7bcdf739e47ce96acfb71d7e" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/d/2d285eef23ab90e1cc3efe6ad784dc222d3c2c68" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/d/2d285eef23ab90e1cc3efe6ad784dc222d3c2c68" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/7/374ed0a9649101381885508cc2412a48d6327989" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/7/374ed0a9649101381885508cc2412a48d6327989" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/a/3ade6e8ba146f558c8b95baba380c5fbb2f246d2" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/a/3ade6e8ba146f558c8b95baba380c5fbb2f246d2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/e/3e39fed67402c9618107be1c0a388a53dc8624ab" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/e/3e39fed67402c9618107be1c0a388a53dc8624ab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/7/47803c470e1c2df2963b0e0e7ea22a0b9319c999" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/7/47803c470e1c2df2963b0e0e7ea22a0b9319c999" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/b/4bc893ef586366ee65fe012bc2413a2e52d9c4b2" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/b/4bc893ef586366ee65fe012bc2413a2e52d9c4b2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/8/78256f6ed47f5e74526c5200c0d0dd5753c46219" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/8/78256f6ed47f5e74526c5200c0d0dd5753c46219" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/3/839fbecb46662e2f059a7d821d904e560cc35608" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/3/839fbecb46662e2f059a7d821d904e560cc35608" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/4/84d87693fa772d0331145da18d5fc631527e6a57" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/6/862a9194904ffb9c63975aade58c1fb07850e9f1" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/6/862a9194904ffb9c63975aade58c1fb07850e9f1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/a/8a57a0538c93bd826b136be395ff537d74a82ad0" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/a/8a57a0538c93bd826b136be395ff537d74a82ad0" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/b/8bb59c7477816c8f5706752a6e7f63f5f614ca12" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/b/8bb59c7477816c8f5706752a6e7f63f5f614ca12" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/3/938634ff7951cbcefacd50459533c95bc3e96d67" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/3/938634ff7951cbcefacd50459533c95bc3e96d67" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/6/96feae7a218a9e80e2acc1b853081519adaf9654" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/6/96feae7a218a9e80e2acc1b853081519adaf9654" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/7/97dc23b0a39bb46267fb83fc1eeaac7c65611cb6" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/7/97dc23b0a39bb46267fb83fc1eeaac7c65611cb6" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/c/9c343955ceab6bf2ac4aaffc80ec453da40e197c" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/c/9c343955ceab6bf2ac4aaffc80ec453da40e197c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/8/a8ead4442fd17ef1c15fcbf7b223d09f459f2d03" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/8/a8ead4442fd17ef1c15fcbf7b223d09f459f2d03" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/9/a9445367176732c5c65d6d806ae0b67511f3fafa" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/9/a9445367176732c5c65d6d806ae0b67511f3fafa" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/0/b02a343c714ec7522dc3b0b39ba6e078deae31e0" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/0/b02a343c714ec7522dc3b0b39ba6e078deae31e0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/e/beba79002319b9ac1943d0b5734d71b77308e1c3" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/e/beba79002319b9ac1943d0b5734d71b77308e1c3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/9/e9751fcf99f1036881bbc64c6150a3aeb2777960" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/9/e9751fcf99f1036881bbc64c6150a3aeb2777960" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/c/ec629af59802e9d1855cda64d48af822fb64d121" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/c/ec629af59802e9d1855cda64d48af822fb64d121" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/5/f512730d920ed77f0e695c08261e723d8fde0e73" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/5/f512730d920ed77f0e695c08261e723d8fde0e73" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/7/f7ba727b4f5c4d55fadc3c65eadd92d654d15b66" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/7/f7ba727b4f5c4d55fadc3c65eadd92d654d15b66" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EPAM_WEB_PROJECT.iml" beforeDir="false" afterPath="$PROJECT_DIR$/EPAM_WEB_PROJECT.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/controller/command/implementation/BlockUserCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/controller/command/implementation/BlockUserCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/controller/command/implementation/LoginCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/controller/command/implementation/LoginCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/controller/command/implementation/RegistrationCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/controller/command/implementation/RegistrationCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/controller/command/implementation/UnblockUserCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/controller/command/implementation/UnblockUserCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/controller/command/implementation/ViewUsersCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/controller/command/implementation/ViewUsersCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/controller/response/ServletAttribute.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/controller/response/ServletAttribute.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/controller/type/CommandType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/controller/type/CommandType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/model/creator/UserCreator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/model/creator/UserCreator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/model/dao/Dao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/model/dao/Dao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/model/dao/connection/ConnectionPool.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/model/dao/connection/ConnectionPool.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/model/dao/connection/ConnectionProvider.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/model/dao/connection/ProxyConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/model/dao/connection/ProxyConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/model/dao/impl/DietDaoImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/model/dao/impl/DietDaoImplementation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/model/dao/impl/MembershipDaoImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/model/dao/impl/MembershipDaoImplementation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/model/dao/impl/SaleDaoImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/model/dao/impl/SaleDaoImplementation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/model/dao/impl/TrainerDaoImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/model/dao/impl/TrainerDaoImplementation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/model/dao/impl/UserDaoImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/model/dao/impl/UserDaoImplementation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/model/dao/request/SqlUserRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/model/dao/request/SqlUserRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/model/entity/Diet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/model/entity/Diet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/model/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/model/entity/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/model/entity/type/UserType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/model/entity/type/UserType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/model/service/AdminService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/model/service/AdminService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/model/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/model/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/model/service/impl/AdminServiceImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/model/service/impl/AdminServiceImplementation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/model/service/impl/UserServiceImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/model/service/impl/UserServiceImplementation.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/model/validator/UserValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/WEB-INF/classes/com/anton/web_project/model/validator/UserValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/registration.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/registration.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/view_users.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/EPAM_WEB_PROJECT_war_exploded/view_users.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/controller/command/implementation/BlockUserCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/controller/command/implementation/BlockUserCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/controller/command/implementation/LoginCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/controller/command/implementation/LoginCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/controller/command/implementation/RegistrationCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/controller/command/implementation/RegistrationCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/controller/command/implementation/UnblockUserCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/controller/command/implementation/UnblockUserCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/controller/command/implementation/ViewUsersCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/controller/command/implementation/ViewUsersCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/controller/response/ServletAttribute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/controller/response/ServletAttribute.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/controller/type/CommandType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/controller/type/CommandType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/controller/wrapper/RequestAttributesWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/controller/wrapper/RequestAttributesWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/controller/response/ServletMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/controller/response/ServletMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/controller/servlet/MainProgramServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/controller/servlet/MainProgramServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/creator/UserCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/creator/UserCreator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/dao/Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/dao/Dao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/dao/connection/ConnectionPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/dao/connection/ConnectionPool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/dao/connection/ConnectionProvider.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/dao/connection/ProxyConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/dao/connection/ProxyConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/dao/impl/DietDaoImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/dao/impl/DietDaoImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/dao/impl/MembershipDaoImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/dao/impl/MembershipDaoImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/dao/impl/SaleDaoImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/dao/impl/SaleDaoImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/dao/impl/TrainerDaoImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/dao/impl/TrainerDaoImplementation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/dao/impl/UserDaoImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/dao/impl/UserDaoImplementation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/dao/request/SqlUserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/dao/request/SqlUserRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/entity/Diet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/entity/Diet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/entity/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/entity/type/UserType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/entity/type/UserType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/service/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/service/AdminService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/service/impl/AdminServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/service/impl/AdminServiceImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/service/impl/UserServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/service/impl/UserServiceImplementation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/validator/UserValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/anton/web_project/model/validator/UserValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/anton/web_project/validator/UserValidatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/anton/web_project/validator/UserValidatorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/anton/web_project/controller/command/implementation/BlockUserCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anton/web_project/controller/command/implementation/BlockUserCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/anton/web_project/controller/command/implementation/LoginCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anton/web_project/controller/command/implementation/LoginCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/anton/web_project/controller/command/implementation/RegistrationCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anton/web_project/controller/command/implementation/RegistrationCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/anton/web_project/controller/command/implementation/UnblockUserCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anton/web_project/controller/command/implementation/UnblockUserCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/anton/web_project/controller/command/implementation/ViewUsersCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anton/web_project/controller/command/implementation/ViewUsersCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/anton/web_project/controller/response/ServletAttribute.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anton/web_project/controller/response/ServletAttribute.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/anton/web_project/controller/type/CommandType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anton/web_project/controller/type/CommandType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/anton/web_project/model/creator/UserCreator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anton/web_project/model/creator/UserCreator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/anton/web_project/model/dao/Dao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anton/web_project/model/dao/Dao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/anton/web_project/model/dao/connection/ConnectionPool.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anton/web_project/model/dao/connection/ConnectionPool.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/anton/web_project/model/dao/connection/ConnectionProvider.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/anton/web_project/model/dao/connection/ProxyConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anton/web_project/model/dao/connection/ProxyConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/anton/web_project/model/dao/impl/DietDaoImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anton/web_project/model/dao/impl/DietDaoImplementation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/anton/web_project/model/dao/impl/MembershipDaoImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anton/web_project/model/dao/impl/MembershipDaoImplementation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/anton/web_project/model/dao/impl/SaleDaoImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anton/web_project/model/dao/impl/SaleDaoImplementation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/anton/web_project/model/dao/impl/TrainerDaoImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anton/web_project/model/dao/impl/TrainerDaoImplementation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/anton/web_project/model/dao/impl/UserDaoImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anton/web_project/model/dao/impl/UserDaoImplementation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/anton/web_project/model/dao/request/SqlUserRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anton/web_project/model/dao/request/SqlUserRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/anton/web_project/model/entity/Diet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anton/web_project/model/entity/Diet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/anton/web_project/model/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anton/web_project/model/entity/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/anton/web_project/model/entity/type/UserType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anton/web_project/model/entity/type/UserType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/anton/web_project/model/service/AdminService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anton/web_project/model/service/AdminService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/anton/web_project/model/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anton/web_project/model/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/anton/web_project/model/service/impl/AdminServiceImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anton/web_project/model/service/impl/AdminServiceImplementation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/anton/web_project/model/service/impl/UserServiceImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anton/web_project/model/service/impl/UserServiceImplementation.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/anton/web_project/model/validator/UserValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/anton/web_project/model/validator/UserValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/anton/web_project/validator/UserValidatorTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/anton/web_project/validator/UserValidatorTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/registration.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/registration.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/view_users.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/view_users.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,15 +160,22 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="epam_web_project: schema" type="76f4a085:MysqlImplModel$Schema" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="EPAM_WEB_PROJECT@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="epam_web_project: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="users: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
     </expand>
     <select />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
         <option value="Jsp File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -122,7 +214,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../EPAM_TEXT_TASK" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MultyThreadApp" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -204,6 +296,24 @@
       <predefined_log_file id="Tomcat Manager" />
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="52714" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
         <option name="USE_ENV_VARIABLES" value="true" />
         <STARTUP>
@@ -244,10 +354,6 @@
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:EPAM_WEB_PROJECT@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
             </expand>
             <select />
           </treeState>
@@ -273,7 +379,13 @@
       <workItem from="1599546212791" duration="4690000" />
       <workItem from="1599572089664" duration="5293000" />
       <workItem from="1599637782612" duration="3375000" />
-      <workItem from="1599644711899" duration="6380000" />
+      <workItem from="1599644711899" duration="10634000" />
+      <workItem from="1599982166516" duration="11953000" />
+      <workItem from="1600157147570" duration="2769000" />
+      <workItem from="1600166180480" duration="7259000" />
+      <workItem from="1600266975100" duration="71000" />
+      <workItem from="1600332673812" duration="3376000" />
+      <workItem from="1600351061217" duration="345000" />
     </task>
     <servers />
   </component>
@@ -285,14 +397,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="72" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1599574066013" />
-    <state x="361" y="72" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599645689573">
+    <state x="361" y="72" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599749785606">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="72" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1599645689573" />
-    <state x="574" y="123" key="#com.intellij.ide.util.MemberChooser" timestamp="1599648948067">
+    <state x="361" y="72" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1599749785606" />
+    <state x="574" y="123" key="#com.intellij.ide.util.MemberChooser" timestamp="1600333022586">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="123" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1599648948067" />
+    <state x="574" y="123" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1600333022586" />
     <state x="400" y="102" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1598985261444">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -309,74 +421,74 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="160" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1536.824@0.0.1536.824" timestamp="1599647865562" />
-    <state x="549" y="168" key="FileChooserDialogImpl" timestamp="1599734545718">
+    <state x="549" y="168" key="FileChooserDialogImpl" timestamp="1600335449679">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1599734545718" />
-    <state width="1024" height="211" key="GridCell.Tab.0.bottom" timestamp="1599649307058">
+    <state x="549" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1600335449679" />
+    <state width="1024" height="211" key="GridCell.Tab.0.bottom" timestamp="1600242490758">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="211" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1599649307058" />
-    <state width="1024" height="211" key="GridCell.Tab.0.center" timestamp="1599649307057">
+    <state width="1024" height="211" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1600242490758" />
+    <state width="1024" height="211" key="GridCell.Tab.0.center" timestamp="1600242490758">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="211" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1599649307057" />
-    <state width="1024" height="211" key="GridCell.Tab.0.left" timestamp="1599649307057">
+    <state width="1024" height="211" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1600242490758" />
+    <state width="1024" height="211" key="GridCell.Tab.0.left" timestamp="1600242490758">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="211" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1599649307057" />
-    <state width="1024" height="211" key="GridCell.Tab.0.right" timestamp="1599649307057">
+    <state width="1024" height="211" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1600242490758" />
+    <state width="1024" height="211" key="GridCell.Tab.0.right" timestamp="1600242490758">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="211" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1599649307057" />
-    <state width="1024" height="211" key="GridCell.Tab.1.bottom" timestamp="1599579469875">
+    <state width="1024" height="211" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1600242490758" />
+    <state width="1024" height="211" key="GridCell.Tab.1.bottom" timestamp="1600242490759">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="211" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1599579469875" />
-    <state width="1024" height="211" key="GridCell.Tab.1.center" timestamp="1599579469875">
+    <state width="1024" height="211" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1600242490759" />
+    <state width="1024" height="211" key="GridCell.Tab.1.center" timestamp="1600242490758">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="211" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1599579469875" />
-    <state width="1024" height="211" key="GridCell.Tab.1.left" timestamp="1599579469875">
+    <state width="1024" height="211" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1600242490758" />
+    <state width="1024" height="211" key="GridCell.Tab.1.left" timestamp="1600242490758">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="211" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1599579469875" />
-    <state width="1024" height="211" key="GridCell.Tab.1.right" timestamp="1599579469875">
+    <state width="1024" height="211" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1600242490758" />
+    <state width="1024" height="211" key="GridCell.Tab.1.right" timestamp="1600242490758">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="211" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1599579469875" />
-    <state width="1024" height="211" key="GridCell.Tab.2.bottom" timestamp="1599579469875">
+    <state width="1024" height="211" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1600242490758" />
+    <state width="1024" height="211" key="GridCell.Tab.2.bottom" timestamp="1600242490759">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="211" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1599579469875" />
-    <state width="1024" height="211" key="GridCell.Tab.2.center" timestamp="1599579469875">
+    <state width="1024" height="211" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1600242490759" />
+    <state width="1024" height="211" key="GridCell.Tab.2.center" timestamp="1600242490759">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="211" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1599579469875" />
-    <state width="1024" height="211" key="GridCell.Tab.2.left" timestamp="1599579469875">
+    <state width="1024" height="211" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1600242490759" />
+    <state width="1024" height="211" key="GridCell.Tab.2.left" timestamp="1600242490759">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="211" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1599579469875" />
-    <state width="1024" height="211" key="GridCell.Tab.2.right" timestamp="1599579469875">
+    <state width="1024" height="211" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1600242490759" />
+    <state width="1024" height="211" key="GridCell.Tab.2.right" timestamp="1600242490759">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="211" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1599579469875" />
-    <state width="1024" height="210" key="GridCell.Tab.3.bottom" timestamp="1599480587272">
+    <state width="1024" height="211" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1600242490759" />
+    <state width="1024" height="211" key="GridCell.Tab.3.bottom" timestamp="1600157861514">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="210" key="GridCell.Tab.3.bottom/0.0.1536.824@0.0.1536.824" timestamp="1599480587272" />
-    <state width="1024" height="210" key="GridCell.Tab.3.center" timestamp="1599480587272">
+    <state width="1024" height="211" key="GridCell.Tab.3.bottom/0.0.1536.824@0.0.1536.824" timestamp="1600157861514" />
+    <state width="1024" height="211" key="GridCell.Tab.3.center" timestamp="1600157861514">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="210" key="GridCell.Tab.3.center/0.0.1536.824@0.0.1536.824" timestamp="1599480587272" />
-    <state width="1024" height="210" key="GridCell.Tab.3.left" timestamp="1599480587271">
+    <state width="1024" height="211" key="GridCell.Tab.3.center/0.0.1536.824@0.0.1536.824" timestamp="1600157861514" />
+    <state width="1024" height="211" key="GridCell.Tab.3.left" timestamp="1600157861514">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="210" key="GridCell.Tab.3.left/0.0.1536.824@0.0.1536.824" timestamp="1599480587271" />
-    <state width="1024" height="210" key="GridCell.Tab.3.right" timestamp="1599480587272">
+    <state width="1024" height="211" key="GridCell.Tab.3.left/0.0.1536.824@0.0.1536.824" timestamp="1600157861514" />
+    <state width="1024" height="211" key="GridCell.Tab.3.right" timestamp="1600157861514">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="210" key="GridCell.Tab.3.right/0.0.1536.824@0.0.1536.824" timestamp="1599480587272" />
+    <state width="1024" height="211" key="GridCell.Tab.3.right/0.0.1536.824@0.0.1536.824" timestamp="1600157861514" />
     <state width="1024" height="210" key="GridCell.Tab.4.bottom" timestamp="1599480585479">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -397,10 +509,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1599480646198" />
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1599644714762">
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1600351105342">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1599644714762" />
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1600351105342" />
     <state x="498" y="307" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1599038195726">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -409,6 +521,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="519" y="116" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1536.824@0.0.1536.824" timestamp="1599550465603" />
+    <state x="209" y="0" key="new project wizard" timestamp="1600267047197">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="209" y="0" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1600267047197" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1599649148580">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
