@@ -1,24 +1,21 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Mi
-  Date: 01.09.2020
-  Time: 22:02
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
-<form action="userServlet" name="registration" method="post">
-    <input type="hidden" name="command" value="registration">
-    <input type="text" name="username" required="required">
-    <input type="email" name="email" required="required">
-    <input type="password" name="password" required="required">
-    <input type="submit" value="registration" name="registration"/>
-</form>
-<p>${message}</p>
-<a href="login.jsp">login</a>
-</body>
+<fmt:setLocale value="${language}" scope="session"/>
+<fmt:bundle basename="html.text">
+    <head>
+        <title>Title</title>
+    </head>
+    <body>
+    <form action="userServlet" name="registration" method="post">
+        <input type="hidden" name="command" value="registration">
+        <input type="text" name="username" required="required">
+        <input type="email" name="email" required="required">
+        <input type="password" name="password" required="required">
+        <input type="submit" value=
+            <fmt:message key="register"/> name="registration"/>
+    </form>
+    <p>${message}</p>
+    <a href="login.jsp"><fmt:message key="login"/></a>
+    </body>
+</fmt:bundle>
 </html>

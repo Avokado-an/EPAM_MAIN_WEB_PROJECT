@@ -15,7 +15,7 @@ public class DietDaoImplementation implements Dao<Diet> {
     }
 
     @Override
-    public void save(Diet diet, String extraData) throws DaoException {
+    public void save(Diet diet, String extraData, int a) throws DaoException {
 
     }
 

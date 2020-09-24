@@ -15,7 +15,7 @@ public class TrainerDaoImplementation implements Dao<Trainer> {
     }
 
     @Override
-    public void save(Trainer trainer, String extraData) throws DaoException {
+    public void save(Trainer trainer, String extraData, int a) throws DaoException {
 
     }
 

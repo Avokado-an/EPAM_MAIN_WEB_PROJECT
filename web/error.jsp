@@ -1,16 +1,13 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Mi
-  Date: 03.09.2020
-  Time: 20:07
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <html>
+<fmt:setLocale value="${language}" scope="session"/>
+<fmt:bundle basename="resources.html">
 <head>
     <title>Title</title>
 </head>
 <body>
-OOOOOPS
+<fmt:message key="error_message"/>
 </body>
+</fmt:bundle>
 </html>

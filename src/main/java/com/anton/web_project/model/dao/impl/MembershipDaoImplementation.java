@@ -15,7 +15,7 @@ public class MembershipDaoImplementation implements Dao<Membership> {
     }
 
     @Override
-    public void save(Membership membership, String extraData) throws DaoException {
+    public void save(Membership membership, String extraData, int a) throws DaoException {
 
     }
 

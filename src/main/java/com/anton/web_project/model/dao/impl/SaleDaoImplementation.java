@@ -15,7 +15,7 @@ public class SaleDaoImplementation implements Dao<Sale> {
     }
 
     @Override
-    public void save(Sale sale, String extraData) throws DaoException {
+    public void save(Sale sale, String extraData, int a) throws DaoException {
 
     }
 

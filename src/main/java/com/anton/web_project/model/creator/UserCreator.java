@@ -16,12 +16,13 @@ public class UserCreator {
     private UserCreator() {
     }
 
-    public Optional<User> createUser(int id, String username, String email, String userType, boolean isActive) {
+    public Optional<User> createUser(
+            int id, String username, String email, String userType, boolean isActive, String language) {
         UserValidator validator = UserValidator.getInstance();
         Optional<User> result = Optional.empty();
         UserType type = UserType.valueOf(userType.toUpperCase());
         if (validator.validateUser(username, email)) {
-            result = Optional.of(new User(id, username, email, type, isActive));
+            result = Optional.of(new User(id, username, email, type, isActive, language));
         }
         return result;
     }

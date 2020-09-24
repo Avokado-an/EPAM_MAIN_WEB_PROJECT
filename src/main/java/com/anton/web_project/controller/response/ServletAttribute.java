@@ -9,6 +9,9 @@ public class ServletAttribute {
     public static final String ID_ATTRIBUTE = "id";
     public static final String USER_ROLE_ATTRIBUTE = "user_role";
     public static final String EMAIL_ATTRIBUTE = "email";
+    public static final String LANGUAGE_ATTRIBUTE = "language";
+    public static final String DEFAULT_ENGLISH_LANGUAGE = "en_US";
+    public static final String CURRENT_PAGE_ATTRIBUTE = "current_page";
 
     private ServletAttribute() {
     }

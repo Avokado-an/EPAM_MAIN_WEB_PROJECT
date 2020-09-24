@@ -113,7 +113,11 @@ u
 Esrc/main/java/com/anton/web_project/model/exception/DaoException.java,5\c\5c7116aacec55a1a6270474326846a2c7c6fedcc
 D
 EPAM_WEB_PROJECT.iml,4\3\4315cf9813b274f7a51d2581df08d5c3f8baca78
-r
-Bsrc/main/java/com/anton/web_project/model/service/MailService.java,c\5\c5565332639d059f5d4ba79970bfd6c798861896
-…
-Usrc/main/java/com/anton/web_project/model/service/impl/MailServiceImplementation.java,5\9\5977ac1b8fece530c2f2e50dbc01a587c2f56011
+w
+Gsrc/main/java/com/anton/web_project/model/util/mail/SessionFactory.java,3\c\3c70cf0d303a1aac0013d0920835352d0ac41729
+s
+Csrc/main/java/com/anton/web_project/model/util/mail/MailSender.java,6\3\63af053c9836e902d6df86302772aad22ec13545
+L
+web/account_verification.jsp,5\c\5c223a4122dde4479f55c9b4ee35a54ba031bef8
+•
+esrc/main/java/com/anton/web_project/controller/command/implementation/AccountVerificationCommand.java,6\c\6c524bf4606dab9f1f7ba4b58cc01095f7bd44a1

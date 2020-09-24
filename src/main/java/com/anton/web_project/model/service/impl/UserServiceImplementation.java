@@ -33,15 +33,15 @@ public class UserServiceImplementation implements UserService {
     }
 
     @Override
-    public boolean register(String username, String password, String email) throws ServiceException {
+    public boolean register(String username, String password, String email, int languageId) throws ServiceException {
         UserDaoImplementation dao = UserDaoImplementation.getInstance();
-        boolean isActive = true; //todo for a while -> make activation and stuff
+        boolean isActive = false;
         boolean registrationResult = false;
         Optional<User> userToAdd = UserCreator.getInstance().createUser(username, email, isActive);
         String encodedPassword = PasswordEncoder.encodeString(password);
         try {
             if (userToAdd.isPresent()) {
-                dao.save(userToAdd.get(), encodedPassword);
+                dao.save(userToAdd.get(), encodedPassword, languageId);
                 registrationResult = true;
             }
         } catch (DaoException ex) {

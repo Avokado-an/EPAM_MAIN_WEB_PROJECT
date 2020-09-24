@@ -30,7 +30,7 @@ public class UserDaoImplementation implements Dao<User> {
     }
 
     @Override
-    public void save(User user, String password) throws DaoException {
+    public void save(User user, String password, int languageId) throws DaoException {
         ConnectionPool pool = ConnectionPool.getInstance();
         try (Connection connection = pool.getConnection();
              PreparedStatement statement = connection.prepareStatement(SqlUserRequest.ADD_USER)) {
@@ -39,6 +39,7 @@ public class UserDaoImplementation implements Dao<User> {
             statement.setBoolean(3, user.isActive());
             statement.setInt(4, USER_TYPE_CLIENT_ID);
             statement.setString(5, user.getEmail());
+            statement.setInt(6, languageId);
             statement.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -131,7 +132,8 @@ public class UserDaoImplementation implements Dao<User> {
             boolean isActive = resultSet.getBoolean(3);
             String userType = resultSet.getString(4);
             String email = resultSet.getString(5);
-            Optional<User> userToAdd = creator.createUser(id, username, email, userType, isActive);
+            String language = resultSet.getString(6);
+            Optional<User> userToAdd = creator.createUser(id, username, email, userType, isActive, language);
             userToAdd.ifPresent(users::add);
         }
         return users;

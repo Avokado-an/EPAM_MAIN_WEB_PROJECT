@@ -10,7 +10,9 @@ public enum CommandType {
     BLOCK_USER(new BlockUserCommand()),
     UNBLOCK_USER(new UnblockUserCommand()),
     DELETE_USER(new DeleteUserCommand()),
-    VIEW_USERS(new ViewUsersCommand());
+    VIEW_USERS(new ViewUsersCommand()),
+    VERIFY_ACCOUNT(new AccountVerificationCommand()),
+    CHANGE_LANGUAGE(new ChangeLanguageCommand());
 
     private Command command;
 

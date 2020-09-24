@@ -3,31 +3,34 @@ package com.anton.web_project.model.entity;
 import com.anton.web_project.model.entity.type.UserType;
 
 public class User {
+    private String language;
     private int id;
     private String username;
     private UserType type;
     private String email;
     private boolean isActive;
 
-    public User(int id, String username, String email, UserType type, boolean isActive) {
+    public User(int id, String username, String email, UserType type, boolean isActive, String language) {
         this.id = id;
         this.username = username;
         this.email = email;
         this.type = type;
-        this.isActive = isActive; //todo add activation later
+        this.isActive = isActive;
+        this.language = language;
     }
 
-    public User(String username, String email, UserType type, boolean isActive) {
+    public User(String username, String email, UserType type, boolean isActive, String language) {
         this.username = username;
         this.type = type;
         this.email = email;
-        this.isActive = isActive; //todo add activation later
+        this.isActive = isActive;
+        this.language = language;
     }
 
     public User(String username, String email, boolean isActive) {
         this.username = username;
         this.email = email;
-        this.isActive = isActive; //todo add activation later
+        this.isActive = isActive;
     }
 
     public String getEmail() {
@@ -64,6 +67,14 @@ public class User {
 
     public int getId() {
         return id;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
     }
 
     @Override
