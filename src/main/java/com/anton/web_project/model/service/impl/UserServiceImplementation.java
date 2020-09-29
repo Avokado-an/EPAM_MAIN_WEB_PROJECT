@@ -1,6 +1,7 @@
 package com.anton.web_project.model.service.impl;
 
 import com.anton.web_project.model.creator.UserCreator;
+import com.anton.web_project.model.dao.UserDao;
 import com.anton.web_project.model.dao.impl.UserDaoImplementation;
 import com.anton.web_project.model.entity.User;
 import com.anton.web_project.model.exception.DaoException;
@@ -24,7 +25,7 @@ public class UserServiceImplementation implements UserService {
     @Override
     public boolean isUsernameTaken(String username) throws ServiceException {
         try {
-            UserDaoImplementation dao = UserDaoImplementation.getInstance();
+            UserDao dao = UserDaoImplementation.getInstance();
             Optional<User> userFromDb = dao.findByName(username);
             return userFromDb.isPresent();
         } catch (DaoException ex) {
@@ -34,7 +35,7 @@ public class UserServiceImplementation implements UserService {
 
     @Override
     public boolean register(String username, String password, String email, int languageId) throws ServiceException {
-        UserDaoImplementation dao = UserDaoImplementation.getInstance();
+        UserDao dao = UserDaoImplementation.getInstance();
         boolean isActive = false;
         boolean registrationResult = false;
         Optional<User> userToAdd = UserCreator.getInstance().createUser(username, email, isActive);
@@ -53,7 +54,7 @@ public class UserServiceImplementation implements UserService {
 
     @Override
     public Optional<User> logIn(String username, String password) throws ServiceException {
-        UserDaoImplementation dao = UserDaoImplementation.getInstance();
+        UserDao dao = UserDaoImplementation.getInstance();
         String codedPassword = PasswordEncoder.encodeString(password);
         try {
             return dao.find(username, codedPassword);

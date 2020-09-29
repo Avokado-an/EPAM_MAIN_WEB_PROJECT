@@ -1,7 +1,7 @@
 package com.anton.web_project.model.dao.impl;
 
 import com.anton.web_project.model.creator.UserCreator;
-import com.anton.web_project.model.dao.Dao;
+import com.anton.web_project.model.dao.UserDao;
 import com.anton.web_project.model.dao.connection.ConnectionPool;
 import com.anton.web_project.model.dao.request.SqlUserRequest;
 import com.anton.web_project.model.entity.User;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class UserDaoImplementation implements Dao<User> {
+public class UserDaoImplementation implements UserDao {
     private static UserDaoImplementation instance = new UserDaoImplementation();
     private static final int USER_TYPE_CLIENT_ID = 1;
 
@@ -22,11 +22,6 @@ public class UserDaoImplementation implements Dao<User> {
 
     private UserDaoImplementation() {
 
-    }
-
-    @Override
-    public void save(User user) throws DaoException {
-        //todo think about it
     }
 
     @Override

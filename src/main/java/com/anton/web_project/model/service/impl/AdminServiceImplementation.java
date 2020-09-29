@@ -1,6 +1,7 @@
 package com.anton.web_project.model.service.impl;
 
 import com.anton.web_project.model.dao.Dao;
+import com.anton.web_project.model.dao.UserDao;
 import com.anton.web_project.model.dao.impl.UserDaoImplementation;
 import com.anton.web_project.model.entity.User;
 import com.anton.web_project.model.exception.DaoException;
@@ -23,7 +24,7 @@ public class AdminServiceImplementation implements AdminService {
 
     @Override
     public boolean blockUser(String username) throws ServiceException {
-        Dao<User> dao = UserDaoImplementation.getInstance();
+        UserDao dao = UserDaoImplementation.getInstance();
         boolean flag = true;
         try {
             Optional<User> userToBlock = dao.findByName(username);
@@ -41,7 +42,7 @@ public class AdminServiceImplementation implements AdminService {
 
     @Override
     public boolean unblockUser(String username) throws ServiceException {
-        Dao<User> dao = UserDaoImplementation.getInstance();
+        UserDao dao = UserDaoImplementation.getInstance();
         boolean flag = true;
         try {
             Optional<User> userToUnblock = dao.findByName(username);
@@ -59,7 +60,7 @@ public class AdminServiceImplementation implements AdminService {
 
     @Override
     public List<User> viewUsers() throws ServiceException {
-        Dao<User> dao = UserDaoImplementation.getInstance();
+        UserDao dao = UserDaoImplementation.getInstance();
         try {
             return dao.findAll();
         } catch (DaoException e) {
@@ -69,7 +70,7 @@ public class AdminServiceImplementation implements AdminService {
 
     @Override
     public void deleteUserById(int id) throws ServiceException {
-        Dao<User> dao = UserDaoImplementation.getInstance();
+        UserDao dao = UserDaoImplementation.getInstance();
         try {
             dao.remove(id);
         } catch (DaoException e) {
