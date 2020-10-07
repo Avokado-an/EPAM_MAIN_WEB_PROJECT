@@ -9,7 +9,8 @@
     <p>${username}</p>
     <form action="userServlet" name="logout" method="post">
         <input type="hidden" name="command" value="logout">
-        <input type="submit" value=<fmt:message key="logout"/> name="logout"/>
+        <input type="submit" value=
+            <fmt:message key="logout"/> name="logout"/>
     </form>
     </body>
 </fmt:bundle>

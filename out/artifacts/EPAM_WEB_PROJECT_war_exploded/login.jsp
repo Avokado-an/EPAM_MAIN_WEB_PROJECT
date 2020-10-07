@@ -8,12 +8,12 @@
     </head>
     <body>
     <form action="userServlet" name="select language" method="post">
+        <input type="hidden" value="change_language" name="command">
         <select name="language">
             <option disabled><fmt:message key="choose_language"/></option>
             <option value="en_US"><fmt:message key="english"/></option>
             <option value="ru_RU"><fmt:message key="russian"/></option>
         </select>
-        <input type="hidden" value="change_language" name="command">
         <input type="hidden" value="/login.jsp" name="current_page">
         <input type="submit" value="Отправить">
     </form>

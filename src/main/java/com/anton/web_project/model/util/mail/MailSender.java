@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class MailSender {
-    private static final Logger LOGGER = LogManager.getLogger();
+    private static final Logger LOGGER = LogManager.getLogger(); //todo whats wrong with resources root???
     private static final String PROPERTY_PATH = "C:\\Users\\Mi\\IdeaProjects\\EPAM_MAIN\\EPAM_WEB_PROJECT\\src\\main\\resources\\config\\mail.properties";
     private MimeMessage message;
     private String sendToEmail;

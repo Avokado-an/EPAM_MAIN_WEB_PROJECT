@@ -1,6 +1,6 @@
 package com.anton.web_project.controller.response;
 
-public class ServletMessage {
+public class ServletMessage { //todo internationalization
     public static final String ERROR_MESSAGE = "Ooops, something went wrong";
     public static final String OPERATION_FAILED = "Action failed";
     public static final String OPERATION_SUCCEED = "Action performed successfully";
