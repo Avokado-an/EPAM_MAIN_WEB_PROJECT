@@ -5,27 +5,26 @@
     <html>
     <head>
         <title>Title</title>
+        <link rel="stylesheet" type="text/css" href="css/basic_style.css"/>
+        <link rel="stylesheet" type="text/css" href="css/input.css"/>
     </head>
     <body>
-    <form action="userServlet" name="select language" method="post">
-        <input type="hidden" value="change_language" name="command">
-        <select name="language">
-            <option disabled><fmt:message key="choose_language"/></option>
-            <option value="en_US"><fmt:message key="english"/></option>
-            <option value="ru_RU"><fmt:message key="russian"/></option>
-        </select>
-        <input type="hidden" value="/login.jsp" name="current_page">
-        <input type="submit" value="Отправить">
-    </form>
-    <form action="userServlet" name="login" method="post">
-        <input type="hidden" name="command" value="login">
-        <input type="text" name="username" required="required">
-        <input type="password" name="password" required="required">
-        <input type="submit" value=
-            <fmt:message key="login"/> name="login"/>
-    </form>
-    <p>${message}</p>
-    <a href="registration.jsp"><fmt:message key="register"/></a>
+    <jsp:include page="navbar.jsp"/>
+    <div>
+        <img class="position-absolute" src="img/image2.png">
+        <h1 class="header m-5"><fmt:message key="login"/></h1>
+        <form action="userServlet" name="login" method="post">
+            <input type="hidden" name="command" value="login">
+            <p class="m-5"><input class="bg-dark" type="text" name="username"
+                                  placeholder="<fmt:message key="username"/>"
+                                  required="required"></p>
+            <p class="m-5"><input class="bg-dark" type="password" name="password"
+                                  placeholder="<fmt:message key="password"/>" required="required"></p>
+            <p class="m-5"><input class="bg-dark" type="submit" value=
+                <fmt:message key="login"/> name="login"/></p>
+        </form>
+        <p class="m-3">${message}</p>
+    </div>
     </body>
 </fmt:bundle>
 </html>

@@ -1,5 +1,7 @@
 
-K	Web:S1827"/Remove this deprecated "cellpadding" attribute.(˜ĞÕË8’ÍÅäÇ.
-s Web:TableHeaderHasIdOrScopeCheck";Add either an 'id' or a 'scope' attribute to this <th> tag.(±©¼ üÿÿÿÿ8’ÍÅäÇ.
-E	Web:S1827")Remove this deprecated "align" attribute.(òå„ë8’ÍÅäÇ.
-n Web:TableHeaderHasIdOrScopeCheck";Add either an 'id' or a 'scope' attribute to this <th> tag.(íŠâü8’ÍÅäÇ.
+OWeb:TableWithoutCaptionCheck" Add a description to this table.(€ş·8†‚ÃİÒ.
+K	Web:S1827"/Remove this deprecated "cellpadding" attribute.(€ş·8’ÍÅäÇ.
+E	Web:S1827")Remove this deprecated "align" attribute.(òå„ë8’ÍÅäÇ.
+s Web:TableHeaderHasIdOrScopeCheck";Add either an 'id' or a 'scope' attribute to this <th> tag.(±©¼ üÿÿÿÿ8’ÍÅäÇ.
+n Web:TableHeaderHasIdOrScopeCheck";Add either an 'id' or a 'scope' attribute to this <th> tag.(Ş«é¯8¡‘¹Ñ.
+n Web:TableHeaderHasIdOrScopeCheck";Add either an 'id' or a 'scope' attribute to this <th> tag.(íŠâü8’ÍÅäÇ.

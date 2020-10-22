@@ -1,0 +1,13 @@
+h1 {
+    text-align: center;
+}
+
+.header {
+    text-align: left;
+}
+
+img {
+    position: absolute;
+    top: 24px;
+    z-index: -1;
+}
