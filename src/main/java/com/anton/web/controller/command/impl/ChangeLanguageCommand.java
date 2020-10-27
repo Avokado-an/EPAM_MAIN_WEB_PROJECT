@@ -20,8 +20,6 @@ public class ChangeLanguageCommand implements Command {
         if(page != null) {
             request.setAttribute(Attribute.CURRENT_PAGE, page);
         }
-        request.setAttribute(
-                Attribute.USER_ROLE, session.getAttribute(Attribute.USER_ROLE));
         return (String) request.getAttribute(Attribute.CURRENT_PAGE);
     }
 

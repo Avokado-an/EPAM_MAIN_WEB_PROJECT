@@ -1,0 +1,43 @@
+.user-description {
+    width: 500px;
+    min-height: 150px;
+    max-height: 570px;
+    border-style: solid;
+    border-color: whitesmoke;
+    float: right;
+    margin-right: 170px;
+    padding: 10px 10px 20px 10px;
+}
+
+.main-body {
+    background-color: rgba(11, 16, 28, 1);
+    color: whitesmoke;
+    font-family: Roboto, sans-serif;
+}
+
+.dark-submit {
+    background-color: rgba(11, 16, 28, 1);
+}
+
+.image-upload > input {
+    display: none;
+}
+
+.image {
+    margin-left: 170px;
+    width: 500px;
+    height: 700px;
+}
+
+.m-left-170 {
+    margin-left: 170px;
+}
+
+.m-left-50 {
+    margin-left: 50px;
+}
+
+.m-top-70 {
+    margin-top: 70px;
+}
+

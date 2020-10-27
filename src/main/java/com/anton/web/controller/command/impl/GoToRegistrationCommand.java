@@ -9,16 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 public class GoToRegistrationCommand implements Command {
-
     @Override
     public String execute(HttpServletRequest request) {
-        String pagePath  = PagePath.REGISTRATION;
+        String pagePath = PagePath.REGISTRATION;
         HttpSession session = request.getSession();
         String language = (String) session.getAttribute(Attribute.LANGUAGE);
         request.setAttribute(Attribute.LANGUAGE, language);
-        RequestAttributesWarehouse.getInstance().fillMapWithRequestAttributes(request);
-        session.setAttribute(Attribute.CURRENT_PAGE, pagePath);
-        request.setAttribute(Attribute.USER_ROLE, session.getAttribute(Attribute.USER_ROLE));
         return pagePath;
     }
 }

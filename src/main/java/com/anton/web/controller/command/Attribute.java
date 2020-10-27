@@ -19,6 +19,8 @@ public class Attribute {
     public static final String AMOUNT_OF_VISITS = "amount_of_visits";
     public static final String MONTHS = "months";
     public static final String TRAINERS = "trainers";
+    public static final String PHOTO_REFERENCE = "photo_reference";
+    public static final String DESCRIPTION = "description";
 
     private Attribute() {
     }

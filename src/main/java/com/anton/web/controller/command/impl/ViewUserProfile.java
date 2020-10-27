@@ -21,15 +21,19 @@ import java.util.Optional;
 
 public class ViewUserProfile implements Command {
     private static final Logger LOGGER = LogManager.getLogger();
+    private MembershipService membershipService = MembershipServiceImplementation.getInstance();
+    private UserService userService = UserServiceImplementation.getInstance();
 
     @Override
     public String execute(HttpServletRequest request) {
         HttpSession session = request.getSession();
-        MembershipService membershipService = MembershipServiceImplementation.getInstance();
-        UserService userService = UserServiceImplementation.getInstance();
         String username = (String) session.getAttribute(Attribute.USERNAME);
         String pagePath = PagePath.USER_PROFILE;
         try {
+            String description = defineUserDescription(username);
+            String photoReference = defineUserPhotoReference(username);
+            request.setAttribute(Attribute.DESCRIPTION, description);
+            request.setAttribute(Attribute.PHOTO_REFERENCE, photoReference);
             List<User> userTrainers = userService.findUserTrainers(username);
             request.setAttribute(Attribute.TRAINERS, userTrainers);
             Optional<Membership> membership = membershipService.findUsersMembership(username);
@@ -40,10 +44,27 @@ public class ViewUserProfile implements Command {
         }
         String language = (String) session.getAttribute(Attribute.LANGUAGE);
         request.setAttribute(Attribute.LANGUAGE, language);
-        RequestAttributesWarehouse.getInstance().fillMapWithRequestAttributes(request);
-        session.setAttribute(Attribute.CURRENT_PAGE, pagePath);
         request.setAttribute(Attribute.USERNAME, username);
-        request.setAttribute(Attribute.USER_ROLE, session.getAttribute(Attribute.USER_ROLE));
         return pagePath;
+    }
+
+    private String defineUserDescription(String username) throws ServiceException { //todo do it in utils
+        Optional<User> user = userService.findByUsername(username);
+        String description = "";
+        if (user.isPresent()) {
+            description = user.get().getDescription();
+        }
+        return description;
+    }
+
+    private String defineUserPhotoReference(String username) throws ServiceException {
+        Optional<User> user = userService.findByUsername(username);
+        String photoReference = "img/photo/default_picture.png";
+        if (user.isPresent()) {
+            if (user.get().getPhotoReference() != null) {
+                photoReference = user.get().getPhotoReference();
+            }
+        }
+        return photoReference;
     }
 }

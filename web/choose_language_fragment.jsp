@@ -11,7 +11,7 @@
     <body>
     <form action="userServlet" name="select language" method="post">
         <input type="hidden" value="change_language" name="command">
-        <select class="bg-dark" onchange="this.form.submit()" name="language">
+        <select class="dark-navbar" onchange="this.form.submit()" name="language">
             <option><fmt:message key="choose_language"/></option>
             <option value="en_US"><fmt:message key="english"/></option>
             <option value="ru_RU"><fmt:message key="russian"/></option>

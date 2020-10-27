@@ -50,10 +50,7 @@ public class RedactMembershipCommand implements Command {
             pagePath = PagePath.ERROR;
             LOGGER.warn("can't change data", e);
         }
-        session.setAttribute(Attribute.CURRENT_PAGE, pagePath);
-        RequestAttributesWarehouse.getInstance().fillMapWithRequestAttributes(request);
         request.setAttribute(Attribute.MESSAGE, serverResponse);
-        request.setAttribute(Attribute.USER_ROLE, session.getAttribute(Attribute.USER_ROLE));
         return pagePath;
     }
 }

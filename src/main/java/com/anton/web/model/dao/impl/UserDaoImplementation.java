@@ -169,6 +169,58 @@ public class UserDaoImplementation implements UserDao {
         }
     }
 
+    @Override
+    public void updateUsername(String oldName, String newName) throws DaoException {
+        ConnectionPool pool = ConnectionPool.getInstance();
+        try (Connection connection = pool.getConnection();
+             PreparedStatement statement = connection.prepareStatement(SqlUserQuery.UPDATE_USERNAME)) {
+            statement.setString(1, newName);
+            statement.setString(2, oldName);
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            throw new DaoException("Can't connect to db", ex);
+        }
+    }
+
+    @Override
+    public void updateDescription(String username, String description) throws DaoException {
+        ConnectionPool pool = ConnectionPool.getInstance();
+        try (Connection connection = pool.getConnection();
+             PreparedStatement statement = connection.prepareStatement(SqlUserQuery.UPDATE_DESCRIPTION)) {
+            statement.setString(1, description);
+            statement.setString(2, username);
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            throw new DaoException("Can't connect to db", ex);
+        }
+    }
+
+    @Override
+    public void updatePhotoReference(String username, String photoReference) throws DaoException {
+        ConnectionPool pool = ConnectionPool.getInstance();
+        try (Connection connection = pool.getConnection();
+             PreparedStatement statement = connection.prepareStatement(SqlUserQuery.UPDATE_PHOTO_REFERENCE)) {
+            statement.setString(1, photoReference);
+            statement.setString(2, username);
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            throw new DaoException("Can't connect to db", ex);
+        }
+    }
+
+    @Override
+    public void updateUserPosition(String username, int positionId) throws DaoException {
+        ConnectionPool pool = ConnectionPool.getInstance();
+        try (Connection connection = pool.getConnection();
+             PreparedStatement statement = connection.prepareStatement(SqlUserQuery.UPDATE_USER_POSITION)) {
+            statement.setInt(1, positionId);
+            statement.setString(2, username);
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            throw new DaoException("Can't connect to db", ex);
+        }
+    }
+
     private List<User> readPartialUserInfo(ResultSet resultSet) throws SQLException {
         UserCreator creator = UserCreator.getInstance();
         List<User> trainers = new ArrayList<>();

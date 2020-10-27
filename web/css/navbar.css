@@ -4,3 +4,7 @@ input, select {
     font-size: 24px;
     font-family: Roboto, sans-serif;
 }
+
+.dark-navbar {
+    background-color: rgba(16, 22, 33, 1);
+}

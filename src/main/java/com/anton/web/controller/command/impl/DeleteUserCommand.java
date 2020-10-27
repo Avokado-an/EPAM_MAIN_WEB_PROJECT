@@ -17,10 +17,10 @@ import javax.servlet.http.HttpSession;
 
 public class DeleteUserCommand implements Command {//todo do I even need this(95% no)
     private static final Logger LOGGER = LogManager.getLogger();
+    private AdminService adminService = AdminServiceImplementation.getInstance();
 
     @Override
     public String execute(HttpServletRequest request) {
-        AdminService adminService = AdminServiceImplementation.getInstance();
         String pagePath = PagePath.VIEW_USERS;
         HttpSession session = request.getSession();
         try {
@@ -32,8 +32,6 @@ public class DeleteUserCommand implements Command {//todo do I even need this(95
             pagePath = PagePath.ERROR;
             LOGGER.log(Level.ERROR, "can't delete user", e);
         }
-        RequestAttributesWarehouse.getInstance().fillMapWithRequestAttributes(request);
-        session.setAttribute(Attribute.CURRENT_PAGE, pagePath);
         return pagePath;
     }
 }

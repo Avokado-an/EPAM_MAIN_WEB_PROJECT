@@ -19,14 +19,14 @@ import java.util.List;
 
 public class BlockUserCommand implements Command {
     private static final Logger LOGGER = LogManager.getLogger();
+    private AdminService adminService = AdminServiceImplementation.getInstance();
+    private PropertiesReader reader = PropertiesReader.getInstance();
 
     @Override
     public String execute(HttpServletRequest request) {
-        AdminService adminService = AdminServiceImplementation.getInstance();
-        PropertiesReader reader = PropertiesReader.getInstance();
-        String username = request.getParameter(Attribute.USERNAME);
         String pagePath = PagePath.VIEW_USERS;
         HttpSession session = request.getSession();
+        String username = request.getParameter(Attribute.USERNAME);
         String language = (String) session.getAttribute(Attribute.LANGUAGE);
         String serverResponse;
         try {
@@ -44,9 +44,6 @@ public class BlockUserCommand implements Command {
             pagePath = PagePath.ERROR;
             LOGGER.warn("Can't block user", e);
         }
-        RequestAttributesWarehouse.getInstance().fillMapWithRequestAttributes(request);
-        request.setAttribute(Attribute.USER_ROLE, session.getAttribute(Attribute.USER_ROLE));
-        session.setAttribute(Attribute.CURRENT_PAGE, pagePath);
         return pagePath;
     }
 }

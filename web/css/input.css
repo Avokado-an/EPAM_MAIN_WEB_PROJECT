@@ -2,3 +2,11 @@ input {
     border: thin #5299f2;
     background-color: whitesmoke;
 }
+
+.text-color-white {
+    color: #fff;
+}
+
+textarea {
+    color: #fff;
+}

@@ -13,4 +13,6 @@ public interface AdminService {
     List<User> viewUsers() throws ServiceException;
 
     void deleteUserById(int id) throws ServiceException;
+
+    boolean changeUserPosition(String username, int positionId) throws ServiceException;
 }

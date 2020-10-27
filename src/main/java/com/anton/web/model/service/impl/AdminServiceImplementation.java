@@ -3,6 +3,7 @@ package com.anton.web.model.service.impl;
 import com.anton.web.model.dao.UserDao;
 import com.anton.web.model.dao.impl.UserDaoImplementation;
 import com.anton.web.model.entity.User;
+import com.anton.web.model.entity.UserType;
 import com.anton.web.model.exception.DaoException;
 import com.anton.web.model.exception.ServiceException;
 import com.anton.web.model.service.AdminService;
@@ -24,16 +25,20 @@ public class AdminServiceImplementation implements AdminService {
     @Override
     public boolean blockUser(String username) throws ServiceException {
         UserDao dao = UserDaoImplementation.getInstance();
-        boolean flag = true;// TODO: 13.10.2020 rename all flags
+        boolean wasUserBlocked = true;// TODO: 13.10.2020 rename all flags
         try {
             Optional<User> userToBlock = dao.findByName(username);
             if (userToBlock.isPresent()) {
-                userToBlock.get().setActive(false);
-                dao.updateActivity(userToBlock.get());
+                if (userToBlock.get().getType() != UserType.ADMIN) {
+                    userToBlock.get().setActive(false);
+                    dao.updateActivity(userToBlock.get());
+                } else {
+                    wasUserBlocked = false;
+                }
             } else {
-                flag = false;
+                wasUserBlocked = false;
             }
-            return flag;
+            return wasUserBlocked;
         } catch (DaoException e) {
             throw new ServiceException("can't block user", e);
         }
@@ -42,18 +47,18 @@ public class AdminServiceImplementation implements AdminService {
     @Override
     public boolean unblockUser(String username) throws ServiceException {
         UserDao dao = UserDaoImplementation.getInstance();
-        boolean flag = true;
+        boolean wasUserUnblocked = true;
         try {
             Optional<User> userToUnblock = dao.findByName(username);
             if (userToUnblock.isPresent()) {
                 userToUnblock.get().setActive(true);
                 dao.updateActivity(userToUnblock.get());
             } else {
-                flag = false;
+                wasUserUnblocked = false;
             }
-            return flag;
+            return wasUserUnblocked;
         } catch (DaoException e) {
-            throw new ServiceException("can't block user", e);
+            throw new ServiceException("can't unblock user", e);
         }
     }
 
@@ -74,6 +79,27 @@ public class AdminServiceImplementation implements AdminService {
             dao.remove(id);
         } catch (DaoException e) {
             throw new ServiceException("can't delete user", e);
+        }
+    }
+
+    @Override
+    public boolean changeUserPosition(String username, int userTypeId) throws ServiceException {
+        UserDao dao = UserDaoImplementation.getInstance();
+        boolean wasUserPositionChanged = true;
+        try {
+            Optional<User> userToMark = dao.findByName(username);
+            if (userToMark.isPresent()) {
+                if (userToMark.get().getType() != UserType.ADMIN) {
+                    dao.updateUserPosition(userToMark.get().getUsername(), userTypeId);
+                } else {
+                    wasUserPositionChanged = false;
+                }
+            } else {
+                wasUserPositionChanged = false;
+            }
+            return wasUserPositionChanged;
+        } catch (DaoException e) {
+            throw new ServiceException("can't change user position", e);
         }
     }
 }

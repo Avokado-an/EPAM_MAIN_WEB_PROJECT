@@ -9,7 +9,6 @@ import com.anton.web.model.exception.ServiceException;
 import com.anton.web.model.service.UserService;
 import com.anton.web.model.util.PasswordEncoder;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -70,6 +69,16 @@ public class UserServiceImplementation implements UserService {
     }
 
     @Override
+    public Optional<User> findByUsername(String username) throws ServiceException {
+        UserDao dao = UserDaoImplementation.getInstance();
+        try {
+            return dao.findByName(username);
+        } catch (DaoException ex) {
+            throw new ServiceException("Can't login", ex);
+        }
+    }
+
+    @Override
     public boolean updateMembershipId(String username, String membershipId) throws ServiceException {
         UserDao userDao = UserDaoImplementation.getInstance();
         boolean wasMembershipIdUpdated = true;
@@ -97,6 +106,36 @@ public class UserServiceImplementation implements UserService {
             throw new ServiceException("Can't login", ex);
         }
         return language;
+    }
+
+    @Override
+    public void updateUsername(String oldName, String newName) throws ServiceException {
+        UserDao userDao = UserDaoImplementation.getInstance();
+        try {
+            userDao.updateUsername(oldName, newName);
+        } catch (DaoException ex) {
+            throw new ServiceException("Can't change users membership_id", ex);
+        }
+    }
+
+    @Override
+    public void updateDescription(String username, String description) throws ServiceException {
+        UserDao userDao = UserDaoImplementation.getInstance();
+        try {
+            userDao.updateDescription(username, description);
+        } catch (DaoException ex) {
+            throw new ServiceException("Can't change users membership_id", ex);
+        }
+    }
+
+    @Override
+    public void updatePhotoReference(String username, String photoReference) throws ServiceException {
+        UserDao userDao = UserDaoImplementation.getInstance();
+        try {
+            userDao.updatePhotoReference(username, photoReference);
+        } catch (DaoException ex) {
+            throw new ServiceException("Can't change users membership_id", ex);
+        }
     }
 
     @Override

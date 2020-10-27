@@ -20,28 +20,23 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Optional;
 
-public class RedactUserProfileCommand implements Command {
+public class RedactUserProfilePictureCommand implements Command {
+    private static final UserService userService = UserServiceImplementation.getInstance();
+    private static final MembershipService membershipService = MembershipServiceImplementation.getInstance();
     private static final Logger LOGGER = LogManager.getLogger();
-    private UserService userService = UserServiceImplementation.getInstance();
-    private MembershipService membershipService = MembershipServiceImplementation.getInstance();
-    private PropertiesReader reader = PropertiesReader.getInstance();
+    private static final PropertiesReader reader = PropertiesReader.getInstance();
 
     @Override
-    public String execute(HttpServletRequest request) {
+    public String execute(HttpServletRequest request) {//todo add validation for new Description, photo and username
         String pagePath = PagePath.USER_PROFILE;
         HttpSession session = request.getSession();
-        String oldName = (String) session.getAttribute(Attribute.USERNAME);
-        String newUsername = request.getParameter(Attribute.USERNAME);
-        String description = request.getParameter(Attribute.DESCRIPTION);
+        String username = (String) session.getAttribute(Attribute.USERNAME);
+        String fileName = (String) request.getAttribute(Attribute.PHOTO_REFERENCE);
         String language = (String) session.getAttribute(Attribute.LANGUAGE);
         String serverResponse = reader.readUserTextProperty(language, Message.OPERATION_SUCCEED);
         try {
-            userService.updateDescription(oldName, description);
-            request.setAttribute(Attribute.DESCRIPTION, description);
-            userService.updateUsername(oldName, newUsername);
-            request.setAttribute(Attribute.USERNAME, newUsername);
-            session.setAttribute(Attribute.USERNAME, newUsername);
-            fillRequestAttributes(request, newUsername);
+            userService.updatePhotoReference(username, fileName);
+            fillRequestAttributes(request, username);
         } catch (ServiceException e) {
             serverResponse = reader.readUserTextProperty(language, Message.OPERATION_FAILED);
             LOGGER.warn("can't change data", e);
@@ -50,16 +45,7 @@ public class RedactUserProfileCommand implements Command {
         return pagePath;
     }
 
-    private void fillRequestAttributes(HttpServletRequest request, String newUsername) throws ServiceException {
-        Optional<Membership> membership = membershipService.findUsersMembership(newUsername);
-        membership.ifPresent(m -> request.setAttribute(Attribute.MEMBERSHIP, m));
-        List<User> trainers = userService.findUserTrainers(newUsername);
-        request.setAttribute(Attribute.TRAINERS, trainers);
-        String photoReference = defineUserPhotoReference(newUsername);
-        request.setAttribute(Attribute.PHOTO_REFERENCE, photoReference);
-    }
-
-    private String defineUserPhotoReference(String username) throws ServiceException {
+    private String defineUserPhotoReference(String username) throws ServiceException {//todo do util class for this
         Optional<User> user = userService.findByUsername(username);
         String photoReference = "img/photo/default_picture.png";
         if (user.isPresent()) {
@@ -70,7 +56,18 @@ public class RedactUserProfileCommand implements Command {
         return photoReference;
     }
 
-    private String formPhotoReference(String photoReference) {
-        return "img/photo/" + photoReference;
+    private void fillRequestAttributes(HttpServletRequest request, String newUsername) throws ServiceException {
+        Optional<Membership> membership = membershipService.findUsersMembership(newUsername);
+        membership.ifPresent(m -> request.setAttribute(Attribute.MEMBERSHIP, m));
+        List<User> trainers = userService.findUserTrainers(newUsername);
+        request.setAttribute(Attribute.TRAINERS, trainers);
+        String photoReference = defineUserPhotoReference(newUsername);
+        request.setAttribute(Attribute.PHOTO_REFERENCE, photoReference);
+        String description = "";
+        Optional<User> currentUser = userService.findByUsername(newUsername);
+        if (currentUser.isPresent()) {
+            description = currentUser.get().getDescription();
+        }
+        request.setAttribute(Attribute.DESCRIPTION, description);
     }
 }

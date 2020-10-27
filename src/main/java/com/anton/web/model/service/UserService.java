@@ -1,7 +1,6 @@
 package com.anton.web.model.service;
 
 import com.anton.web.model.entity.User;
-import com.anton.web.model.exception.DaoException;
 import com.anton.web.model.exception.ServiceException;
 
 import java.util.List;
@@ -16,9 +15,17 @@ public interface UserService {
 
     boolean logOut();
 
+    Optional<User> findByUsername(String username) throws ServiceException;
+
     boolean updateMembershipId(String username, String membershipId) throws ServiceException;
 
     Optional<String> defineUserLanguage(String username) throws ServiceException;
+
+    void updateUsername(String oldName, String newName) throws ServiceException;
+
+    void updateDescription(String username, String description) throws ServiceException;
+
+    void updatePhotoReference(String username, String photoReference) throws ServiceException;
 
     List<User> findAllTrainers() throws ServiceException;
 

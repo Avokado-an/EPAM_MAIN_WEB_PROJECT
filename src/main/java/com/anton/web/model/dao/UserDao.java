@@ -2,6 +2,7 @@ package com.anton.web.model.dao;
 
 import com.anton.web.model.entity.User;
 import com.anton.web.model.exception.DaoException;
+import com.anton.web.model.exception.ServiceException;
 
 import java.util.List;
 import java.util.Optional;
@@ -26,4 +27,12 @@ public interface UserDao {
     List<User> findTrainerUsers(String trainerUsername) throws DaoException;
 
     Optional<User> findByName(String username) throws DaoException;
+
+    void updateUsername(String oldName, String newName) throws DaoException;
+
+    void updateDescription(String username, String description) throws DaoException;
+
+    void updatePhotoReference(String username, String photoReference) throws DaoException;
+
+    void updateUserPosition(String username, int positionId) throws DaoException;
 }

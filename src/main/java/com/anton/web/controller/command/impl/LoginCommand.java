@@ -1,7 +1,6 @@
 package com.anton.web.controller.command.impl;
 
 import com.anton.web.controller.command.Command;
-import com.anton.web.controller.command.RequestAttributesWarehouse;
 import com.anton.web.controller.command.PagePath;
 import com.anton.web.controller.command.Attribute;
 import com.anton.web.controller.command.Message;
@@ -26,26 +25,20 @@ import java.util.Optional;
 
 public class LoginCommand implements Command {
     private static final Logger LOGGER = LogManager.getLogger();
+    private UserService userService = UserServiceImplementation.getInstance();;
 
     @Override
     public String execute(HttpServletRequest request) {
         String pagePath;
         String username = request.getParameter(Attribute.USERNAME);
         String password = request.getParameter(Attribute.PASSWORD);
-        UserService service = UserServiceImplementation.getInstance();
-        HttpSession session = request.getSession();
-        String language;
         try {
-            Optional<User> currentUser = service.logIn(username, password);
-            language = (String) session.getAttribute(Attribute.LANGUAGE);
-            pagePath = processUserLoginAction(request, currentUser, username, language);
+            Optional<User> currentUser = userService.logIn(username, password);
+            pagePath = processUserLoginAction(request, currentUser, username);
         } catch (ServiceException ex) {
             pagePath = PagePath.ERROR;
             LOGGER.warn("can't log in", ex);
         }
-        RequestAttributesWarehouse.getInstance().fillMapWithRequestAttributes(request);
-        session.setAttribute(Attribute.CURRENT_PAGE, pagePath);
-        request.setAttribute(Attribute.USER_ROLE, session.getAttribute(Attribute.USER_ROLE));
         return pagePath;
     }
 
@@ -60,13 +53,17 @@ public class LoginCommand implements Command {
     }
 
     private String processUserLoginAction(HttpServletRequest request, Optional<User> currentUser,
-                                          String username, String language) throws ServiceException {
+                                          String username) throws ServiceException {
         String pagePath = PagePath.LOGIN;
         String serverResponse;
         PropertiesReader reader = PropertiesReader.getInstance();
+        HttpSession session = request.getSession();
+        String language = (String) session.getAttribute(Attribute.LANGUAGE);
         if (currentUser.isPresent()) {
             if (currentUser.get().isActive()) {
                 setSessionAttributes(currentUser.get(), request);
+                language = (String) session.getAttribute(Attribute.LANGUAGE);
+                request.setAttribute(Attribute.LANGUAGE, language);
                 pagePath = chooseWorkingPage(request, currentUser.get().getType(), username);
             } else {
                 serverResponse = reader.readUserTextProperty(language, Message.USER_NOT_ACTIVE);
@@ -93,15 +90,14 @@ public class LoginCommand implements Command {
     }
 
     private String processAdminData(HttpServletRequest request) throws ServiceException {
-        AdminService service = AdminServiceImplementation.getInstance();
-        List<User> users = service.viewUsers();
+        AdminService adminService = AdminServiceImplementation.getInstance();
+        List<User> users = adminService.viewUsers();
         request.setAttribute(Attribute.USERS, users);
         return PagePath.VIEW_USERS;
     }
 
     private String processUserData(HttpServletRequest request) throws ServiceException {
         MembershipService service = MembershipServiceImplementation.getInstance();
-        UserService userService = UserServiceImplementation.getInstance();
         List<Membership> memberships = service.findMemberships();
         request.setAttribute(Attribute.MEMBERSHIPS, memberships);
         List<User> userTrainers = userService.findAllTrainers();
@@ -110,8 +106,7 @@ public class LoginCommand implements Command {
     }
 
     private String processTrainerData(HttpServletRequest request, String trainerName) throws ServiceException {
-        UserService service = UserServiceImplementation.getInstance();
-        List<User> users = service.findTrainerUsers(trainerName);
+        List<User> users = userService.findTrainerUsers(trainerName);
         request.setAttribute(Attribute.USERS, users);
         return PagePath.VIEW_USERS;
     }

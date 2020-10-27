@@ -1,11 +1,11 @@
 package com.anton.web.controller.command.impl;
 
-import com.anton.web.controller.command.Command;
-import com.anton.web.controller.command.RequestAttributesWarehouse;
-import com.anton.web.controller.command.PagePath;
 import com.anton.web.controller.command.Attribute;
+import com.anton.web.controller.command.Command;
 import com.anton.web.controller.command.Message;
+import com.anton.web.controller.command.PagePath;
 import com.anton.web.controller.util.PropertiesReader;
+import com.anton.web.model.entity.User;
 import com.anton.web.model.exception.ServiceException;
 import com.anton.web.model.service.AdminService;
 import com.anton.web.model.service.impl.AdminServiceImplementation;
@@ -14,27 +14,36 @@ import org.apache.logging.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
-public class AccountVerificationCommand implements Command {
+public class MarkUserAsTrainerCommand implements Command {
     private static final Logger LOGGER = LogManager.getLogger();
+    private static final int TRAINER_POSITION_ID = 2;
     private AdminService adminService = AdminServiceImplementation.getInstance();
     private PropertiesReader reader = PropertiesReader.getInstance();
 
+    @Override
     public String execute(HttpServletRequest request) {
+        String username = request.getParameter(Attribute.USERNAME);
+        String pagePath = PagePath.VIEW_USERS;
         HttpSession session = request.getSession();
-        String username = (String) session.getAttribute(Attribute.USERNAME);
-        String pagePath = PagePath.LOGIN;
         String serverResponse;
         String language = (String) session.getAttribute(Attribute.LANGUAGE);
         try {
-            serverResponse = reader.readUserTextProperty(language, Message.VERIFICATION_SUCCEED);
-            adminService.unblockUser(username);
+            boolean wasUserMarked = adminService.changeUserPosition(username, TRAINER_POSITION_ID);
+            if (wasUserMarked) {
+                serverResponse = reader.readUserTextProperty(language, Message.OPERATION_SUCCEED);
+            } else {
+                serverResponse = reader.readUserTextProperty(language, Message.OPERATION_FAILED);
+            }
+            request.setAttribute(Attribute.MESSAGE, serverResponse);
+            List<User> users = adminService.viewUsers();
+            request.setAttribute(Attribute.LANGUAGE, language);
+            request.setAttribute(Attribute.USERS, users);
         } catch (ServiceException e) {
+            pagePath = PagePath.ERROR;
             LOGGER.warn("Can't unblock user", e);
-            serverResponse = reader.readUserTextProperty(language, Message.VERIFICATION_FAILED);
         }
-        request.setAttribute(Attribute.MESSAGE, serverResponse);
-        request.setAttribute(Attribute.LANGUAGE, Attribute.DEFAULT_ENGLISH_LANGUAGE);
         return pagePath;
     }
 }

@@ -18,7 +18,12 @@ public enum CommandType {
     GO_TO_REDACT_MEMBERSHIP(new GoToMembershipRedactCommand()),
     PURCHASE_MEMBERSHIP(new PurchaseMembershipCommand()),
     REDACT_MEMBERSHIP(new RedactMembershipCommand()),
-    VIEW_USER_PROFILE(new ViewUserProfile());
+    VIEW_USER_PROFILE(new ViewUserProfile()),
+    GO_TO_REDACT_PROFILE(new GoToRedactProfileCommand()),
+    REDACT_USER_PROFILE(new RedactUserProfileCommand()),
+    MARK_TRAINER_AS_USER(new MarkTrainerAsUserCommand()),
+    MARK_USER_AS_TRAINER(new MarkUserAsTrainerCommand()),
+    VIEW_TRAINER_CUSTOMERS(new ViewTrainerCustomersCommand());
 
     private Command command;
 

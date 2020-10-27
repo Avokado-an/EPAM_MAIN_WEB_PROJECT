@@ -17,9 +17,6 @@ public class GoToMembershipRedactCommand implements Command {
         session.setAttribute(Attribute.ID, id);
         String language = (String) session.getAttribute(Attribute.LANGUAGE);
         request.setAttribute(Attribute.LANGUAGE, language);
-        RequestAttributesWarehouse.getInstance().fillMapWithRequestAttributes(request);
-        session.setAttribute(Attribute.CURRENT_PAGE, pagePath);
-        request.setAttribute(Attribute.USER_ROLE, session.getAttribute(Attribute.USER_ROLE));
         return pagePath;
     }
 }

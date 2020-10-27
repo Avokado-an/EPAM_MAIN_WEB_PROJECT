@@ -3,6 +3,7 @@ package com.anton.web.controller.command.impl;
 import com.anton.web.controller.command.*;
 import com.anton.web.controller.util.PropertiesReader;
 import com.anton.web.model.entity.Membership;
+import com.anton.web.model.entity.User;
 import com.anton.web.model.exception.ServiceException;
 import com.anton.web.model.service.MembershipService;
 import com.anton.web.model.service.UserService;
@@ -17,13 +18,13 @@ import java.util.Optional;
 
 public class PurchaseMembershipCommand implements Command {
     private static final Logger LOGGER = LogManager.getLogger();
+    private UserService userService = UserServiceImplementation.getInstance();
+    private MembershipService membershipService = MembershipServiceImplementation.getInstance();
+    private PropertiesReader reader = PropertiesReader.getInstance();
 
     @Override
     public String execute(HttpServletRequest request) {
-        UserService userService = UserServiceImplementation.getInstance();
-        MembershipService membershipService = MembershipServiceImplementation.getInstance();
         String pagePath = PagePath.USER_PROFILE;
-        PropertiesReader reader = PropertiesReader.getInstance();
         HttpSession session = request.getSession();
         String language = (String) session.getAttribute(Attribute.LANGUAGE);
         String membershipId = request.getParameter(Attribute.ID);
@@ -36,6 +37,10 @@ public class PurchaseMembershipCommand implements Command {
             } else {
                 serverResponse = reader.readUserTextProperty(language, Message.OPERATION_FAILED);
             }
+            String description = defineUserDescription(username);
+            String photoReference = defineUserPhotoReference(username);
+            request.setAttribute(Attribute.DESCRIPTION, description);
+            request.setAttribute(Attribute.PHOTO_REFERENCE, photoReference);
             Optional<Membership> membership = membershipService.findUsersMembership(username);
             membership.ifPresent(m -> request.setAttribute(Attribute.MEMBERSHIP, m));
             request.setAttribute(Attribute.MESSAGE, serverResponse);
@@ -43,10 +48,25 @@ public class PurchaseMembershipCommand implements Command {
         } catch (ServiceException e) {
             LOGGER.warn("can't view users", e);
         }
-        session.setAttribute(Attribute.CURRENT_PAGE, pagePath);
         request.setAttribute(Attribute.USERNAME, username);
-        RequestAttributesWarehouse.getInstance().fillMapWithRequestAttributes(request);
-        request.setAttribute(Attribute.USER_ROLE, session.getAttribute(Attribute.USER_ROLE));
         return pagePath;
+    }
+
+    private String defineUserDescription(String username) throws ServiceException {
+        Optional<User> user = userService.findByUsername(username);
+        String description = "";
+        if(user.isPresent()) {
+            description = user.get().getDescription();
+        }
+        return description;
+    }
+
+    private String defineUserPhotoReference(String username) throws ServiceException {
+        Optional<User> user = userService.findByUsername(username);
+        String photoReference = "";
+        if(user.isPresent()) {
+            photoReference = user.get().getPhotoReference();
+        }
+        return photoReference;
     }
 }

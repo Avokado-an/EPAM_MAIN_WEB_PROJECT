@@ -21,6 +21,8 @@ public class RegistrationCommand implements Command {
     private static final Logger LOGGER = LogManager.getLogger();
     private static final String EMAIL_VERIFICATION_LINK =
             " http://localhost:8080/EPAM_WEB_PROJECT_war_exploded/account_verification.jsp?username=%s&language=%s";
+    private UserService service = UserServiceImplementation.getInstance();
+    private PropertiesReader reader = PropertiesReader.getInstance();
 
     @Override
     public String execute(HttpServletRequest request) {
@@ -31,8 +33,6 @@ public class RegistrationCommand implements Command {
         String email = request.getParameter(Attribute.EMAIL);
         String language = defineLanguage(session);
         int languageId = LanguageType.valueOf(language.toUpperCase()).getLanguageId();
-        UserService service = UserServiceImplementation.getInstance();
-        PropertiesReader reader = PropertiesReader.getInstance();
         String serverResponse;
         MailSender sender = sendMessage(language, email, username);
         try {
@@ -53,10 +53,7 @@ public class RegistrationCommand implements Command {
             pagePath = PagePath.ERROR;
             LOGGER.warn("Can't register", e);
         }
-        session.setAttribute(Attribute.CURRENT_PAGE, pagePath);
         request.setAttribute(Attribute.LANGUAGE, language);
-        request.setAttribute(Attribute.USER_ROLE, session.getAttribute(Attribute.USER_ROLE));
-        RequestAttributesWarehouse.getInstance().fillMapWithRequestAttributes(request);
         return pagePath;
     }
 

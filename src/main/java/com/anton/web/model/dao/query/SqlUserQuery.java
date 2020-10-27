@@ -17,7 +17,11 @@ public class SqlUserQuery {
     public static final String SELECT_USERS_TRAINER =
             "select trainer.name, trainer.description, trainer.photo_reference from users consumer, users trainer WHERE consumer.trainer_id = trainer.id AND consumer.name = ?";
     public static final String SELECT_TRAINER_USERS =
-            "select user.name, user.description, user.photo_reference from users consumer, users trainer WHERE consumer.trainer_id = trainer.id AND trainer.name = ?";
+            "select consumer.name, consumer.description, consumer.photo_reference from users consumer, users trainer WHERE consumer.trainer_id = trainer.id AND trainer.name = ?";
+    public static final String UPDATE_USERNAME = "UPDATE users SET users.name = ? WHERE users.name = ?";
+    public static final String UPDATE_DESCRIPTION = "UPDATE users SET users.description = ? WHERE users.name = ?";
+    public static final String UPDATE_PHOTO_REFERENCE = "UPDATE users SET users.photo_reference = ? WHERE users.name = ?";
+    public static final String UPDATE_USER_POSITION= "UPDATE users SET users.type_id = ? WHERE users.name = ?";
 
 
     private SqlUserQuery() {
