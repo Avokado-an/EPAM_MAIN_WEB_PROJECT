@@ -1,3 +1,28 @@
 .trainer-card {
+    position: relative;
+}
 
+.text-block {
+    margin-left: 50px;
+    transition: 0.3s all ease;
+    width: 200px;
+    position: absolute;
+    top: 210px;
+    left: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: rgba(5, 8, 19, 0);
+    color: rgba(5, 8, 19, 0);
+}
+
+.trainer-card:hover > .text-block {
+    background-color: rgba(16, 22, 33, 1);
+    color: rgba(153, 156, 169, 1)
+}
+
+.trainer-photo {
+    margin-left: 50px;
+    position: relative;
+    height: 250px;
+    width: 200px
 }

@@ -11,3 +11,11 @@ img {
     top: 24px;
     z-index: -1;
 }
+
+body{
+    background-color: rgba(11, 16, 28, 1);
+}
+
+.bg-dark-blue {
+    background-color: rgba(11, 16, 28, 1);
+}

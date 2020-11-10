@@ -1,26 +1,30 @@
-Возможности актеров:
+Description
+    Web application for fitness club, which allows automatization of working with users, storing data and processing it.
+As a client you can view trainers and memberships and also purchase them. Also you have your own profile,
+where you can describe yourself either for your own purposes or in order to provide basic background to your trainers, who
+can also view your account.
 
-  Гость:
-  
-    1.Просмотр информации об абонементах
-    2.Просмотр информации о тренерах
-    3.Возможность регистрации и входа в аккаунт
-  Клиент:
-  
-    1.Возможности гостя
-    2.Покупка абонемента
-    3.Запись к тренеру
-    4.Формирование своей диеты
-    5.Изменение информации о персональном аккаунте
-  Тренер
-  
-    1.Возможности гостя
-    2.Просмотр юзеров, записавшихся на тренеровку
-    3.Получение сообщений на почту о том, что у них новый клиент
-  Администратор:
-  
-    1.Возможности гостя
-    2.Редактирование и добавление абонементов
-    3.Блокировка и разблокировка пользователей
-    4.Просмотр списка пользователей
-    5.Перевод пользователя в статус тренера
+Actors:
+
+  Guest:
+    1.View membership information
+    2.View trainer information
+    3.Register/login
+    
+  Client:
+    1.Everything guest can
+    2.Purchase of membership
+    3.Sign for trainer instruction
+    5.Specify your personal info
+    
+  Trainer
+    1.Everything guest can
+    2.View users who have signed for an instruction
+    3.Maintain your personal account
+    
+  Admin:
+    1.Everything guest can
+    2.Redact and addition of memberships
+    3.Block\unblock users
+    4.View all users and their status and role
+    5.Change user role
