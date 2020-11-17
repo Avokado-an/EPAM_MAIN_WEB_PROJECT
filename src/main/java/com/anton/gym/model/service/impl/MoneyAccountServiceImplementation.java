@@ -12,8 +12,15 @@ import com.anton.gym.model.service.MoneyAccountService;
 import java.math.BigDecimal;
 import java.util.Optional;
 
+/**
+ * The {@code MoneyAccountServiceImplementation} class represents money account service implementation.
+ *
+ * @author Anton Bogdanov
+ * @version 1.0
+ */
 public class MoneyAccountServiceImplementation implements MoneyAccountService {
     private static MoneyAccountServiceImplementation instance;
+    private static final int MAX_AMOUNT_TO_ADD = 2000;
 
     private MoneyAccountServiceImplementation() {
     }
@@ -23,35 +30,6 @@ public class MoneyAccountServiceImplementation implements MoneyAccountService {
             instance = new MoneyAccountServiceImplementation();
         }
         return instance;
-    }
-
-    @Override
-    public boolean reduceMoneyOnAccount(int userId, double moneySpent) throws ServiceException {
-        MoneyAccountDao moneyDao = MoneyAccountDaoImplementation.getInstance();
-        boolean wasOperationSuccessful = false;
-        if (moneySpent >= 0) {
-            try {
-                moneySpent *= -1;
-                BigDecimal money = BigDecimal.valueOf(moneySpent);
-                moneyDao.changeMoneyAmount(userId, money);
-                wasOperationSuccessful = true;
-            } catch (DaoException ex) {
-                throw new ServiceException("Can't change users membership_id", ex);
-            }
-        }
-        return wasOperationSuccessful;
-    }
-
-    @Override
-    public BigDecimal checkMoneyOnAccount(int userId) throws ServiceException {
-        MoneyAccountDao moneyDao = MoneyAccountDaoImplementation.getInstance();
-        BigDecimal balance;
-        try {
-            balance = moneyDao.showCurrentBalance(userId);
-        } catch (DaoException ex) {
-            throw new ServiceException("Can't change users membership_id", ex);
-        }
-        return balance;
     }
 
     @Override
@@ -90,7 +68,7 @@ public class MoneyAccountServiceImplementation implements MoneyAccountService {
         boolean wasOperationSuccessful = false;
         try {
             double moneyValue = Double.parseDouble(moneyAdded);
-            if (moneyValue >= 0) {
+            if (moneyValue >= 0 && moneyValue < MAX_AMOUNT_TO_ADD) {
                 wasOperationSuccessful = increaseBalance(username, moneyValue);
             }
         } catch (NumberFormatException e) {

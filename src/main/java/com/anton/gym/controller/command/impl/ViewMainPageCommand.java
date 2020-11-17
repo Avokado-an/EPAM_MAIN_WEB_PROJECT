@@ -3,9 +3,10 @@ package com.anton.gym.controller.command.impl;
 import com.anton.gym.controller.command.Attribute;
 import com.anton.gym.controller.command.Command;
 import com.anton.gym.controller.command.PagePath;
+import com.anton.gym.exception.ServiceException;
 import com.anton.gym.model.entity.Membership;
 import com.anton.gym.model.entity.User;
-import com.anton.gym.exception.ServiceException;
+import com.anton.gym.model.entity.UserType;
 import com.anton.gym.model.service.MembershipService;
 import com.anton.gym.model.service.UserService;
 import com.anton.gym.model.service.impl.MembershipServiceImplementation;
@@ -17,6 +18,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
+/**
+ * The {@code ViewMailPageCommand} class represents view main page command.
+ *
+ * @author Anton Bogdanov
+ * @version 1.0
+ */
 public class ViewMainPageCommand implements Command {
     private static final Logger LOGGER = LogManager.getLogger();
     private MembershipService membershipService = MembershipServiceImplementation.getInstance();
@@ -26,7 +33,7 @@ public class ViewMainPageCommand implements Command {
     public String execute(HttpServletRequest request) {
         String pagePath = PagePath.MAIN;
         try {
-            List<Membership> memberships = membershipService.findMemberships();
+            List<Membership> memberships = findMemberships(request);
             List<User> trainers = userService.findAllTrainers();
             request.setAttribute(Attribute.TRAINERS, trainers);
             request.setAttribute(Attribute.MEMBERSHIPS, memberships);
@@ -35,5 +42,17 @@ public class ViewMainPageCommand implements Command {
             pagePath = PagePath.ERROR;
         }
         return pagePath;
+    }
+
+    private List<Membership> findMemberships(HttpServletRequest request) throws ServiceException {
+        HttpSession session = request.getSession();
+        UserType currentRole = (UserType) session.getAttribute(Attribute.USER_ROLE);
+        List<Membership> memberships;
+        if (currentRole == UserType.ADMIN) {
+            memberships = membershipService.findMemberships();
+        } else {
+            memberships = membershipService.findActiveMemberships();
+        }
+        return memberships;
     }
 }

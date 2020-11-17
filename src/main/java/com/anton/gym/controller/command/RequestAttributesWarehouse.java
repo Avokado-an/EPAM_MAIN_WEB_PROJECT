@@ -1,11 +1,17 @@
 package com.anton.gym.controller.command;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.*;
-import java.util.function.BiConsumer;
-import java.util.function.BiFunction;
-import java.util.function.Function;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
+/**
+ * The {@code RequestAttributesWarehouse} class represents attributes, which are saved from last request.
+ *
+ * @author Anton Bogdanov
+ * @version 1.0
+ */
 public class RequestAttributesWarehouse {
     private Map<String, Object> attributes;
     private static RequestAttributesWarehouse instance;
@@ -16,6 +22,11 @@ public class RequestAttributesWarehouse {
         attributes.put(Attribute.CURRENT_PAGE, startingDefaultPage);
     }
 
+    /**
+     * get instance of class
+     *
+     * @return instance
+     */
     public static RequestAttributesWarehouse getInstance() {
         if (instance == null) {
             instance = new RequestAttributesWarehouse();
@@ -23,6 +34,11 @@ public class RequestAttributesWarehouse {
         return instance;
     }
 
+    /**
+     * fills map with request attributes
+     *
+     * @param request which parameters to put into map
+     */
     public void fillMapWithRequestAttributes(HttpServletRequest request) {
         Enumeration<String> parametersNames = request.getAttributeNames();
         while (parametersNames.hasMoreElements()) {
@@ -33,99 +49,29 @@ public class RequestAttributesWarehouse {
         }
     }
 
-    public void setAttributes(Map<String, Object> attributes) {
-        this.attributes = attributes;
-    }
-
-    public int size() {
-        return attributes.size();
-    }
-
-    public boolean isEmpty() {
-        return attributes.isEmpty();
-    }
-
-    public boolean containsKey(Object key) {
-        return attributes.containsKey(key);
-    }
-
-    public boolean containsValue(Object value) {
-        return attributes.containsValue(value);
-    }
-
+    /**
+     * get value by key from attributes
+     *
+     * @param key the key of the value
+     * @return value
+     */
     public Object get(Object key) {
         return attributes.get(key);
     }
 
-    public Object put(String key, Object value) {
-        return attributes.put(key, value);
-    }
-
-    public Object remove(Object key) {
-        return attributes.remove(key);
-    }
-
-    public void putAll(Map<? extends String, ?> m) {
-        attributes.putAll(m);
-    }
-
-    public void clear() {
-        attributes.clear();
-    }
-
-    public Set<String> keySet() {
-        return attributes.keySet();
-    }
-
-    public Collection<Object> values() {
-        return attributes.values();
-    }
-
+    /**
+     * get entry set
+     *
+     * @return the entry set
+     */
     public Set<Map.Entry<String, Object>> entrySet() {
         return attributes.entrySet();
     }
 
-    public Object getOrDefault(Object key, Object defaultValue) {
-        return attributes.getOrDefault(key, defaultValue);
-    }
-
-    public void forEach(BiConsumer<? super String, ? super Object> action) {
-        attributes.forEach(action);
-    }
-
-    public void replaceAll(BiFunction<? super String, ? super Object, ?> function) {
-        attributes.replaceAll(function);
-    }
-
-    public Object putIfAbsent(String key, Object value) {
-        return attributes.putIfAbsent(key, value);
-    }
-
-    public boolean remove(Object key, Object value) {
-        return attributes.remove(key, value);
-    }
-
-    public boolean replace(String key, Object oldValue, Object newValue) {
-        return attributes.replace(key, oldValue, newValue);
-    }
-
-    public Object replace(String key, Object value) {
-        return attributes.replace(key, value);
-    }
-
-    public Object computeIfAbsent(String key, Function<? super String, ?> mappingFunction) {
-        return attributes.computeIfAbsent(key, mappingFunction);
-    }
-
-    public Object computeIfPresent(String key, BiFunction<? super String, ? super Object, ?> remappingFunction) {
-        return attributes.computeIfPresent(key, remappingFunction);
-    }
-
-    public Object compute(String key, BiFunction<? super String, ? super Object, ?> remappingFunction) {
-        return attributes.compute(key, remappingFunction);
-    }
-
-    public Object merge(String key, Object value, BiFunction<? super Object, ? super Object, ?> remappingFunction) {
-        return attributes.merge(key, value, remappingFunction);
+    /**
+     * clears the attributes
+     */
+    public void clear() {
+        attributes.clear();
     }
 }

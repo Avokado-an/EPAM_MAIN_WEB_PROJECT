@@ -23,6 +23,12 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * The {@code SignForCoachCommand} class represents sign for coach command.
+ *
+ * @author Anton Bogdanov
+ * @version 1.0
+ */
 public class SignForCoachCommand implements Command {
     private static final String SPACE = " ";
     private static final boolean IS_PROFILE_OWNER = true;
@@ -43,21 +49,27 @@ public class SignForCoachCommand implements Command {
                 sendMessage(trainerName, username);
             }
             String serverResponse = ServerResponseDefiner.defineServerResponse(wasTrainerIdUpdated, language);
-            session.setAttribute(Attribute.IS_PROFILE_OWNER, IS_PROFILE_OWNER);
-            String description = UserFieldsDefiner.defineUserDescription(username, language);
-            String photoReference = UserFieldsDefiner.defineUserPhotoReference(username);
-            request.setAttribute(Attribute.DESCRIPTION, description);
-            request.setAttribute(Attribute.PHOTO_REFERENCE, photoReference);
-            Optional<Membership> membership = membershipService.findUsersMembership(username);
-            membership.ifPresent(m -> request.setAttribute(Attribute.MEMBERSHIP, m));
-            List<User> trainers = userService.findUserTrainers(username);//todo make 1 trainer for 1 user
-            request.setAttribute(Attribute.TRAINERS, trainers);
+            fillUserAttributes(request, username, language);
             request.setAttribute(Attribute.MESSAGE, serverResponse);
         } catch (ServiceException e) {
             LOGGER.warn("can't view users", e);
         }
         request.setAttribute(Attribute.USERNAME, username);
         return pagePath;
+    }
+
+    private void fillUserAttributes(HttpServletRequest request, String username, String language)
+            throws ServiceException {
+        HttpSession session = request.getSession();
+        session.setAttribute(Attribute.IS_PROFILE_OWNER, IS_PROFILE_OWNER);
+        String description = UserFieldsDefiner.defineUserDescription(username, language);
+        String photoReference = UserFieldsDefiner.defineUserPhotoReference(username);
+        request.setAttribute(Attribute.DESCRIPTION, description);
+        request.setAttribute(Attribute.PHOTO_REFERENCE, photoReference);
+        Optional<Membership> membership = membershipService.findUsersMembership(username);
+        membership.ifPresent(m -> request.setAttribute(Attribute.MEMBERSHIP, m));
+        List<User> trainers = userService.findUserTrainers(username);//todo make 1 trainer for 1 user
+        request.setAttribute(Attribute.TRAINERS, trainers);
     }
 
     private void sendMessage(String trainerName, String username) throws ServiceException {

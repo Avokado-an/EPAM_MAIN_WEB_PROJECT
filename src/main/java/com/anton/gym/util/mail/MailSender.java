@@ -14,6 +14,12 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 
+/**
+ * The {@code MailSender} class represents MailSender.
+ *
+ * @author Anton Bogdanov
+ * @version 1.0
+ */
 public class MailSender {
     private static final Logger LOGGER = LogManager.getLogger();
     private static final String PROPERTY_PATH =
@@ -24,6 +30,12 @@ public class MailSender {
     private String mailText;
     private Properties properties;
 
+    /**
+     * creates object of MailSender
+     * @param sendToEmail the email to which send the message
+     * @param mailSubject the subject of the message
+     * @param mailText the text of the message
+     */
     public MailSender(String sendToEmail, String mailSubject, String mailText) {
         this.sendToEmail = sendToEmail;
         this.mailSubject = mailSubject;
@@ -36,6 +48,9 @@ public class MailSender {
         }
     }
 
+    /**
+     * sends a message
+     */
     public void send() {
         try {
             initMessage();

@@ -5,9 +5,21 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.Executor;
 
+
+/**
+ * The {@code ProxyConnection} class represents membership creator.
+ *
+ * @author Anton Bogdanov
+ * @version 1.0
+ */
 public class ProxyConnection implements Connection {
     private Connection connection;
 
+    /**
+     * creates object of class
+     *
+     * @param connection
+     */
     ProxyConnection(Connection connection) {
         this.connection = connection;
     }

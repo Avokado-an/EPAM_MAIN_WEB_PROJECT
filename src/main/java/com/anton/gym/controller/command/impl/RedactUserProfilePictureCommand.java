@@ -4,14 +4,14 @@ import com.anton.gym.controller.command.Attribute;
 import com.anton.gym.controller.command.Command;
 import com.anton.gym.controller.command.Message;
 import com.anton.gym.controller.command.PagePath;
-import com.anton.gym.util.PropertiesReader;
+import com.anton.gym.exception.ServiceException;
 import com.anton.gym.model.entity.Membership;
 import com.anton.gym.model.entity.User;
-import com.anton.gym.exception.ServiceException;
 import com.anton.gym.model.service.MembershipService;
 import com.anton.gym.model.service.UserService;
 import com.anton.gym.model.service.impl.MembershipServiceImplementation;
 import com.anton.gym.model.service.impl.UserServiceImplementation;
+import com.anton.gym.util.PropertiesReader;
 import com.anton.gym.util.UserFieldsDefiner;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -21,6 +21,12 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * The {@code RedactUserProfilePictureCommand} class represents redact user profile picture command.
+ *
+ * @author Anton Bogdanov
+ * @version 1.0
+ */
 public class RedactUserProfilePictureCommand implements Command {
     private static final UserService userService = UserServiceImplementation.getInstance();
     private static final MembershipService membershipService = MembershipServiceImplementation.getInstance();

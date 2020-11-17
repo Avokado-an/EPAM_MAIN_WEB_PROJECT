@@ -8,6 +8,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Map;
 
+/**
+ * The {@code ChangeLanguageCommand} class represents change language command.
+ *
+ * @author Anton Bogdanov
+ * @version 1.0
+ */
 public class ChangeLanguageCommand implements Command {
     @Override
     public String execute(HttpServletRequest request) {
@@ -17,7 +23,7 @@ public class ChangeLanguageCommand implements Command {
         String page = (String) session.getAttribute(Attribute.CURRENT_PAGE);
         fillRequestFromSession(request);
         request.setAttribute(Attribute.LANGUAGE, language);
-        if(page != null) {
+        if (page != null) {
             request.setAttribute(Attribute.CURRENT_PAGE, page);
         }
         return (String) request.getAttribute(Attribute.CURRENT_PAGE);

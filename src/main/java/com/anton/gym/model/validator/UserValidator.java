@@ -3,6 +3,12 @@ package com.anton.gym.model.validator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * The {@code MembershipValidator} class represents membership validator.
+ *
+ * @author Anton Bogdanov
+ * @version 1.0
+ */
 public class UserValidator {
     private static UserValidator instance = new UserValidator();
     private static final String NON_LETTER_NUMBER_REGEX = "[\\W]";
@@ -13,6 +19,11 @@ public class UserValidator {
     private static final String DESCRIPTION_REGEX = "[\\w,. :;?!'\\\\\"]{1,999}";
     private static final String PHOTO_REFERENCE_REGEX = "^\\w{1,150}\\.png|^\\w{1,}\\.jpg";
 
+    /**
+     * get instance
+     *
+     * @return the instance
+     */
     public static UserValidator getInstance() {
         return instance;
     }
@@ -21,11 +32,24 @@ public class UserValidator {
 
     }
 
+    /**
+     * validate user
+     *
+     * @param username the name
+     * @param email    the email
+     * @return if name and mail are valid
+     */
     public boolean validateUser(String username, String email) {
         return username != null && validateStringCharacters(username) &&
                 email != null && validateEmail(email);
     }
 
+    /**
+     * validate description
+     *
+     * @param description the description
+     * @return if description is valid
+     */
     public boolean validateDescription(String description) {
         boolean wasValidationSuccessful = false;
         if (description != null) {
@@ -42,6 +66,12 @@ public class UserValidator {
         return wasValidationSuccessful;
     }
 
+    /**
+     * validate line
+     *
+     * @param line the line
+     * @return if line value is valid
+     */
     public boolean validateStringCharacters(String line) {
         boolean isAppropriateLine = true;
         if (line != null) {
@@ -56,6 +86,12 @@ public class UserValidator {
         return isAppropriateLine;
     }
 
+    /**
+     * validate photo reference
+     *
+     * @param fileName the file name
+     * @return if reference is valid
+     */
     public boolean validatePhotoReference(String fileName) {
         boolean wasSuccessfulValidation = false;
         if (fileName != null) {
@@ -66,6 +102,12 @@ public class UserValidator {
         return wasSuccessfulValidation;
     }
 
+    /**
+     * validate email
+     *
+     * @param email the email
+     * @return if email value is valid
+     */
     public boolean validateEmail(String email) {
         boolean wasSuccessfulValidation = false;
         if (email != null) {

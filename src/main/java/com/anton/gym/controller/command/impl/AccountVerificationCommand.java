@@ -16,6 +16,12 @@ import org.apache.logging.log4j.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+/**
+ * The {@code AccountVerificationCommand} class represents account verification command.
+ *
+ * @author Anton Bogdanov
+ * @version 1.0
+ */
 public class AccountVerificationCommand implements Command {
     private static final Logger LOGGER = LogManager.getLogger();
     private AdminService adminService = AdminServiceImplementation.getInstance();

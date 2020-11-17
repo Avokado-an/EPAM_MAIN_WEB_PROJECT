@@ -8,6 +8,7 @@ import com.anton.gym.model.entity.User;
 import com.anton.gym.model.service.AdminService;
 import com.anton.gym.model.service.impl.AdminServiceImplementation;
 import com.anton.gym.util.ServerResponseDefiner;
+import com.anton.gym.util.UsersOnPageHandler;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -15,6 +16,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
+/**
+ * The {@code VMarkUserAsTrainerCommand} class represents mark user as trainer command.
+ *
+ * @author Anton Bogdanov
+ * @version 1.0
+ */
 public class MarkUserAsTrainerCommand implements Command {
     private static final Logger LOGGER = LogManager.getLogger();
     private static final int TRAINER_POSITION_ID = 2;
@@ -31,7 +38,7 @@ public class MarkUserAsTrainerCommand implements Command {
             boolean wasUserMarked = adminService.changeUserPosition(username, TRAINER_POSITION_ID);
             serverResponse = ServerResponseDefiner.defineServerResponse(wasUserMarked, language);
             request.setAttribute(Attribute.MESSAGE, serverResponse);
-            List<User> users = adminService.viewUsers();
+            List<User> users = UsersOnPageHandler.viewUsersOnPage(request);
             request.setAttribute(Attribute.LANGUAGE, language);
             request.setAttribute(Attribute.USERS, users);
         } catch (ServiceException e) {

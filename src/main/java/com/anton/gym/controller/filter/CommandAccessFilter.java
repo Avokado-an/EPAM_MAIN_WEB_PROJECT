@@ -16,6 +16,12 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * The {@code CommandAccessFilter} class represents CommandAccessFilter.
+ *
+ * @author Anton Bogdanov
+ * @version 1.0
+ */
 @WebFilter(urlPatterns = "/userServlet")
 public class CommandAccessFilter implements Filter {
     private static final Logger LOGGER = LogManager.getLogger();
@@ -37,7 +43,7 @@ public class CommandAccessFilter implements Filter {
         List<Command> availableCommands = CommandRoleAccess.valueOf(currentUserRole.toString()).getAllowedCommands();
         if (!availableCommands.contains(currentCommand)) {
             request.getRequestDispatcher(PagePath.PAGE_NOT_FOUND_ERROR).forward(servletRequest, servletResponse);
-            //illegalAccessDetails(session);
+            illegalAccessDetails(session);
         }
         filterChain.doFilter(servletRequest, servletResponse);
     }
@@ -47,6 +53,11 @@ public class CommandAccessFilter implements Filter {
 
     }
 
+    /**
+     * logs info about user who tried to do illegal action
+     *
+     * @param session the session
+     */
     private void illegalAccessDetails(HttpSession session) {
         String username = (String) session.getAttribute(Attribute.USERNAME);
         if (username != null) {

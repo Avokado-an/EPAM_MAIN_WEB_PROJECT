@@ -4,6 +4,8 @@
 <fmt:setLocale value="${sessionScope.language}" scope="session"/>
 <fmt:bundle basename="html.text">
     <head>
+        <script type="text/javascript"
+                src="${pageContext.request.contextPath}/js/project.js"></script>
         <title>Title</title>
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/profile.css"/>
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/membership.css"/>
@@ -20,14 +22,14 @@
                 <input type="hidden" name="command" value="go_to_redact_profile">
                 <input type="hidden" name="username" value="${username}">
                 <input type="hidden" name="description" value="${description}">
-                <input class="dark-submit" type="submit" value="<fmt:message key="redact"/>">
+                <input class="inverse-color-hover-submit" type="submit" value="<fmt:message key="redact"/>">
             </form>
         </c:if>
         <c:if test="${!is_profile_owner and user_role.toString().equals(\"CLIENT\")}">
             <form class="m-left-170" action="userServlet" method="post">
                 <input type="hidden" name="command" value="sign_for_coach">
                 <input type="hidden" name="username" value="${username}">
-                <input class="dark-submit" type="submit" value="<fmt:message key="sign"/>">
+                <input class="inverse-color-hover-submit" type="submit" value="<fmt:message key="sign"/>">
             </form>
         </c:if>
     </div>

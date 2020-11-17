@@ -13,7 +13,14 @@ import org.apache.logging.log4j.Logger;
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.Optional;
 
+/**
+ * The {@code MembershipDao} class represents membership dao.
+ *
+ * @author Anton Bogdanov
+ * @version 1.0
+ */
 public class Transaction {
     private static Transaction instance;
     private static final Logger LOGGER = LogManager.getLogger();
@@ -23,6 +30,11 @@ public class Transaction {
 
     }
 
+    /**
+     * get instance
+     *
+     * @return the instance
+     */
     public static Transaction getInstance() {
         if (instance == null) {
             instance = new Transaction();
@@ -30,6 +42,14 @@ public class Transaction {
         return instance;
     }
 
+    /**
+     * create user account and connected to it moneyAccount
+     *
+     * @param user       the user to create in db
+     * @param password   the password of user
+     * @param languageId the language id of user
+     * @throws TransactionException
+     */
     public void createUserAndMoneyAccount(User user, String password, int languageId) throws TransactionException {
         UserDao userDao = UserDaoImplementation.getInstance();
         MoneyAccountDao moneyAccountDao = MoneyAccountDaoImplementation.getInstance();
@@ -38,7 +58,12 @@ public class Transaction {
             connection = ConnectionPool.getInstance().getConnection();
             connection.setAutoCommit(false);
             userDao.save(user, password, languageId);
-            moneyAccountDao.createUserMoneyAccount(user.getId());
+            Optional<User> userToSave = userDao.findByName(user.getUsername());
+            if (userToSave.isPresent()) {
+                moneyAccountDao.createUserMoneyAccount(userToSave.get().getId());
+            } else {
+                throw new DaoException("For some reason cant find newly created user");
+            }
         } catch (ConnectionPoolException | SQLException | DaoException e) {
             rollbackConnection(connection);
             throw new TransactionException("Can't add user and his money account", e);
@@ -47,6 +72,15 @@ public class Transaction {
         }
     }
 
+    /**
+     * purchase membership
+     *
+     * @param membershipId    the id of membership
+     * @param membershipPrice the price of membership
+     * @param userId          the id of account
+     * @param username        the name of the user
+     * @throws TransactionException
+     */
     public void purchaseMembership(int membershipId, double membershipPrice, int userId, String username)
             throws TransactionException {
         UserDao userDao = UserDaoImplementation.getInstance();

@@ -11,9 +11,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
+/**
+ * The {@code MoneyAccountDaoImplementation} class represents money account dao implementation.
+ *
+ * @author Anton Bogdanov
+ * @version 1.0
+ */
 public class MoneyAccountDaoImplementation implements MoneyAccountDao {
     private static final BigDecimal USER_STARTING_MONEY_AMOUNT = new BigDecimal("0.");
     private static MoneyAccountDaoImplementation instance;
@@ -53,7 +59,7 @@ public class MoneyAccountDaoImplementation implements MoneyAccountDao {
             ResultSet resultSet = selectMoneyAmountStatement.executeQuery();
             resultSet.next();
             BigDecimal currentBalance = resultSet.getBigDecimal(1);
-            List<BigDecimal> moneyBalances = Arrays.asList(currentBalance, moneyToSpend);
+            List<BigDecimal> moneyBalances = Collections.singletonList(moneyToSpend);
             currentBalance = moneyBalances.stream().reduce(currentBalance, BigDecimal::add);
             updateStatement.setBigDecimal(1, currentBalance);
             updateStatement.setInt(2, userId);

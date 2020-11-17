@@ -13,8 +13,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * The {@code MembershipDaoImplementation} class represents membership dao implementation.
+ *
+ * @author Anton Bogdanov
+ * @version 1.0
+ */
 public class MembershipDaoImplementation implements MembershipDao {
     private static MembershipDaoImplementation instance;
+    private static final boolean ACTIVE = true;
 
     public static MembershipDaoImplementation getInstance() {
         if (instance == null) {
@@ -36,6 +43,7 @@ public class MembershipDaoImplementation implements MembershipDao {
             statement.setInt(2, membership.getPrice());
             statement.setString(3, membership.getAmountOfAttendees());
             statement.setInt(4, membership.getMonths());
+            statement.setBoolean(5, ACTIVE);
             statement.executeUpdate();
         } catch (SQLException ex) {
             throw new DaoException("Can't connect to db", ex);
@@ -67,7 +75,8 @@ public class MembershipDaoImplementation implements MembershipDao {
             statement.setString(2, membership.getAmountOfAttendees());
             statement.setInt(3, membership.getPrice());
             statement.setInt(4, membership.getMonths());
-            statement.setInt(5, membership.getId());
+            statement.setBoolean(5, membership.isActive());
+            statement.setInt(6, membership.getId());
             statement.executeUpdate();
         } catch (SQLException ex) {
             throw new DaoException("Can't connect to db", ex);
@@ -147,6 +156,20 @@ public class MembershipDaoImplementation implements MembershipDao {
         }
     }
 
+    @Override
+    public List<Membership> findAllActive() throws DaoException {
+        ConnectionPool pool = ConnectionPool.getInstance();
+        try (Connection connection = pool.getConnection();
+             Statement statement = connection.createStatement()) {
+            ResultSet resultSet = statement.executeQuery(SqlMembershipQuery.SELECT_ALL_ACTIVE_MEMBERSHIPS);
+            return readMembershipInfo(resultSet);
+        } catch (SQLException ex) {
+            throw new DaoException("Can't connect to db", ex);
+        } catch (ConnectionPoolException e) {
+            throw new DaoException("Can't get connection from pool", e);
+        }
+    }
+
     private List<Membership> readMembershipInfo(ResultSet resultSet) throws SQLException {
         MembershipCreator creator = MembershipCreator.getInstance();
         List<Membership> memberships = new ArrayList<>();
@@ -156,7 +179,8 @@ public class MembershipDaoImplementation implements MembershipDao {
             int price = resultSet.getInt(3);
             String amountOfVisits = resultSet.getString(4);
             int months = resultSet.getInt(5);
-            Optional<Membership> membershipToAdd = creator.createMembership(id, name, price, amountOfVisits, months);
+            boolean isActive = resultSet.getBoolean(6);
+            Optional<Membership> membershipToAdd = creator.createMembership(id, name, price, amountOfVisits, months, isActive);
             membershipToAdd.ifPresent(memberships::add);
         }
         return memberships;

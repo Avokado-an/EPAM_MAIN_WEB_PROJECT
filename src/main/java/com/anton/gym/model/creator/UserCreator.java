@@ -6,6 +6,12 @@ import com.anton.gym.model.validator.UserValidator;
 
 import java.util.Optional;
 
+/**
+ * The {@code UserCreator} class represents user creator.
+ *
+ * @author Anton Bogdanov
+ * @version 1.0
+ */
 public class UserCreator {
     public static UserCreator instance = new UserCreator();
 

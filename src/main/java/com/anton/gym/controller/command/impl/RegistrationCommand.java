@@ -1,15 +1,15 @@
 package com.anton.gym.controller.command.impl;
 
-import com.anton.gym.controller.command.Command;
-import com.anton.gym.controller.command.PagePath;
 import com.anton.gym.controller.command.Attribute;
+import com.anton.gym.controller.command.Command;
 import com.anton.gym.controller.command.Message;
-import com.anton.gym.exception.TransactionException;
-import com.anton.gym.util.PropertiesReader;
-import com.anton.gym.model.entity.LanguageType;
+import com.anton.gym.controller.command.PagePath;
 import com.anton.gym.exception.ServiceException;
+import com.anton.gym.exception.TransactionException;
+import com.anton.gym.model.entity.LanguageType;
 import com.anton.gym.model.service.UserService;
 import com.anton.gym.model.service.impl.UserServiceImplementation;
+import com.anton.gym.util.PropertiesReader;
 import com.anton.gym.util.mail.MailSender;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -17,10 +17,16 @@ import org.apache.logging.log4j.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+/**
+ * The {@code RegistrationCommand} class represents registration command.
+ *
+ * @author Anton Bogdanov
+ * @version 1.0
+ */
 public class RegistrationCommand implements Command {
     private static final Logger LOGGER = LogManager.getLogger();
     private static final String EMAIL_VERIFICATION_LINK =
-            " http://localhost:8080/EPAM_WEB_PROJECT_war_exploded/userServlet?command=verify_account&username=%s&language=%s";
+            " http://localhost:8080/userServlet?command=verify_account&username=%s&language=%s";
     private UserService service = UserServiceImplementation.getInstance();
     private PropertiesReader reader = PropertiesReader.getInstance();
 

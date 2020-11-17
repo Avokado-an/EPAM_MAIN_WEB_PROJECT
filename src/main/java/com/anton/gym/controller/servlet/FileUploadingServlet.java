@@ -15,6 +15,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * The {@code FileUploadingServlet} class represents FileUploadingServlet.
+ *
+ * @author Anton Bogdanov
+ * @version 1.0
+ */
 @WebServlet(urlPatterns = "/FileUploadingServlet")
 @MultipartConfig(fileSizeThreshold = 1024 * 1024,
         maxFileSize = 1024 * 1024 * 5,

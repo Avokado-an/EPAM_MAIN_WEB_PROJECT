@@ -21,6 +21,12 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * The {@code RedactUserProfileCommand} class represents redact user profile command.
+ *
+ * @author Anton Bogdanov
+ * @version 1.0
+ */
 public class RedactUserProfileCommand implements Command {
     private static final Logger LOGGER = LogManager.getLogger();
     private UserService userService = UserServiceImplementation.getInstance();

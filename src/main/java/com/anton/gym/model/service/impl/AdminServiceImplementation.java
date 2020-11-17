@@ -1,17 +1,23 @@
 package com.anton.gym.model.service.impl;
 
+import com.anton.gym.exception.DaoException;
+import com.anton.gym.exception.ServiceException;
 import com.anton.gym.model.dao.UserDao;
 import com.anton.gym.model.dao.impl.UserDaoImplementation;
 import com.anton.gym.model.entity.User;
 import com.anton.gym.model.entity.UserType;
-import com.anton.gym.exception.DaoException;
-import com.anton.gym.exception.ServiceException;
 import com.anton.gym.model.service.AdminService;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * The {@code AdminServiceImplementation} class represents admin service implementation.
+ *
+ * @author Anton Bogdanov
+ * @version 1.0
+ */
 public class AdminServiceImplementation implements AdminService {
     private static AdminServiceImplementation instance = new AdminServiceImplementation();
 

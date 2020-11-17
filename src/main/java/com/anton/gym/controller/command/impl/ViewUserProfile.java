@@ -3,9 +3,9 @@ package com.anton.gym.controller.command.impl;
 import com.anton.gym.controller.command.Attribute;
 import com.anton.gym.controller.command.Command;
 import com.anton.gym.controller.command.PagePath;
+import com.anton.gym.exception.ServiceException;
 import com.anton.gym.model.entity.Membership;
 import com.anton.gym.model.entity.User;
-import com.anton.gym.exception.ServiceException;
 import com.anton.gym.model.service.MembershipService;
 import com.anton.gym.model.service.UserService;
 import com.anton.gym.model.service.impl.MembershipServiceImplementation;
@@ -19,6 +19,12 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * The {@code ViewUserProfileCommand} class represents view user profile command.
+ *
+ * @author Anton Bogdanov
+ * @version 1.0
+ */
 public class ViewUserProfile implements Command {
     private static final Logger LOGGER = LogManager.getLogger();
     private MembershipService membershipService = MembershipServiceImplementation.getInstance();
@@ -33,14 +39,7 @@ public class ViewUserProfile implements Command {
         boolean isViewerProfileOwner = isViewerProfileOwner(request);
         session.setAttribute(Attribute.IS_PROFILE_OWNER, isViewerProfileOwner);
         try {
-            String description = UserFieldsDefiner.defineUserDescription(username, language);
-            String photoReference = UserFieldsDefiner.defineUserPhotoReference(username);
-            request.setAttribute(Attribute.DESCRIPTION, description);
-            request.setAttribute(Attribute.PHOTO_REFERENCE, photoReference);
-            List<User> userTrainers = userService.findUserTrainers(username);
-            request.setAttribute(Attribute.TRAINERS, userTrainers);
-            Optional<Membership> membership = membershipService.findUsersMembership(username);
-            membership.ifPresent(m -> request.setAttribute(Attribute.MEMBERSHIP, m));
+            fillUserAttributes(request, username, language);
         } catch (ServiceException e) {
             LOGGER.warn("Can't view user profile", e);
             pagePath = PagePath.ERROR;
@@ -49,9 +48,21 @@ public class ViewUserProfile implements Command {
         return pagePath;
     }
 
+    private void fillUserAttributes(HttpServletRequest request, String username, String language)
+            throws ServiceException {
+        String description = UserFieldsDefiner.defineUserDescription(username, language);
+        String photoReference = UserFieldsDefiner.defineUserPhotoReference(username);
+        request.setAttribute(Attribute.DESCRIPTION, description);
+        request.setAttribute(Attribute.PHOTO_REFERENCE, photoReference);
+        List<User> userTrainers = userService.findUserTrainers(username);
+        request.setAttribute(Attribute.TRAINERS, userTrainers);
+        Optional<Membership> membership = membershipService.findUsersMembership(username);
+        membership.ifPresent(m -> request.setAttribute(Attribute.MEMBERSHIP, m));
+    }
+
     private String defineUsername(HttpServletRequest request) {
         String username = request.getParameter(Attribute.USERNAME);
-        if(username == null || username.isEmpty()) {
+        if (username == null || username.isEmpty()) {
             HttpSession session = request.getSession();
             username = (String) session.getAttribute(Attribute.USERNAME);
         }
@@ -61,7 +72,7 @@ public class ViewUserProfile implements Command {
     private boolean isViewerProfileOwner(HttpServletRequest request) {
         boolean isProfileOwner = false;
         String username = request.getParameter(Attribute.USERNAME);
-        if(username == null || username.isEmpty()) {
+        if (username == null || username.isEmpty()) {
             isProfileOwner = true;
         }
         return isProfileOwner;

@@ -1,9 +1,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="pt" uri="paginationTag" %>
+<%@ taglib prefix="ct" uri="paginationTag" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <fmt:setLocale value="${sessionScope.language}" scope="session"/>
 <fmt:bundle basename="html.text">
     <head>
+        <script type="text/javascript"
+                src="${pageContext.request.contextPath}/js/project.js"></script>
         <title>Title</title>
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/table_outlook.css"/>
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/profile.css"/>
@@ -26,7 +30,7 @@
             <select class="bg-dark" onchange="this.form.submit()" name="field_to_compare">
                 <option><fmt:message key="sort"/></option>
                 <option value="name"><fmt:message key="username"/></option>
-                <option value="isActive"><fmt:message key="activity"/></option>
+                <option value="is_active"><fmt:message key="activity"/></option>
                 <c:if test="${user_role.toString().equals(\"ADMIN\")}">
                     <option value="type_id"><fmt:message key="user_role"/></option>
                 </c:if>
@@ -46,60 +50,21 @@
                     </c:when>
                 </c:choose>
             </tr>
-            <c:forEach var="user" items="${users}">
-                <tr>
-                    <td>
-                        <form action="userServlet" name="view_profile" method="post">
-                            <input type="hidden" name="command" value="view_user_profile">
-                            <input class="bg-dark" type="submit" name="username" value=<c:out
-                                    value="${user.getUsername()}"/>>
-                        </form>
-                    </td>
-                    <td><c:out value="${user.isActive()}"/></td>
-                    <td><c:out value="${user.getType().toString()}"/></td>
-                    <c:choose>
-                        <c:when test="${user.isActive() and user_role.toString().equals(\"ADMIN\")}">
-                            <td>
-                                <form action="userServlet" name="logout" method="post">
-                                    <input type="hidden" name="command" value="block_user">
-                                    <input type="hidden" value="${user.getUsername()}" name="username"/>
-                                    <input class="bg-dark" type="submit" value=<fmt:message key="block_user"/>>
-                                </form>
-                            </td>
-                        </c:when>
-                        <c:when test="${!user.isActive() and user_role.toString().equals(\"ADMIN\")}">
-                            <td>
-                                <form action="userServlet" name="logout" method="post">
-                                    <input type="hidden" name="command" value="unblock_user">
-                                    <input type="hidden" value="${user.getUsername()}" name="username"/>
-                                    <input class="bg-dark" type="submit" value=<fmt:message key="unblock_user"/>>
-                                </form>
-                            </td>
-                        </c:when>
-                    </c:choose>
-                    <c:choose>
-                        <c:when test="${user.getType().toString().equals(\"CLIENT\") and user_role.toString().equals(\"ADMIN\")}">
-                            <td>
-                                <form action="userServlet" name="logout" method="post">
-                                    <input type="hidden" name="command" value="mark_user_as_trainer">
-                                    <input type="hidden" value="${user.getUsername()}" name="username"/>
-                                    <input class="bg-dark" type="submit" value=<fmt:message key="trainer"/>>
-                                </form>
-                            </td>
-                        </c:when>
-                        <c:when test="${user.getType().toString().equals(\"TRAINER\") and user_role.toString().equals(\"ADMIN\")}">
-                            <td>
-                                <form action="userServlet" name="logout" method="post">
-                                    <input type="hidden" name="command" value="mark_trainer_as_user">
-                                    <input type="hidden" value="${user.getUsername()}" name="username"/>
-                                    <input class="bg-dark" type="submit" value=<fmt:message key="user"/>>
-                                </form>
-                            </td>
-                        </c:when>
-                    </c:choose>
-                </tr>
-            </c:forEach>
+            <ct:pagination-users startingIndex="${starting_index}" endingIndex="${ending_index}"/>
         </table>
+        <nav>
+            <ul class="pagination justify-content-center">
+                <c:forEach var="i" begin="1" end="${pages_amount}" step="1">
+                    <li class="page-item">
+                        <form action="userServlet" method="post">
+                            <input type="hidden" name="command" value="change_page_index">
+                            <input class="m-left-30 bg-dark m-top-30" type="submit" name="current_page_number"
+                                   value="<c:out value="${i}"/>">
+                        </form>
+                    </li>
+                </c:forEach>
+            </ul>
+        </nav>
     </div>
     </body>
 </fmt:bundle>

@@ -8,6 +8,12 @@ import com.anton.gym.controller.command.PagePath;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+/**
+ * The {@code GoToAdMembershipCommand} class represents go to add membership command.
+ *
+ * @author Anton Bogdanov
+ * @version 1.0
+ */
 public class GoToAddMembershipCommand implements Command {
     @Override
     public String execute(HttpServletRequest request) {

@@ -1,5 +1,11 @@
 package com.anton.gym.controller.command;
 
+/**
+ * The {@code Message} class represents messages from server to user.
+ *
+ * @author Anton Bogdanov
+ * @version 1.0
+ */
 public enum Message {
     INVALID_USERNAME,
     INVALID_PHOTO_REFERENCE,
@@ -19,5 +25,9 @@ public enum Message {
     NEW_CLIENT_EMAIL_SUBJECT,
     NEW_CLIENT_EMAIL_MESSAGE,
     EMAIL_MESSAGE,
-    ABOUT_ME
+    ABOUT_ME,
+    BLOCK_USER,
+    UNBLOCK_USER,
+    CLIENT,
+    TRAINER
 }

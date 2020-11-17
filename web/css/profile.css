@@ -19,8 +19,15 @@
     font-family: Roboto, sans-serif;
 }
 
-.dark-submit {
+.inverse-color-hover-submit {
+    transition: 0.3s all ease;
+    color: whitesmoke;
     background-color: rgba(11, 16, 28, 1);
+}
+
+.inverse-color-hover-submit:hover {
+    color: black;
+    background-color: whitesmoke;
 }
 
 .image-upload > input {

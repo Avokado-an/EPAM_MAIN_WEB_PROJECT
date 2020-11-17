@@ -13,6 +13,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * The {@code UserDaoImplementation} class represents user dao implementation.
+ *
+ * @author Anton Bogdanov
+ * @version 1.0
+ */
 public class UserDaoImplementation implements UserDao {
     private static UserDaoImplementation instance = new UserDaoImplementation();
     private static final int USER_TYPE_CLIENT_ID = 1;

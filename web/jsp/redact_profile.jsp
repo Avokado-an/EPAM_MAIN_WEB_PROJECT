@@ -3,6 +3,8 @@
 <fmt:setLocale value="${sessionScope.language}" scope="session"/>
 <fmt:bundle basename="html.text">
     <head>
+        <script type="text/javascript"
+                src="${pageContext.request.contextPath}/js/project.js"></script>
         <title>Title</title>
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/basic_style.css"/>
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/input.css"/>
@@ -15,8 +17,9 @@
     <h1 class="m-5"><fmt:message key="redact"/></h1>
     <form action="userServlet" name="redact" method="post">
         <input type="hidden" name="command" value="redact_user_profile">
-        <p><input class="bg-dark m-3" type="text" value="${username}" name="username"
-                  onkeypress="this.style.height = ((this.value.height + 1) * 8) + 'px';" required="required"></p>
+        <p><input class="bg-dark m-3" type="text" value="${username}" name="username" pattern="\w{4,29}"
+                  onkeypress="this.style.height = ((this.value.height + 1) * 8) + 'px';" required="required"
+                  title="<fmt:message key="username_password_characters"/>"></p>
         <p><textarea style="color: whitesmoke" rows="10" cols="80" class="bg-dark m-3 text-color-white" type="text"
                      placeholder="<fmt:message key="about_me"/>"
                      name="description">${description}</textarea></p>

@@ -8,23 +8,32 @@ import com.anton.gym.exception.ServiceException;
 import com.anton.gym.model.entity.Membership;
 import com.anton.gym.model.entity.User;
 import com.anton.gym.model.entity.UserType;
-import com.anton.gym.model.service.AdminService;
 import com.anton.gym.model.service.MembershipService;
+import com.anton.gym.model.service.MoneyAccountService;
 import com.anton.gym.model.service.UserService;
-import com.anton.gym.model.service.impl.AdminServiceImplementation;
 import com.anton.gym.model.service.impl.MembershipServiceImplementation;
+import com.anton.gym.model.service.impl.MoneyAccountServiceImplementation;
 import com.anton.gym.model.service.impl.UserServiceImplementation;
 import com.anton.gym.util.PropertiesReader;
+import com.anton.gym.util.UsersOnPageHandler;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * The {@code LoginCommand} class represents login command.
+ *
+ * @author Anton Bogdanov
+ * @version 1.0
+ */
 public class LoginCommand implements Command {
     private static final Logger LOGGER = LogManager.getLogger();
+    private MoneyAccountService moneyAccountService = MoneyAccountServiceImplementation.getInstance();
     private UserService userService = UserServiceImplementation.getInstance();
 
     @Override
@@ -34,7 +43,7 @@ public class LoginCommand implements Command {
         String password = request.getParameter(Attribute.PASSWORD);
         try {
             Optional<User> currentUser = userService.logIn(username, password);
-            pagePath = processUserLoginAction(request, currentUser, username);
+            pagePath = processUserLoginAction(request, currentUser);
         } catch (ServiceException ex) {
             pagePath = PagePath.ERROR;
             LOGGER.warn("can't log in", ex);
@@ -52,8 +61,8 @@ public class LoginCommand implements Command {
         session.setAttribute(Attribute.USER_ROLE, userType);
     }
 
-    private String processUserLoginAction(HttpServletRequest request, Optional<User> currentUser,
-                                          String username) throws ServiceException {
+    private String processUserLoginAction(HttpServletRequest request, Optional<User> currentUser)
+            throws ServiceException {
         String pagePath = PagePath.LOGIN;
         String serverResponse;
         PropertiesReader reader = PropertiesReader.getInstance();
@@ -62,7 +71,7 @@ public class LoginCommand implements Command {
         if (currentUser.isPresent()) {
             if (currentUser.get().isActive()) {
                 setSessionAttributes(currentUser.get(), request);
-                pagePath = chooseWorkingPage(request, currentUser.get().getType(), username);
+                pagePath = chooseWorkingPage(request, currentUser.get().getType());
             } else {
                 serverResponse = reader.readUserTextProperty(language, Message.USER_NOT_ACTIVE);
                 request.setAttribute(Attribute.MESSAGE, serverResponse);
@@ -74,13 +83,13 @@ public class LoginCommand implements Command {
         return pagePath;
     }
 
-    private String chooseWorkingPage(HttpServletRequest request, UserType type, String username)
+    private String chooseWorkingPage(HttpServletRequest request, UserType type)
             throws ServiceException {
         String pagePath;
         if (type == UserType.ADMIN) {
             pagePath = processAdminData(request);
         } else if (type == UserType.TRAINER) {
-            pagePath = processTrainerData(request, username);
+            pagePath = processTrainerData(request);
         } else {
             pagePath = processUserData(request);
         }
@@ -88,24 +97,39 @@ public class LoginCommand implements Command {
     }
 
     private String processAdminData(HttpServletRequest request) throws ServiceException {
-        AdminService adminService = AdminServiceImplementation.getInstance();
-        List<User> users = adminService.viewUsers();
+        List<User> users = UsersOnPageHandler.viewUsersOnPage(request);
         request.setAttribute(Attribute.USERS, users);
         return PagePath.VIEW_USERS;
     }
 
     private String processUserData(HttpServletRequest request) throws ServiceException {
         MembershipService service = MembershipServiceImplementation.getInstance();
-        List<Membership> memberships = service.findMemberships();
+        List<Membership> memberships = service.findActiveMemberships();
         request.setAttribute(Attribute.MEMBERSHIPS, memberships);
         List<User> userTrainers = userService.findAllTrainers();
         request.setAttribute(Attribute.TRAINERS, userTrainers);
+        representBalance(request);
         return PagePath.MAIN;
     }
 
-    private String processTrainerData(HttpServletRequest request, String trainerName) throws ServiceException {
-        List<User> users = userService.findTrainerUsers(trainerName);
+    private String processTrainerData(HttpServletRequest request) throws ServiceException {
+        List<User> users = UsersOnPageHandler.viewUsersOnPage(request);
         request.setAttribute(Attribute.USERS, users);
         return PagePath.VIEW_USERS;
+    }
+
+    private void representBalance(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        UserType currentRole = (UserType) session.getAttribute(Attribute.USER_ROLE);
+        if (currentRole == UserType.CLIENT) {
+            String username = (String) session.getAttribute(Attribute.USERNAME);
+            try {
+                BigDecimal currentBalance = moneyAccountService.checkMoneyOnAccount(username);
+                session.setAttribute(Attribute.BALANCE, currentBalance);
+            } catch (ServiceException e) {
+                int zero = 0;
+                session.setAttribute(Attribute.BALANCE, zero);
+            }
+        }
     }
 }

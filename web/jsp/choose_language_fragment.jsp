@@ -5,6 +5,8 @@
     <%@ page contentType="text/html;charset=UTF-8" language="java" %>
     <html>
     <head>
+        <script type="text/javascript"
+                src="${pageContext.request.contextPath}/js/project.js"></script>
         <title>Title</title>
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/dropdown_menu.css"/>
     </head>

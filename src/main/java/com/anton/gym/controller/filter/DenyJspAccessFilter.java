@@ -7,6 +7,12 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
+/**
+ * The {@code DenyJspAccessFilter} class represents DenyJspAccessFilter.
+ *
+ * @author Anton Bogdanov
+ * @version 1.0
+ */
 @WebFilter(urlPatterns = {("/jsp/*")})
 public class DenyJspAccessFilter implements Filter {
     @Override

@@ -9,13 +9,19 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 
+/**
+ * The {@code ImagesServlet} class represents ImagesServlet.
+ *
+ * @author Anton Bogdanov
+ * @version 1.0
+ */
 @WebServlet(urlPatterns = "/images/*")
 public class ImagesServlet extends HttpServlet {
     private static final int BEGIN_INDEX = 1;
     private static final String UPLOAD_DIR = "C:\\Users\\Mi\\IdeaProjects\\photo\\";
     private static final String CONTENT_DISPOSITION_VALUE = "inline; filename=\"%s\"";
     private static final String CONTENT_TYPE = "Content-Type";
-    private static final String CONTENT_LENGTH= "Content-Length";
+    private static final String CONTENT_LENGTH = "Content-Length";
     private static final String CONTENT_DISPOSITION = "Content-Disposition";
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

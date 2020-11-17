@@ -1,8 +1,10 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <html>
 <head>
+    <script type="text/javascript"
+            src="${pageContext.request.contextPath}/js/project.js"></script>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/membership.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
@@ -12,7 +14,7 @@
 <fmt:setLocale value="${sessionScope.language}" scope="session"/>
 <fmt:bundle basename="html.text">
     <body>
-    <h1 class="m-4 almost-white-text"><fmt:message key="list_of_memberships"/></h1>
+    <h1 class="m-top-70 almost-white-text"><fmt:message key="list_of_memberships"/></h1>
     <c:if test="${user_role.toString().equals(\"ADMIN\")}">
         <div class="m-3">
             <form action="userServlet" method="post">
@@ -22,7 +24,7 @@
             </form>
         </div>
     </c:if>
-    <div class="m-4 d-flex justify-content-center">
+    <div class="m-top-70 d-flex justify-content-center">
         <c:forEach  var="membership" items="${memberships}">
             <div class="align-content-center d-inline-block">
                 <div class="membership-card m-3">
@@ -36,6 +38,9 @@
                     <div class="m-3"><fmt:message key="amount_of_visits"/>: ${membership.getAmountOfAttendees()}</div>
                     <div class="filled-square"></div>
                     <div class="m-3">${membership.getPrice()} BYN</div>
+                    <c:if test="${user_role.toString().equals(\"ADMIN\")}">
+                        <div class="m-3"><fmt:message key="is_active"/>: ${membership.isActive()} </div>
+                    </c:if>
                 </div>
                 <c:if test="${user_role.toString().equals(\"CLIENT\")}">
                     <div class="m-3">

@@ -3,6 +3,12 @@ package com.anton.gym.model.validator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * The {@code MembershipValidator} class represents membership validator.
+ *
+ * @author Anton Bogdanov
+ * @version 1.0
+ */
 public class MembershipValidator {
     private static MembershipValidator instance;
     private static final String NON_LETTER_NUMBER_REGEX = "[\\W]";
@@ -13,6 +19,11 @@ public class MembershipValidator {
     private static final int MAX_MONTHS_AMOUNT = 36;
     private static final int ZERO = 0;
 
+    /**
+     * get instance
+     *
+     * @return the instance
+     */
     public static MembershipValidator getInstance() {
         if (instance == null) {
             instance = new MembershipValidator();
@@ -24,6 +35,15 @@ public class MembershipValidator {
 
     }
 
+    /**
+     * validate membership
+     *
+     * @param name           the name
+     * @param cost           the cost
+     * @param amountOfVisits the visits amount
+     * @param months         the months amount
+     * @return if all data valid
+     */
     public boolean validateMembership(String name, String cost, String amountOfVisits, String months) {
         return name != null && validateName(name) &&
                 cost != null && validateCost(cost) &&
@@ -31,6 +51,15 @@ public class MembershipValidator {
                 months != null && validateMonths(months);
     }
 
+    /**
+     * validate membership
+     *
+     * @param name           the name
+     * @param cost           the cost
+     * @param amountOfVisits the visits amount
+     * @param months         the months amount
+     * @return if all data valid
+     */
     public boolean validateMembership(String name, int cost, String amountOfVisits, int months) {
         return name != null && validateName(name) &&
                 cost > ZERO && cost < MAX_COST &&
@@ -38,9 +67,15 @@ public class MembershipValidator {
                 months > ZERO && months < MAX_MONTHS_AMOUNT;
     }
 
+    /**
+     * validate name
+     *
+     * @param line the line
+     * @return if name is valid
+     */
     public boolean validateName(String line) {
         boolean isValidName = true;
-        if(line != null) {
+        if (line != null) {
             Pattern pattern = Pattern.compile(NON_LETTER_NUMBER_REGEX);
             Matcher matcher = pattern.matcher(line);
             if (matcher.find() || line.length() > MAX_NAME_LENGTH || line.length() < MIN_NAME_LENGTH) {

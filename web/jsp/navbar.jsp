@@ -5,6 +5,8 @@
 <fmt:bundle basename="html.text">
     <head>
         <title>Title</title>
+        <script type="text/javascript"
+                src="${pageContext.request.contextPath}/js/project.js"></script>
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/profile.css"/>
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/navbar.css"/>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -57,7 +59,7 @@
                         </form>
                     </li>
                 </jstl:if>
-                <jstl:if test="${user_role.toString().equals(\"ADMIN\")}">
+                <jstl:if test="${user_role.toString().equals(\"ADMIN\") or user_role.toString().equals(\"TRAINER\")}">
                     <li class="m-left-30">
                         <form action="userServlet" name="view users" method="post">
                             <input type="hidden" name="command" value="view_users">
@@ -66,23 +68,18 @@
                         </form>
                     </li>
                 </jstl:if>
-                <jstl:if test="${user_role.toString().equals(\"TRAINER\")}">
-                    <li class="m-left-30">
-                        <form action="userServlet" name="view users" method="post">
-                            <input type="hidden" name="command" value="view_trainer_customers">
-                            <input type="submit" class="mx-3 dark-navbar nav-input" value=
-                                <fmt:message key="view_customers"/>>
-                        </form>
-                    </li>
-                </jstl:if>
                 <li class="m-left-30">
                     <jsp:include page="choose_language_fragment.jsp"/>
                 </li>
                 <jstl:if test="${user_role.toString().equals(\"CLIENT\")}">
                     <li class="m-left-30">
-                            ${balance}
+                        <div class="text-color-white">
+                                ${sessionScope.balance} BYN
+                        </div>
+                    </li>
+                    <li>
                         <form action="userServlet" name="profile" method="post">
-                            <input type="hidden" name="command" value="replenish_money_account">
+                            <input type="hidden" name="command" value="go_to_replenish_money_account">
                             <input type="submit" class="mx-3 dark-navbar nav-input" value=
                                 <fmt:message key="add_money"/>>
                         </form>

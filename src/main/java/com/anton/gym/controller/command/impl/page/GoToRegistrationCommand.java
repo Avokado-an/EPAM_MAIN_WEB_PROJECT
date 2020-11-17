@@ -7,6 +7,12 @@ import com.anton.gym.controller.command.PagePath;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+/**
+ * The {@code GoToRegistrationCommand} class represents go to registration command.
+ *
+ * @author Anton Bogdanov
+ * @version 1.0
+ */
 public class GoToRegistrationCommand implements Command {
     @Override
     public String execute(HttpServletRequest request) {

@@ -14,6 +14,12 @@ import java.util.ResourceBundle;
 import java.util.concurrent.BlockingDeque;
 import java.util.concurrent.LinkedBlockingDeque;
 
+/**
+ * The {@code ConnectionPool} class represents connection pool.
+ *
+ * @author Anton Bogdanov
+ * @version 1.0
+ */
 public class ConnectionPool {
     private static final String RESOURCE_BUNDLE = "property.database";
     private static final String USERNAME = "username";
@@ -26,8 +32,13 @@ public class ConnectionPool {
     private BlockingDeque<ProxyConnection> freeConnections;
     private Queue<ProxyConnection> busyConnections;
 
+    /**
+     * get instance
+     *
+     * @return the instance of class
+     */
     public static ConnectionPool getInstance() {
-        if(instance == null) {
+        if (instance == null) {
             instance = new ConnectionPool();
         }
         return instance;
@@ -56,6 +67,12 @@ public class ConnectionPool {
         }
     }
 
+    /**
+     * get connection from pool
+     *
+     * @return the pool connection
+     * @throws ConnectionPoolException
+     */
     public Connection getConnection() throws ConnectionPoolException {
         try {
             ProxyConnection connection = freeConnections.take();
@@ -66,15 +83,22 @@ public class ConnectionPool {
         }
     }
 
+    /**
+     * releases the connection back to free pool connections
+     *
+     * @param connection the connection to release
+     */
     public void releaseConnection(Connection connection) {
-        if (connection instanceof ProxyConnection &&
-                busyConnections.remove(connection)) {
+        if (connection instanceof ProxyConnection && busyConnections.remove(connection)) {
             freeConnections.offer((ProxyConnection) connection);
         } else {
             LOGGER.log(Level.WARN, "Invalid connection to release");
         }
     }
 
+    /**
+     * deactivates the pool
+     */
     public void deactivatePool() {
         try {
             for (int i = 0; i < POOL_SIZE; i++) {

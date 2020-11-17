@@ -20,6 +20,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * The {@code UserServiceImplementation} class represents user service implementation.
+ *
+ * @author Anton Bogdanov
+ * @version 1.0
+ */
 public class UserServiceImplementation implements UserService {
     private static UserServiceImplementation instance = new UserServiceImplementation();
 
@@ -80,21 +86,6 @@ public class UserServiceImplementation implements UserService {
         } catch (DaoException ex) {
             throw new ServiceException("Can't login", ex);
         }
-    }
-
-    @Override
-    public Optional<String> defineUserLanguage(String username) throws ServiceException {
-        UserDao dao = UserDaoImplementation.getInstance();
-        Optional<String> language = Optional.empty();
-        try {
-            Optional<User> optionalUser = dao.findByName(username);
-            if (optionalUser.isPresent()) {
-                language = Optional.of(optionalUser.get().getLanguage());
-            }
-        } catch (DaoException ex) {
-            throw new ServiceException("Can't login", ex);
-        }
-        return language;
     }
 
     @Override

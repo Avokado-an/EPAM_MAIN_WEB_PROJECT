@@ -9,6 +9,12 @@ import com.anton.gym.util.PropertiesReader;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+/**
+ * The {@code FiledCommand} class represents failed command.
+ *
+ * @author Anton Bogdanov
+ * @version 1.0
+ */
 public class FailedCommand implements Command {
     private PropertiesReader reader = PropertiesReader.getInstance();
 

@@ -1,5 +1,11 @@
 package com.anton.gym.controller.command;
 
+/**
+ * The {@code Attribute} class represents server attributes.
+ *
+ * @author Anton Bogdanov
+ * @version 1.0
+ */
 public class Attribute {
     public static final String USERNAME = "username";
     public static final String MESSAGE = "message";
@@ -26,6 +32,11 @@ public class Attribute {
     public static final String FIELD_TO_COMPARE = "field_to_compare";
     public static final String BALANCE = "balance";
     public static final String MONEY = "money";
+    public static final String IS_ACTIVE = "is_active";
+    public static final String CURRENT_PAGE_NUMBER = "current_page_number";
+    public static final String PAGES_AMOUNT = "pages_amount";
+    public static final String ENDING_INDEX = "ending_index";
+    public static final String STARTING_INDEX = "starting_index";
 
     private Attribute() {
     }

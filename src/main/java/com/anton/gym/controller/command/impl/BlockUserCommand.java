@@ -8,6 +8,7 @@ import com.anton.gym.model.entity.User;
 import com.anton.gym.model.service.AdminService;
 import com.anton.gym.model.service.impl.AdminServiceImplementation;
 import com.anton.gym.util.ServerResponseDefiner;
+import com.anton.gym.util.UsersOnPageHandler;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -15,6 +16,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
+/**
+ * The {@code BlockUserCommand} class represents block user command.
+ *
+ * @author Anton Bogdanov
+ * @version 1.0
+ */
 public class BlockUserCommand implements Command {
     private static final Logger LOGGER = LogManager.getLogger();
     private AdminService adminService = AdminServiceImplementation.getInstance();
@@ -30,7 +37,7 @@ public class BlockUserCommand implements Command {
             boolean wasUserBlocked = adminService.blockUser(username);
             serverResponse = ServerResponseDefiner.defineServerResponse(wasUserBlocked, language);
             request.setAttribute(Attribute.MESSAGE, serverResponse);
-            List<User> users = adminService.viewUsers();
+            List<User> users = UsersOnPageHandler.viewUsersOnPage(request);
             request.setAttribute(Attribute.LANGUAGE, session.getAttribute(Attribute.LANGUAGE));
             request.setAttribute(Attribute.USERS, users);
         } catch (ServiceException e) {
