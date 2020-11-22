@@ -16,9 +16,13 @@ Actors:
     3.Register/login
     
   Client:
+  
     1.Everything guest can
+    
     2.Purchase of membership
+    
     3.Sign for trainer instruction
+    
     5.Specify your personal info
     
   Trainer
