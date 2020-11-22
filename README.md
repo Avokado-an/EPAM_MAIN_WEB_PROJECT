@@ -1,9 +1,9 @@
 Description
 
     Web application for fitness club, which allows automatization of working with users, storing data and processing it.
-As a client you can view trainers and memberships and also purchase them. Also you have your own profile,
-where you can describe yourself either for your own purposes or in order to provide basic background to your trainers, who
-can also view your account.
+    As a client you can view trainers and memberships and also purchase them. Also you have your own profile,
+    where you can describe yourself either for your own purposes or in order to provide basic background to your trainers, who
+    can also view your account.
 
 Actors:
 
