@@ -27,7 +27,8 @@ import java.util.Optional;
  * @version 1.0
  */
 public class UserServiceImplementation implements UserService {
-    private static UserServiceImplementation instance = new UserServiceImplementation();
+    private static final UserServiceImplementation instance = new UserServiceImplementation();
+    private UserDao userDao = UserDaoImplementation.getInstance();
 
     public static UserServiceImplementation getInstance() {
         return instance;
@@ -40,8 +41,7 @@ public class UserServiceImplementation implements UserService {
     @Override
     public boolean isUsernameTaken(String username) throws ServiceException {
         try {
-            UserDao dao = UserDaoImplementation.getInstance();
-            Optional<User> userFromDb = dao.findByName(username);
+            Optional<User> userFromDb = userDao.findByName(username);
             return userFromDb.isPresent();
         } catch (DaoException ex) {
             throw new ServiceException(ex);
@@ -69,10 +69,9 @@ public class UserServiceImplementation implements UserService {
 
     @Override
     public Optional<User> logIn(String username, String password) throws ServiceException {
-        UserDao dao = UserDaoImplementation.getInstance();
         String codedPassword = PasswordEncoder.encodeString(password);
         try {
-            return dao.find(username, codedPassword);
+            return userDao.find(username, codedPassword);
         } catch (DaoException ex) {
             throw new ServiceException("Can't login", ex);
         }
@@ -80,9 +79,8 @@ public class UserServiceImplementation implements UserService {
 
     @Override
     public Optional<User> findByUsername(String username) throws ServiceException {
-        UserDao dao = UserDaoImplementation.getInstance();
         try {
-            return dao.findByName(username);
+            return userDao.findByName(username);
         } catch (DaoException ex) {
             throw new ServiceException("Can't login", ex);
         }
@@ -90,7 +88,6 @@ public class UserServiceImplementation implements UserService {
 
     @Override
     public boolean updateUsername(String oldName, String newName) throws ServiceException {
-        UserDao userDao = UserDaoImplementation.getInstance();
         UserValidator userValidator = UserValidator.getInstance();
         boolean wasUsernameUpdated = true;
         try {
@@ -107,7 +104,6 @@ public class UserServiceImplementation implements UserService {
 
     @Override
     public boolean updateDescription(String username, String description) throws ServiceException {
-        UserDao userDao = UserDaoImplementation.getInstance();
         UserValidator userValidator = UserValidator.getInstance();
         boolean wasDescriptionUpdated = true;
         try {
@@ -124,7 +120,6 @@ public class UserServiceImplementation implements UserService {
 
     @Override
     public boolean updatePhotoReference(String username, String photoReference) throws ServiceException {
-        UserDao userDao = UserDaoImplementation.getInstance();
         UserValidator userValidator = UserValidator.getInstance();
         boolean wasPhotoReferenceUpdated = true;
         try {
@@ -141,7 +136,6 @@ public class UserServiceImplementation implements UserService {
 
     @Override
     public boolean updateTrainerId(String username, String trainerName) throws ServiceException {
-        UserDao userDao = UserDaoImplementation.getInstance();
         boolean wasTrainerIdUpdated = true;
         try {
             Optional<User> trainer = findByUsername(trainerName);
@@ -159,7 +153,6 @@ public class UserServiceImplementation implements UserService {
 
     @Override
     public List<User> findAllTrainers() throws ServiceException {
-        UserDao userDao = UserDaoImplementation.getInstance();
         List<User> trainers;
         try {
             trainers = userDao.findAllTrainers();
@@ -171,9 +164,8 @@ public class UserServiceImplementation implements UserService {
 
     @Override
     public List<User> findTrainerUserByUsername(String trainerName, String userToFind) throws ServiceException {
-        UserDao dao = UserDaoImplementation.getInstance();
         try {
-            List<User> allUsers = dao.findTrainerUsers(trainerName);
+            List<User> allUsers = userDao.findTrainerUsers(trainerName);
             List<User> searchedUsers = new ArrayList<>();
             allUsers.stream().filter(user -> user.getUsername().contains(userToFind)).forEach(searchedUsers::add);
             return searchedUsers;
@@ -184,7 +176,6 @@ public class UserServiceImplementation implements UserService {
 
     @Override
     public List<User> findUserTrainers(String username) throws ServiceException {
-        UserDao userDao = UserDaoImplementation.getInstance();
         List<User> trainers;
         try {
             trainers = userDao.findUserTrainers(username);
@@ -196,7 +187,6 @@ public class UserServiceImplementation implements UserService {
 
     @Override
     public List<User> findTrainerUsers(String trainerUsername) throws ServiceException {
-        UserDao userDao = UserDaoImplementation.getInstance();
         List<User> users;
         try {
             users = userDao.findTrainerUsers(trainerUsername);
@@ -208,9 +198,8 @@ public class UserServiceImplementation implements UserService {
 
     @Override
     public List<User> sortTrainerUsers(String trainerName, String fieldToCompare) throws ServiceException {
-        UserDao dao = UserDaoImplementation.getInstance();
         try {
-            return dao.sortTrainerUsers(trainerName, fieldToCompare);
+            return userDao.sortTrainerUsers(trainerName, fieldToCompare);
         } catch (DaoException e) {
             throw new ServiceException("can't view all users", e);
         }
@@ -218,9 +207,8 @@ public class UserServiceImplementation implements UserService {
 
     @Override
     public boolean wasUserMailActivated(String username) throws ServiceException {
-        UserDao dao = UserDaoImplementation.getInstance();
         try {
-            return dao.wasUserMailActivated(username);
+            return userDao.wasUserMailActivated(username);
         } catch (DaoException e) {
             throw new ServiceException("can't view all users", e);
         }
@@ -228,7 +216,6 @@ public class UserServiceImplementation implements UserService {
 
     @Override
     public void updateWasAccountActivated(String username, boolean wasActivated) throws ServiceException {
-        UserDao userDao = UserDaoImplementation.getInstance();
         try {
             userDao.updateWasAccountActivated(username, wasActivated);
         } catch (DaoException ex) {
@@ -251,7 +238,6 @@ public class UserServiceImplementation implements UserService {
     }
 
     private boolean purchaseMembership(int id, String username) throws DaoException, ServiceException, TransactionException {
-        UserDao userDao = UserDaoImplementation.getInstance();
         MembershipDao membershipDao = MembershipDaoImplementation.getInstance();
         Optional<Membership> membership = membershipDao.findById(id);
         Optional<User> user = userDao.findByName(username);

@@ -22,15 +22,12 @@ import java.util.List;
  */
 public class MoneyAccountDaoImplementation implements MoneyAccountDao {
     private static final BigDecimal USER_STARTING_MONEY_AMOUNT = new BigDecimal("0.");
-    private static MoneyAccountDaoImplementation instance;
+    private static final MoneyAccountDaoImplementation instance = new MoneyAccountDaoImplementation();
 
     private MoneyAccountDaoImplementation() {
     }
 
     public static MoneyAccountDaoImplementation getInstance() {
-        if (instance == null) {
-            instance = new MoneyAccountDaoImplementation();
-        }
         return instance;
     }
 

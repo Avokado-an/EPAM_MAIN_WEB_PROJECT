@@ -37,6 +37,12 @@ public class Attribute {
     public static final String PAGES_AMOUNT = "pages_amount";
     public static final String ENDING_INDEX = "ending_index";
     public static final String STARTING_INDEX = "starting_index";
+    public static final String DEPARTMENT_CITY = "department_city";
+    public static final String DEPARTMENT_STREET = "department_street";
+    public static final String DEPARTMENT_HOUSE = "department_house";
+    public static final String DEPARTMENT_PHONE_NUMBER = "department_phone_number";
+    public static final String DEPARTMENT_PICTURE_REFERENCE = "department_picture_reference";
+    public static final String DEPARTMENT_EMAIL = "department_email";
 
     private Attribute() {
     }

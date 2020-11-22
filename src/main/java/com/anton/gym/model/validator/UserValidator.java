@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
  * @version 1.0
  */
 public class UserValidator {
-    private static UserValidator instance = new UserValidator();
+    private static final UserValidator instance = new UserValidator();
     private static final String NON_LETTER_NUMBER_REGEX = "[\\W]";
     private static final int MIN_LOGIN_PASSWORD_LENGTH = 4;
     private static final int MAX_LOGIN_PASSWORD_LENGTH = 29;

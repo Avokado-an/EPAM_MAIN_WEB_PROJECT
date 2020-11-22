@@ -19,7 +19,7 @@ import java.util.Optional;
  * @version 1.0
  */
 public class AdminServiceImplementation implements AdminService {
-    private static AdminServiceImplementation instance = new AdminServiceImplementation();
+    private static final AdminServiceImplementation instance = new AdminServiceImplementation();
 
     public static AdminServiceImplementation getInstance() {
         return instance;

@@ -1,7 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <fmt:setLocale value="${sessionScope.language}" scope="session"/>
-<fmt:bundle basename="html.text">
+<fmt:bundle basename="property.text">
     <html>
     <head>
         <title>Title</title>
@@ -12,8 +12,8 @@
     </head>
     <body>
     <jsp:include page="navbar.jsp"/>
-    <div>
-        <img class="position-absolute w-100" src="img/image2.png">
+    <div class="h-1250">
+        <img class="position-absolute w-100 img-abs" src="img/image2.png">
         <h1 class="header m-5"><fmt:message key="login"/></h1>
         <form action="userServlet" name="login" method="post">
             <input type="hidden" name="command" value="login">
@@ -28,6 +28,7 @@
         </form>
         <p class="m-3">${message}</p>
     </div>
+    <jsp:include page="footer.jsp"/>
     </body>
 </fmt:bundle>
 </html>

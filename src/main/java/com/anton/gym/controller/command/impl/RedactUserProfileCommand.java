@@ -108,5 +108,7 @@ public class RedactUserProfileCommand implements Command {
         request.setAttribute(Attribute.TRAINERS, trainers);
         String photoReference = UserFieldsDefiner.defineUserPhotoReference(newUsername);
         request.setAttribute(Attribute.PHOTO_REFERENCE, photoReference);
+        HttpSession session = request.getSession();
+        session.setAttribute(Attribute.USERNAME, newUsername);
     }
 }

@@ -17,12 +17,9 @@ import java.util.Optional;
  * @version 1.0
  */
 public class MembershipServiceImplementation implements MembershipService {
-    private static MembershipServiceImplementation instance;
+    private static final MembershipServiceImplementation instance = new MembershipServiceImplementation();
 
     public static MembershipServiceImplementation getInstance() {
-        if (instance == null) {
-            instance = new MembershipServiceImplementation();
-        }
         return instance;
     }
 

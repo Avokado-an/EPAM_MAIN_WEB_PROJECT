@@ -4,7 +4,7 @@
 <%@ taglib prefix="ct" uri="paginationTag" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <fmt:setLocale value="${sessionScope.language}" scope="session"/>
-<fmt:bundle basename="html.text">
+<fmt:bundle basename="property.text">
     <head>
         <script type="text/javascript"
                 src="${pageContext.request.contextPath}/js/project.js"></script>
@@ -66,6 +66,7 @@
             </ul>
         </nav>
     </div>
+    <jsp:include page="footer.jsp"/>
     </body>
 </fmt:bundle>
 </html>

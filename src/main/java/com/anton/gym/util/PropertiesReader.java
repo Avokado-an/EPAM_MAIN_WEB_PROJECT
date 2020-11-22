@@ -12,7 +12,7 @@ import java.util.ResourceBundle;
  * @version 1.0
  */
 public class PropertiesReader {
-    private static final String SERVER_MESSAGE_PROPERTY = "html.text";
+    private static final String SERVER_MESSAGE_PROPERTY = "property.text";
     private static final String UNDERSCORE = "_";
     private static PropertiesReader instance;
 
@@ -22,7 +22,7 @@ public class PropertiesReader {
 
     /**
      * get instance of the class
-     * @return
+     * @return instance
      */
     public static PropertiesReader getInstance() {
         if(instance == null) {

@@ -1,7 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <fmt:setLocale value="${sessionScope.language}" scope="session"/>
-<fmt:bundle basename="html.text">
+<fmt:bundle basename="property.text">
     <head>
         <script type="text/javascript"
                 src="${pageContext.request.contextPath}/js/project.js"></script>
@@ -11,8 +11,8 @@
     </head>
     <body class="bg-dark">
     <jsp:include page="navbar.jsp"/>
-    <div>
-        <img class="position-absolute w-100" src="img/image2.png">
+    <div class="h-1250">
+        <img class="position-absolute w-100 img-abs" src="img/image2.png">
         <h1 class="header m-5"><fmt:message key="register"/></h1>
         <form action="userServlet" name="registration" method="post">
             <input type="hidden" name="command" value="registration">
@@ -30,6 +30,7 @@
         </form>
         <p class="m-5">${message}</p>
     </div>
+    <jsp:include page="footer.jsp"/>
     </body>
 </fmt:bundle>
 </html>

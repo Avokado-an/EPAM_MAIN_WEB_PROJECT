@@ -2,7 +2,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <fmt:setLocale value="${sessionScope.language}" scope="session"/>
-<fmt:bundle basename="html.text">
+<fmt:bundle basename="property.text">
     <head>
         <title>Title</title>
         <script type="text/javascript"
@@ -14,8 +14,8 @@
     </head>
     <body style="background-color: rgba(11, 16, 28, 1);">
     <div>
-        <div>
-            <img class="position-absolute w-100" src="img/image1.png">
+        <div class="h-1250">
+            <img class="position-absolute w-100 img-abs" src="img/image1.png">
             <jsp:include page="navbar.jsp"/>
             <div class="text-color-white m-3">
                     ${message}
@@ -24,10 +24,11 @@
                 <jsp:include page="abonements.jsp"/>
             </div>
         </div>
-        <div align="center" class="m-top-70">
+        <div align="center" class="m-top-70 h-450">
             <jsp:include page="trainers.jsp"/>
         </div>
     </div>
+    <jsp:include page="footer.jsp"/>
     </body>
 </fmt:bundle>
 </html>

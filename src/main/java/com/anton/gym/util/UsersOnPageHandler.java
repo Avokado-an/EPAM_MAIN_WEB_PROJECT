@@ -2,6 +2,7 @@ package com.anton.gym.util;
 
 import com.anton.gym.controller.command.Attribute;
 import com.anton.gym.exception.ServiceException;
+import com.anton.gym.model.dao.type.ComparingFieldType;
 import com.anton.gym.model.entity.User;
 import com.anton.gym.model.entity.UserType;
 import com.anton.gym.model.service.AdminService;
@@ -96,12 +97,13 @@ public class UsersOnPageHandler {
         HttpSession session = request.getSession();
         session.setAttribute(Attribute.CURRENT_PAGE_NUMBER, STARTING_PAGE);
         UserType userRole = (UserType) session.getAttribute(Attribute.USER_ROLE);
+        String field = defineComparingField(fieldToCompare);
         List<User> sortedUsers = new ArrayList<>();
         if (userRole == UserType.ADMIN) {
             AdminService adminService = AdminServiceImplementation.getInstance();
-            sortedUsers = adminService.sortAllUsers(fieldToCompare);
+            sortedUsers = adminService.sortAllUsers(field);
         } else if (userRole == UserType.TRAINER) {
-            sortedUsers = sortTrainerUsers(request, fieldToCompare);
+            sortedUsers = sortTrainerUsers(request, field);
         }
         return sortedUsers;
     }
@@ -134,5 +136,15 @@ public class UsersOnPageHandler {
         UserService userService = UserServiceImplementation.getInstance();
         String trainerName = (String) session.getAttribute(Attribute.USERNAME);
         return userService.sortTrainerUsers(trainerName, fieldToCompare);
+    }
+
+    private static String defineComparingField(String fieldName) {
+        String field;
+        try {
+            field = ComparingFieldType.valueOf(fieldName.toUpperCase()).toString();
+        } catch (IllegalArgumentException e) {
+            field = ComparingFieldType.NAME.toString().toLowerCase();
+        }
+        return field;
     }
 }

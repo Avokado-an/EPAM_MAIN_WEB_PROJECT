@@ -12,7 +12,7 @@
     <title>Title</title>
 </head>
 <fmt:setLocale value="${sessionScope.language}" scope="session"/>
-<fmt:bundle basename="html.text">
+<fmt:bundle basename="property.text">
     <body>
     <h1 class="m-top-70 almost-white-text"><fmt:message key="list_of_memberships"/></h1>
     <c:if test="${user_role.toString().equals(\"ADMIN\")}">

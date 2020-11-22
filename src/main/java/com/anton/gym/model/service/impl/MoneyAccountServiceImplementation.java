@@ -19,16 +19,13 @@ import java.util.Optional;
  * @version 1.0
  */
 public class MoneyAccountServiceImplementation implements MoneyAccountService {
-    private static MoneyAccountServiceImplementation instance;
+    private static final MoneyAccountServiceImplementation instance = new MoneyAccountServiceImplementation();
     private static final int MAX_AMOUNT_TO_ADD = 2000;
 
     private MoneyAccountServiceImplementation() {
     }
 
     public static MoneyAccountServiceImplementation getInstance() {
-        if (instance == null) {
-            instance = new MoneyAccountServiceImplementation();
-        }
         return instance;
     }
 

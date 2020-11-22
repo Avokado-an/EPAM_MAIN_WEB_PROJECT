@@ -9,6 +9,14 @@
     padding: 10px 10px 20px 10px;
 }
 
+.h-1250{
+    height: 1250px;
+}
+
+.h-450 {
+    height: 450px;
+}
+
 .a-center {
     align-self: center;
 }
@@ -59,6 +67,10 @@
 
 .m-left-50 {
     margin-left: 50px;
+}
+
+.m-bot-30{
+    margin-bottom: 30px;
 }
 
 .m-left-200 {

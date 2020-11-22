@@ -20,7 +20,7 @@ import java.util.Optional;
  * @version 1.0
  */
 public class UserDaoImplementation implements UserDao {
-    private static UserDaoImplementation instance = new UserDaoImplementation();
+    private static final UserDaoImplementation instance = new UserDaoImplementation();
     private static final int USER_TYPE_CLIENT_ID = 1;
 
     public static UserDaoImplementation getInstance() {
@@ -100,8 +100,8 @@ public class UserDaoImplementation implements UserDao {
     public List<User> findAll() throws DaoException {
         ConnectionPool pool = ConnectionPool.getInstance();
         try (Connection connection = pool.getConnection();
-             Statement statement = connection.createStatement()) {
-            ResultSet resultSet = statement.executeQuery(SqlUserQuery.SELECT_ALL_USERS);
+             PreparedStatement statement = connection.prepareStatement(SqlUserQuery.SELECT_ALL_USERS)) {
+            ResultSet resultSet = statement.executeQuery();
             return readUserInfo(resultSet);
         } catch (SQLException ex) {
             throw new DaoException("Can't connect to db", ex);
@@ -136,8 +136,8 @@ public class UserDaoImplementation implements UserDao {
     public List<User> findAllTrainers() throws DaoException {
         ConnectionPool pool = ConnectionPool.getInstance();
         try (Connection connection = pool.getConnection();
-             Statement statement = connection.createStatement()) {
-            ResultSet resultSet = statement.executeQuery(SqlUserQuery.SELECT_TRAINERS);
+             PreparedStatement statement = connection.prepareStatement(SqlUserQuery.SELECT_TRAINERS)) {
+            ResultSet resultSet = statement.executeQuery();
             return readUserInfo(resultSet);
         } catch (SQLException ex) {
             throw new DaoException("Can't connect to db", ex);
@@ -290,8 +290,8 @@ public class UserDaoImplementation implements UserDao {
     public List<User> sortUsers(String fieldToCompare) throws DaoException {
         ConnectionPool pool = ConnectionPool.getInstance();
         try (Connection connection = pool.getConnection();
-             Statement statement = connection.createStatement()) {
-            ResultSet resultSet = statement.executeQuery(SqlUserQuery.SORT_ALL_USERS + fieldToCompare);
+             PreparedStatement statement = connection.prepareStatement(SqlUserQuery.SORT_ALL_USERS + fieldToCompare)) {
+            ResultSet resultSet = statement.executeQuery();
             return readUserInfo(resultSet);
         } catch (SQLException ex) {
             throw new DaoException("Can't connect to db", ex);

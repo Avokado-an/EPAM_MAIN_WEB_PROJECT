@@ -20,13 +20,10 @@ import java.util.Optional;
  * @version 1.0
  */
 public class MembershipDaoImplementation implements MembershipDao {
-    private static MembershipDaoImplementation instance;
+    private static final MembershipDaoImplementation instance = new MembershipDaoImplementation();
     private static final boolean ACTIVE = true;
 
     public static MembershipDaoImplementation getInstance() {
-        if (instance == null) {
-            instance = new MembershipDaoImplementation();
-        }
         return instance;
     }
 
@@ -89,8 +86,8 @@ public class MembershipDaoImplementation implements MembershipDao {
     public List<Membership> findAll() throws DaoException {
         ConnectionPool pool = ConnectionPool.getInstance();
         try (Connection connection = pool.getConnection();
-             Statement statement = connection.createStatement()) {
-            ResultSet resultSet = statement.executeQuery(SqlMembershipQuery.SELECT_ALL_MEMBERSHIPS);
+             PreparedStatement statement = connection.prepareStatement(SqlMembershipQuery.SELECT_ALL_MEMBERSHIPS)) {
+            ResultSet resultSet = statement.executeQuery();
             return readMembershipInfo(resultSet);
         } catch (SQLException ex) {
             throw new DaoException("Can't connect to db", ex);
@@ -103,8 +100,7 @@ public class MembershipDaoImplementation implements MembershipDao {
     public Optional<Membership> findByName(String name) throws DaoException {
         ConnectionPool pool = ConnectionPool.getInstance();
         try (Connection connection = pool.getConnection();
-             PreparedStatement statement =
-                     connection.prepareStatement(SqlMembershipQuery.SELECT_BY_NAME)) {
+             PreparedStatement statement = connection.prepareStatement(SqlMembershipQuery.SELECT_BY_NAME)) {
             statement.setString(1, name);
             ResultSet resultSet = statement.executeQuery();
             List<Membership> memberships = readMembershipInfo(resultSet);
@@ -139,8 +135,7 @@ public class MembershipDaoImplementation implements MembershipDao {
     public Optional<Membership> findById(int id) throws DaoException {
         ConnectionPool pool = ConnectionPool.getInstance();
         try (Connection connection = pool.getConnection();
-             PreparedStatement statement =
-                     connection.prepareStatement(SqlMembershipQuery.SELECT_BY_ID)) {
+             PreparedStatement statement = connection.prepareStatement(SqlMembershipQuery.SELECT_BY_ID)) {
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
             List<Membership> memberships = readMembershipInfo(resultSet);
@@ -160,8 +155,9 @@ public class MembershipDaoImplementation implements MembershipDao {
     public List<Membership> findAllActive() throws DaoException {
         ConnectionPool pool = ConnectionPool.getInstance();
         try (Connection connection = pool.getConnection();
-             Statement statement = connection.createStatement()) {
-            ResultSet resultSet = statement.executeQuery(SqlMembershipQuery.SELECT_ALL_ACTIVE_MEMBERSHIPS);
+             PreparedStatement statement =
+                     connection.prepareStatement(SqlMembershipQuery.SELECT_ALL_ACTIVE_MEMBERSHIPS)) {
+            ResultSet resultSet = statement.executeQuery();
             return readMembershipInfo(resultSet);
         } catch (SQLException ex) {
             throw new DaoException("Can't connect to db", ex);

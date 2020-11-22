@@ -13,15 +13,29 @@ import java.util.concurrent.Executor;
  * @version 1.0
  */
 public class ProxyConnection implements Connection {
-    private Connection connection;
+    private final Connection connection;
 
     /**
-     * creates object of class
+     * creates a new Proxy connection.
      *
-     * @param connection
+     * @param connection the connection
      */
     ProxyConnection(Connection connection) {
         this.connection = connection;
+    }
+
+    @Override
+    public void close() {
+        ConnectionPool.getInstance().releaseConnection(this);
+    }
+
+    /**
+     * Totally close connection.
+     *
+     * @throws SQLException the sql exception
+     */
+    void fullyClose() throws SQLException {
+        connection.close();
     }
 
     @Override
@@ -62,15 +76,6 @@ public class ProxyConnection implements Connection {
     @Override
     public void rollback() throws SQLException {
         connection.rollback();
-    }
-
-    @Override
-    public void close() {
-        ConnectionPool.getInstance().releaseConnection(this);
-    }
-
-    public void fullyClose() throws SQLException {
-        connection.close();
     }
 
     @Override
@@ -129,8 +134,7 @@ public class ProxyConnection implements Connection {
     }
 
     @Override
-    public PreparedStatement prepareStatement(String sql, int resultSetType, int resultSetConcurrency)
-            throws SQLException {
+    public PreparedStatement prepareStatement(String sql, int resultSetType, int resultSetConcurrency) throws SQLException {
         return connection.prepareStatement(sql, resultSetType, resultSetConcurrency);
     }
 
@@ -180,20 +184,17 @@ public class ProxyConnection implements Connection {
     }
 
     @Override
-    public Statement createStatement(int resultSetType, int resultSetConcurrency, int resultSetHoldability)
-            throws SQLException {
+    public Statement createStatement(int resultSetType, int resultSetConcurrency, int resultSetHoldability) throws SQLException {
         return connection.createStatement(resultSetType, resultSetConcurrency, resultSetHoldability);
     }
 
     @Override
-    public PreparedStatement prepareStatement(String sql, int resultSetType, int resultSetConcurrency, int resultSetHoldability)
-            throws SQLException {
+    public PreparedStatement prepareStatement(String sql, int resultSetType, int resultSetConcurrency, int resultSetHoldability) throws SQLException {
         return connection.prepareStatement(sql, resultSetType, resultSetConcurrency, resultSetHoldability);
     }
 
     @Override
-    public CallableStatement prepareCall(String sql, int resultSetType, int resultSetConcurrency, int resultSetHoldability)
-            throws SQLException {
+    public CallableStatement prepareCall(String sql, int resultSetType, int resultSetConcurrency, int resultSetHoldability) throws SQLException {
         return connection.prepareCall(sql, resultSetType, resultSetConcurrency, resultSetHoldability);
     }
 

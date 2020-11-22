@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
  * @version 1.0
  */
 public class MembershipValidator {
-    private static MembershipValidator instance;
+    private static final MembershipValidator instance = new MembershipValidator();
     private static final String NON_LETTER_NUMBER_REGEX = "[\\W]";
     private static final int MIN_NAME_LENGTH = 4;
     private static final int MAX_NAME_LENGTH = 29;
@@ -25,9 +25,6 @@ public class MembershipValidator {
      * @return the instance
      */
     public static MembershipValidator getInstance() {
-        if (instance == null) {
-            instance = new MembershipValidator();
-        }
         return instance;
     }
 

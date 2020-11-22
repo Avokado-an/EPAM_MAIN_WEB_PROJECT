@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <fmt:setLocale value="${sessionScope.language}" scope="session"/>
-<fmt:bundle basename="html.text">
+<fmt:bundle basename="property.text">
     <html>
     <head>
         <script type="text/javascript"
@@ -12,13 +12,17 @@
               crossorigin="anonymous">
     </head>
     <body>
-    <img style="z-index: -1" class="position-absolute w-100" src="${pageContext.request.contextPath}/img/image2.png">
-    <h2><fmt:message key="error_message"/></h2>
-    <form action="${pageContext.request.contextPath}/userServlet" name="view main" method="post">
-        <input type="hidden" name="command" value="view_main_page">
-        <input type="submit" class="mx-3 dark-navbar nav-input" value=
-            <fmt:message key="gym"/>>
-    </form>
+    <div class="h-1250">
+        <img style="z-index: -1" class="position-absolute w-100"
+             src="${pageContext.request.contextPath}/img/image2.png">
+        <h2><fmt:message key="error_message"/></h2>
+        <form action="${pageContext.request.contextPath}/userServlet" name="view main" method="post">
+            <input type="hidden" name="command" value="view_main_page">
+            <input type="submit" class="mx-3 dark-navbar nav-input" value=
+                <fmt:message key="gym"/>>
+        </form>
+    </div>
+    <jsp:include page="footer.jsp"/>
     </body>
 </fmt:bundle>
 </html>

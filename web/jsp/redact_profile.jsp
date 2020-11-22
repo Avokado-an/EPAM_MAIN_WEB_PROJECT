@@ -1,7 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <fmt:setLocale value="${sessionScope.language}" scope="session"/>
-<fmt:bundle basename="html.text">
+<fmt:bundle basename="property.text">
     <head>
         <script type="text/javascript"
                 src="${pageContext.request.contextPath}/js/project.js"></script>
@@ -15,6 +15,7 @@
     <body>
     <jsp:include page="navbar.jsp"/>
     <h1 class="m-5"><fmt:message key="redact"/></h1>
+    <p class="m-5">${message}</p>
     <form action="userServlet" name="redact" method="post">
         <input type="hidden" name="command" value="redact_user_profile">
         <p><input class="bg-dark m-3" type="text" value="${username}" name="username" pattern="\w{4,29}"
@@ -26,7 +27,6 @@
         <p><input class="bg-dark m-3" type="submit" value=
             <fmt:message key="redact"/> name="redact"/></p>
     </form>
-    <p>${message}</p>
     </body>
 </fmt:bundle>
 </html>

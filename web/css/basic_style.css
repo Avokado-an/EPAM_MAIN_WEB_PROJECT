@@ -6,7 +6,7 @@ h1 {
     text-align: left;
 }
 
-img {
+.img-abs {
     position: absolute;
     top: 24px;
     z-index: -1;

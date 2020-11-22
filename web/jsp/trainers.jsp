@@ -13,7 +13,7 @@
     <title>Title</title>
 </head>
 <fmt:setLocale value="${sessionScope.language}" scope="session"/>
-<fmt:bundle basename="html.text">
+<fmt:bundle basename="property.text">
     <body>
     <h1 class="m-4 almost-white-text"><fmt:message key="trainers"/></h1>
     <div class="m-top-70 d-flex justify-content-center">

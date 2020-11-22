@@ -2,7 +2,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <fmt:setLocale value="${sessionScope.language}" scope="session"/>
-<fmt:bundle basename="html.text">
+<fmt:bundle basename="property.text">
     <head>
         <script type="text/javascript"
                 src="${pageContext.request.contextPath}/js/project.js"></script>
@@ -79,10 +79,11 @@
                 <p class="m-left-170 m-top-70"><fmt:message key="no_memberships"/></p>
             </c:otherwise>
         </c:choose>
-        <div class="m-left-170 m-top-70">
+        <div class="m-left-170 m-top-70 h-450">
             <jsp:include page="trainers.jsp"/>
         </div>
     </c:if>
+    <jsp:include page="footer.jsp"/>
     </body>
 </fmt:bundle>
 </html>

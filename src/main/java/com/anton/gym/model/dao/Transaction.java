@@ -22,7 +22,7 @@ import java.util.Optional;
  * @version 1.0
  */
 public class Transaction {
-    private static Transaction instance;
+    private static final Transaction instance = new Transaction();
     private static final Logger LOGGER = LogManager.getLogger();
     private static final int NEGATIVE = -1;
 
@@ -36,9 +36,6 @@ public class Transaction {
      * @return the instance
      */
     public static Transaction getInstance() {
-        if (instance == null) {
-            instance = new Transaction();
-        }
         return instance;
     }
 

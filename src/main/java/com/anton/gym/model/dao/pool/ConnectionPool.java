@@ -28,9 +28,9 @@ public class ConnectionPool {
     private static final String DRIVER = "driver";
     private static final int POOL_SIZE = 8;
     private static final Logger LOGGER = LogManager.getLogger();
-    private static ConnectionPool instance;
-    private BlockingDeque<ProxyConnection> freeConnections;
-    private Queue<ProxyConnection> busyConnections;
+    private static final ConnectionPool instance = new ConnectionPool();
+    private final BlockingDeque<ProxyConnection> freeConnections;
+    private final Queue<ProxyConnection> busyConnections;
 
     /**
      * get instance
@@ -38,9 +38,6 @@ public class ConnectionPool {
      * @return the instance of class
      */
     public static ConnectionPool getInstance() {
-        if (instance == null) {
-            instance = new ConnectionPool();
-        }
         return instance;
     }
 
@@ -58,10 +55,7 @@ public class ConnectionPool {
                 Connection connection = DriverManager.getConnection(url, username, password);
                 freeConnections.offer(new ProxyConnection(connection));
             }
-        } catch (ClassNotFoundException e) {
-            LOGGER.log(Level.FATAL, "Can't create connection pool", e);
-            throw new RuntimeException("Can't create connection pool", e);
-        } catch (SQLException e) {
+        } catch (ClassNotFoundException | SQLException e) {
             LOGGER.log(Level.FATAL, "Can't create connection pool", e);
             throw new RuntimeException("Can't create connection pool", e);
         }

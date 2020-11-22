@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <fmt:setLocale value="${sessionScope.language}" scope="session"/>
-<fmt:bundle basename="html.text">
+<fmt:bundle basename="property.text">
     <head>
         <script type="text/javascript"
                 src="${pageContext.request.contextPath}/js/project.js"></script>
@@ -23,11 +23,12 @@
         <jstl:choose>
             <jstl:when test="${!title.isEmpty() and title != null}">
                 <p><input class="bg-dark m-3" type="text" value="${title}" name="title"
-                          required="required" pattern="\w{4,29}"></p>
+                          required="required" pattern="\w{4,29}" title="<fmt:message key="username_password_characters"/>"></p>
                 <p><input class="bg-dark m-3" type="number" value="${price}" name="price"
                           required="required"></p>
                 <p><input class="bg-dark m-3" type="text" value="${amount_of_visits}"
-                          name="amount_of_visits" required="required" pattern="\d|∞"></p>
+                          name="amount_of_visits" required="required"
+                          pattern="\d{1,2}|∞" title="<fmt:message key="membership_attendees_characters"/>"></p>
                 <p><input class="bg-dark m-3" type="number" value="${months}"
                           name="months" required="required"></p>
             </jstl:when>
@@ -37,8 +38,8 @@
                 <p><input class="bg-dark m-3" type="number" placeholder="<fmt:message key="price"/>" name="price"
                           required="required"></p>
                 <p><input class="bg-dark m-3" type="text" placeholder="<fmt:message key="amount_of_visits"/>"
-                          name="amount_of_visits" required="required" pattern="\d|∞"
-                          title="<fmt:message key="illegal_characters"/>"></p>
+                          name="amount_of_visits" required="required" pattern="\d{1,2}|∞"
+                          title="<fmt:message key="membership_attendees_characters"/>"></p>
                 <p><input class="bg-dark m-3" type="number" placeholder="<fmt:message key="month"/>"
                           name="months" required="required"></p>
             </jstl:otherwise>
@@ -46,7 +47,7 @@
         <p class="m-3">
             <fmt:message key="is_active"/>:
             <label class="switch">
-                <input type="checkbox" onchange="this.value = !this.value" name="is_active" value="${true}" checked>
+                <input type="checkbox" onclick="this.value = !this.value" name="is_active" value="${true}" checked>
                 <span class="slider round"></span>
             </label>
         </p>
