@@ -23,6 +23,10 @@ public class MembershipDaoImplementation implements MembershipDao {
     private static final MembershipDaoImplementation instance = new MembershipDaoImplementation();
     private static final boolean ACTIVE = true;
 
+    /**
+     * get instance
+     * @return the instance
+     */
     public static MembershipDaoImplementation getInstance() {
         return instance;
     }

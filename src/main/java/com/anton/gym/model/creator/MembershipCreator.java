@@ -17,7 +17,7 @@ public class MembershipCreator {
     /**
      * get instance
      *
-     * @return
+     * @return the instance
      */
     public static MembershipCreator getInstance() {
         if (instance == null) {

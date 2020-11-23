@@ -6,7 +6,7 @@ import javax.servlet.annotation.WebInitParam;
 import java.io.IOException;
 
 /**
- * The {@code EncodingFilter} class represents EncodingFilter.
+ * The {@code EncodingFilter} class represents Encoding Filter.
  *
  * @author Anton Bogdanov
  * @version 1.0

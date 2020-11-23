@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 
 /**
- * The {@code BalanceRepresentationFilter} class represents BalanceRepresentationFilter.
+ * The {@code BalanceRepresentationFilter} class represents Balance Representation Filter.
  *
  * @author Anton Bogdanov
  * @version 1.0

@@ -13,12 +13,22 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * The {@code DepartmentDaoImplementation} class represents department dao implementation.
+ *
+ * @author Anton Bogdanov
+ * @version 1.0
+ */
 public class DepartmentDaoImplementation implements DepartmentDao {
     private static final DepartmentDao instance = new DepartmentDaoImplementation();
 
     private DepartmentDaoImplementation() {
     }
 
+    /**
+     * get instance of class
+     * @return the instance
+     */
     public static DepartmentDao getInstance() {
         return instance;
     }
@@ -37,7 +47,7 @@ public class DepartmentDaoImplementation implements DepartmentDao {
         }
     }
 
-    Department readDepartmentInfo(ResultSet resultSet) throws SQLException {
+    private Department readDepartmentInfo(ResultSet resultSet) throws SQLException {
         DepartmentCreator creator = DepartmentCreator.getInstance();
         resultSet.next();
         String phoneNumber = resultSet.getString(1);

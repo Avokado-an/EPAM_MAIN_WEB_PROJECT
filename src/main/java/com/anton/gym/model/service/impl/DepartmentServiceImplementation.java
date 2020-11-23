@@ -7,6 +7,12 @@ import com.anton.gym.model.dao.impl.DepartmentDaoImplementation;
 import com.anton.gym.model.entity.Department;
 import com.anton.gym.model.service.DepartmentService;
 
+/**
+ * The {@code DepartmentServiceImplementation} class represents department service implementation.
+ *
+ * @author Anton Bogdanov
+ * @version 1.0
+ */
 public class DepartmentServiceImplementation implements DepartmentService {
     private static final DepartmentService instance = new DepartmentServiceImplementation();
 

@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * The {@code CommandAccessFilter} class represents CommandAccessFilter.
+ * The {@code CommandAccessFilter} class represents Command Access Filter.
  *
  * @author Anton Bogdanov
  * @version 1.0

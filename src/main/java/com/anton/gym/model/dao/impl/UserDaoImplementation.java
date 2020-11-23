@@ -23,6 +23,10 @@ public class UserDaoImplementation implements UserDao {
     private static final UserDaoImplementation instance = new UserDaoImplementation();
     private static final int USER_TYPE_CLIENT_ID = 1;
 
+    /**
+     * get instance
+     * @return the instance
+     */
     public static UserDaoImplementation getInstance() {
         return instance;
     }

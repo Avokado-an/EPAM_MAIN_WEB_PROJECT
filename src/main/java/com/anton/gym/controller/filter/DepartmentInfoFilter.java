@@ -1,7 +1,6 @@
 package com.anton.gym.controller.filter;
 
 import com.anton.gym.controller.command.Attribute;
-import com.anton.gym.controller.command.PagePath;
 import com.anton.gym.exception.ServiceException;
 import com.anton.gym.model.entity.Department;
 import com.anton.gym.model.service.DepartmentService;
@@ -15,6 +14,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * The {@code DepartmentInfoFilter} class represents Department Info Filter.
+ *
+ * @author Anton Bogdanov
+ * @version 1.0
+ */
 @WebFilter(urlPatterns = {("/*")})
 public class DepartmentInfoFilter implements Filter {
     private static final Logger LOGGER = LogManager.getLogger();

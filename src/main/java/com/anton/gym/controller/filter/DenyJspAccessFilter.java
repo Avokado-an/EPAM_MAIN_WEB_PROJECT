@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 /**
- * The {@code DenyJspAccessFilter} class represents DenyJspAccessFilter.
+ * The {@code DenyJspAccessFilter} class represents Deny Jsp Access Filter.
  *
  * @author Anton Bogdanov
  * @version 1.0

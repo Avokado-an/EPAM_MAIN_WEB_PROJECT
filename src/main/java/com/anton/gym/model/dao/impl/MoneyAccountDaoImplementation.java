@@ -27,6 +27,10 @@ public class MoneyAccountDaoImplementation implements MoneyAccountDao {
     private MoneyAccountDaoImplementation() {
     }
 
+    /**
+     * get instance
+     * @return the instance
+     */
     public static MoneyAccountDaoImplementation getInstance() {
         return instance;
     }

@@ -37,7 +37,7 @@ public class PurchaseMembershipCommand implements Command {
 
     @Override
     public String execute(HttpServletRequest request) {
-        String pagePath = PagePath.USER_PROFILE;
+        String pagePath = PagePath.MAIN;
         HttpSession session = request.getSession();
         String language = (String) session.getAttribute(Attribute.LANGUAGE);
         String username = (String) session.getAttribute(Attribute.USERNAME);

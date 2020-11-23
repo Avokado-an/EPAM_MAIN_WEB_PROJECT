@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
- * The {@code DefaultLanguageFilter} class represents DefaultLanguageFilter.
+ * The {@code DefaultLanguageFilter} class represents Default Language Filter.
  *
  * @author Anton Bogdanov
  * @version 1.0
