@@ -21,7 +21,7 @@ Description
     
     4. View trainer profile
     
-  Client:
+  **Client:**
   
     1.Everything guest can
     
@@ -37,7 +37,7 @@ Description
     
     7.Redact personal profile
     
-  Trainer
+  **Trainer:**
   
     1.Everything guest can
     
